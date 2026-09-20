@@ -80,7 +80,7 @@ export default function Home() {
               onClick={() => setActiveTab(tab)}
               className={`rounded-lg px-10 py-2 transition ${
                 isActive
-                  ? "bg-(--cornell) text-(--ivory)"
+                  ? "bg-(--cornell) border-dashed border-2 text-(--ivory)"
                   : "bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105"
               }`}
             >
