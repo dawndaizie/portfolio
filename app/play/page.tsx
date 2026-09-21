@@ -252,7 +252,7 @@ export default function Play() {
   );
 
   return (
-    <main className="min-h-screen w-full px-5 py-20 font-funnel sm:px-10">
+    <main className="min-h-screen w-full px-5 py-20 font-space sm:px-10">
       <div className="mx-auto max-w-7xl">
         <header className="mb-10 py-10 flex flex-col items-center justify-between gap-5 text-center sm:flex-row sm:text-left">
           <div>

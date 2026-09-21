@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Mono, Funnel_Display } from "next/font/google";
+import { Space_Mono, Funnel_Display, DotGothic16 } from "next/font/google";
 import "./globals.scss";
 import Nav from "../components/nav";
 import ScrollUp from "../components/scrollUp";
@@ -22,6 +22,11 @@ const funnel = Funnel_Display({
   subsets: ["latin"],
 })
 
+const dot = DotGothic16({
+  variable: "--font-dotgothic16",
+  subsets: ["latin"],
+  weight: ["400"],
+})
 
 const cozy = localFont({
   variable: "--font-cozy-quill",
@@ -50,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${space.variable} ${funnel.variable} ${cozy.variable} ${kiwi.variable} ${emoji.variable}`}>
+    <html lang="en" className={`${space.variable} ${funnel.variable} ${dot.variable} ${cozy.variable} ${kiwi.variable} ${emoji.variable}`}>
       <body
         className={`relative min-h-screen w-full overflow-x-hidden antialiased`}
       >

@@ -22,13 +22,13 @@ export default function Home() {
   const visibleProjects = projects.filter((project) => project.categories.includes(activeTab));
 
   return (
-    <main className="font-funnel min-h-screen max-w-full flex flex-col items-center justify-center">
+    <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center">
 
       <section id="hero" className="py-90 h-50 max-w-full flex items-center">
         <div className="flex flex-col items-center justify-center m-10">
-          <h3 className="font-cozy text-2xl mt-7 text-left ">hi, I'm</h3>
+          <h3 className="font-dot text-2xl mt-7 text-left ">hi, I'm</h3>
           <h1 className="lg:text-7xl text-4xl font-kiwi m-2">dawniqueca steele</h1>
-          <h3 className="text-lg mt-7 font-space">An Atlanta-based multidiscplinary designer, focusing on storytelling and interaction ⋆˚꩜｡</h3>
+          <h3 className="text-lg mt-7 font-dot tracking-[0.15em] text-center">An Atlanta-based multidiscplinary designer, focusing on storytelling and interaction ⋆˚꩜｡</h3>
         </div>
         <div className=" justify-center mt-10 w-200">
           <img className="aspect-auto object-contain m-auto" src="/hero-animation.png" />
@@ -66,7 +66,7 @@ export default function Home() {
         <div
         className="mt-8 flex flex-wrap items-center justify-center gap-3"
         role="tablist"
-        aria-label="Project categories"
+        aria-label="project categories"
       >
         {tabs.map((tab) => {
           const isActive = activeTab === tab;
@@ -78,10 +78,10 @@ export default function Home() {
               role="tab"
               aria-selected={isActive}
               onClick={() => setActiveTab(tab)}
-              className={`rounded-lg px-10 py-2 transition ${
+              className={`rounded-lg px-10 py-2 font-dot tracking-[0.15em]  transition ${
                 isActive
                   ? "bg-(--cornell) border-dashed border-2 text-(--ivory)"
-                  : "bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105"
+                  : "bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105 hover:border-dashed hover:border-2 hover:border-(--cornell)"
               }`}
             >
               {tab}
@@ -109,7 +109,7 @@ export default function Home() {
                                 {project.categories.map((category) => (
                                     <span
                                         key={category}
-                                        className="inline-block px-3 py-1 border border-(--blackbean) rounded-full text-xs font-space bg-(--cornell) text-(--ivory)"
+                                        className="inline-block px-3 py-1 border border-(--blackbean) rounded-full text-xs font-dot tracking-[0.15em] bg-(--cornell) text-(--ivory)"
                                     >
                                         {category}
                                     </span>
@@ -131,7 +131,7 @@ export default function Home() {
             </div>
           ))
         ) : (
-          <p className="md:col-span-2"> No projects in this category yet.</p>
+          <p className="md:col-span-2 font-dot tracking-[0.15em]"> No projects in this category yet.</p>
         )}
       </div>
       </section>

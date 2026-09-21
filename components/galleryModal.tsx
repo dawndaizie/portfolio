@@ -100,11 +100,11 @@ export default function GalleryModal({
       </div>
 
       <div className="mt-4 rounded-2xl border border-[#efdeda] bg-[#fff8f5] px-5 py-5 text-left shadow-lg sm:px-8 sm:py-6">
-        <h2 className="font-funnel text-2xl text-[var(--blackbean)]">
+        <h2 className="font-space text-2xl text-[var(--blackbean)]">
           {work.name}
         </h2>
 
-        <p className="mt-2 font-space text-base leading-relaxed text-slate-700 sm:text-lg">
+        <p className="mt-2 font-dot tracking-[0.15em] text-base leading-relaxed text-slate-700 sm:text-lg">
           {work.descriptor}
         </p>
       </div>

@@ -70,7 +70,7 @@ export default function Projects() {
 
 
     return (
-        <main className="py-20 font-funnel min-h-full max-w-full">
+        <main className="py-20 font-space min-h-full max-w-full">
             <div className="mx-auto max-w-7xl">
                 <h1 className="py-10 m-10 mb-5 text-6xl font-kiwi text-center text-(--blackbean)">All Projects</h1>
                 <FilterBar
@@ -88,12 +88,12 @@ export default function Projects() {
                                 <img src={project.image} alt={project.title} className="rounded" />
 
 
-                                <h3 className="mt-2 font-funnel text-lg"> {project.title} </h3>
+                                <h3 className="mt-2 font-space text-lg"> {project.title} </h3>
                                 <div className="mt-2 flex flex-wrap gap-2">
                                     {project.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="inline-block px-3 py-1 border border-(--blackbean) rounded-full text-xs font-space bg-(--cornell) text-(--ivory)"
+                                            className="inline-block px-3 py-1 border border-(--blackbean) rounded-full text-xs font-dot tracking-[0.15em] bg-(--cornell) text-(--ivory)"
                                         >
                                             {tag}
                                         </span>
