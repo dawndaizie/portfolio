@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import FilterBar from "../../components/filters";
 
 export default function Projects() {
@@ -16,49 +14,56 @@ export default function Projects() {
             title: "Bite Me",
             image: "/banner.png",
             tags: ["animation", "visual dev"],
-            link: "/projects/bite-me"
+            link: "/projects/bite-me",
+            descriptor:"here are a bunch of words...",
         },
 
         {
             title: "Charm",
             image: "/banner.png",
             tags: ["brand design"],
-            link: "/projects/charm"
+            link: "/projects/charm",
+            descriptor:"here are a bunch of words...",
         },
 
         {
             title: "CocoCoins",
             image: "/banner.png",
             tags: ["product design", "software dev"],
-            link: "/projects/cococoins"
+            link: "/projects/cococoins",
+            descriptor:"here are a bunch of words...",
         },
 
         {
             title: "Forget Me Not",
             image: "/banner.png",
             tags: ["visual dev"],
-            link: "/projects/fmn"
+            link: "/projects/fmn",
+            descriptor:"here are a bunch of words...",
         },
 
         {
             title: "Perle",
             image: "/banner.png",
             tags: ["brand design"],
-            link: "/projects/perle"
+            link: "/projects/perle",
+            descriptor:"here are a bunch of words...",
         },
 
         {
             title: "Skin to Skin",
             image: "/banner.png",
             tags: ["product design"],
-            link: "/projects/skin-to-skin"
+            link: "/projects/skin-to-skin",
+            descriptor:"here are a bunch of words...",
         },
 
         {
             title: "Smart Evaluator",
             image: "/banner.png",
             tags: ["software dev"],
-            link: "/projects/smart-evaluator"
+            link: "/projects/smart-evaluator",
+            descriptor:"here are a bunch of words...",
         },
 
     ]
@@ -99,6 +104,8 @@ export default function Projects() {
                                         </span>
                                     ))}
                                 </div>
+
+                                <p className="m-2 text-slate-700 font-dot tracking-[0.15em]">{project.descriptor}</p>
 
                                 <a
                                     href={project.link}
