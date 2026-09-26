@@ -7,7 +7,7 @@ export default function Projects() {
 
     const [active, setActive] = useState("all")
 
-    const tags = ["all", "animation", "brand design", "product design", "software dev", "visual dev"];
+    const tags = ["all", "animation", "brand design", "game dev", "product design", "software dev", "ui/ux design", "visual dev"];
 
     const projects = [
         {
@@ -15,15 +15,23 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["animation", "visual dev"],
             link: "/projects/bite-me",
-            descriptor:"here are a bunch of words...",
+            descriptor:"A selfish vampire prince is banished to a reform school for supernatural delinquents, where he and his misfit friends navigate choatic and dangerous school antics while uncovering a long-hidden conspiracy in the magical world.",
+        },
+
+        {
+            title: "Blue",
+            image: "/banner.png",
+            tags: ["animation", "visual dev"],
+            link: "/projects/blue",
+            descriptor:"Short animated film about a mermaid attending a night carnival."
         },
 
         {
             title: "Charm",
             image: "/banner.png",
-            tags: ["brand design"],
+            tags: ["brand design", "product design"],
             link: "/projects/charm",
-            descriptor:"here are a bunch of words...",
+            descriptor:"Branding for a mature, elegant, yet modern tea company.",
         },
 
         {
@@ -31,7 +39,7 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["product design", "software dev"],
             link: "/projects/cococoins",
-            descriptor:"here are a bunch of words...",
+            descriptor:"A fun, beach themed financial tracker.",
         },
 
         {
@@ -39,7 +47,43 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["visual dev"],
             link: "/projects/fmn",
-            descriptor:"here are a bunch of words...",
+            descriptor:"A dungeon-crawler rpg game where a girl in a post apocalyptic dream world searches for her missing ssiter.",
+        },
+
+        { 
+            title: "Haunt My Heart",
+            image: "/banner.png",
+            tags: ["game dev", "visual dev"],
+            link: "/projects/hmh",
+            descriptor: "Play (and fall in love) as a newly hired “exorcist” who handles malicious spirits in a world where ghosts and humans live together."
+
+        },
+
+        { 
+            title: "Javapaws",
+            image: "/banner.png",
+            tags: ["game dev", "visual dev"],
+            link: "/projects/javapaws",
+            descriptor: "Cafe game."
+
+        },
+
+        { 
+            title: "mariposa",
+            image: "/banner.png",
+            tags: ["software dev"],
+            link: "/projects/mariposa",
+            descriptor: "Music transposer"
+
+        },
+
+        { 
+            title: "Minimax",
+            image: "/banner.png",
+            tags: ["game dev"],
+            link: "/projects/minimax",
+            descriptor: "Mini games galore!"
+
         },
 
         {
@@ -47,7 +91,17 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["brand design"],
             link: "/projects/perle",
-            descriptor:"here are a bunch of words...",
+            descriptor:"Brand design for an artsy nail sticker compnay.",
+        },
+
+
+        { 
+            title: "Pippoke",
+            image: "/banner.png",
+            tags: ["ui/ux design", "software dev"],
+            link: "/projects/pippoke",
+            descriptor: "Reminder app"
+
         },
 
         {
@@ -64,6 +118,22 @@ export default function Projects() {
             tags: ["software dev"],
             link: "/projects/smart-evaluator",
             descriptor:"here are a bunch of words...",
+        },
+
+        {
+            title: "This Stupid Fish Ruined My Life",
+            image: "/banner.png",
+            tags: ["visual dev"],
+            link: "/projects/tsfrml",
+            descriptor:"After the worst 17th birthday, Kaia Aquino vents her frustrations to a random fish off the town pier, only to accidentally strike a deal with a powerful fish demon.",
+        },
+
+        {
+            title: "Twee Bakery",
+            image: "/banner.png",
+            tags: ["brand design"],
+            link: "/projects/twee-bakery",
+            descriptor:"Brand design for home bakery",
         },
 
     ]

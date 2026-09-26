@@ -40,7 +40,7 @@ export default function BaseModal({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[99999] flex items-center justify-center bg-slate-950/45 p-5 backdrop-blur-sm animate-[modal-overlay-in_250ms_ease-out_forwards] sm:p-8"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/45 p-5 backdrop-blur-sm animate-[modal-overlay-in_250ms_ease-out_forwards] sm:p-8"
       onClick={onClose}
     >
       <div
