@@ -23,13 +23,17 @@ export default function ScrollUp() {
     }
 
     return (
-        <div className="fixed bottom-0 right-0 m-8 pointer-events-auto font-space">
+        <div className={`${visible ? "" : "pointer-events-none"}`}>
+        <div className="fixed bottom-0 right-0 m-8 font-space">
+            
             <div className={`transition-all duration-500 ${visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                 <button onClick={scrollToTop}
-                    className="flower pointer-events-auto rounded-full shadow-lg hover:cursor-pointer transition">
+                    className="flower rounded-full shadow-lg transition hover:scale-110 hover:cursor-pointer">
                     ↑
                 </button>
             </div>
+           
+        </div>
         </div>
     )
 }
