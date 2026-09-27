@@ -3,23 +3,30 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import FilterBar from "../components/filters";
 
-const tabs = ["favorites", "dev", "design", "art"];
-const projects = [
-  {
-    id: 1,
-    title: "CocoCoins",
-    description: "beach themed financial tracker.",
-    image: "/banner.png",
-    categories: ["favorites", "dev"],
-    link: "/projects/cococoins",
-  },
-]
+
+
 
 export default function Home() {
 
-  const [activeTab, setActiveTab] = useState("favorites");
-  const visibleProjects = projects.filter((project) => project.categories.includes(activeTab));
+  const tags = ["favorites", "dev", "design", "art"];
+  const projects = [
+    {
+      id: 1,
+      title: "CocoCoins",
+      descriptor: "beach themed financial tracker.",
+      image: "/banner.png",
+      tags: ["favorites", "dev"],
+      link: "/projects/cococoins",
+    },
+  ]
+
+  const [active, setActive] = useState("favorites");
+  const filtered =
+    active === "favorites"
+      ? projects
+      : projects.filter((p) => p.tags.includes(active))
 
   return (
     <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center">
@@ -60,65 +67,41 @@ export default function Home() {
 
 
       <section id="featured" className="min-h-screen max-w-screen items-center text-center">
-        
+
         <h1 className="text-3xl"> featured projects</h1>
-        
+
         <div
-        className="mt-8 flex flex-wrap items-center justify-center gap-3"
-        role="tablist"
-        aria-label="project categories"
-      >
-        {tabs.map((tab) => {
-          const isActive = activeTab === tab;
+          className="mt-8 flex flex-wrap items-center justify-center gap-3"
+          role="tablist"
+          aria-label="project categories"
+        >
+          <FilterBar
+            tags={tags}
+            active={active}
+            setActive={setActive}
+          />
+          {filtered.length > 0 ? (
+            filtered.map((project) => (
+              <div key={project.title} className="projectCard overflow-hidden p-6 text-left transition hover:scale-105">
 
-          return (
-            <button
-              key={tab}
-              type="button"
-              role="tab"
-              aria-selected={isActive}
-              onClick={() => setActiveTab(tab)}
-              className={`rounded-lg px-10 py-2 font-dot tracking-[0.15em]  transition ${
-                isActive
-                  ? "bg-(--cornell) border-dashed border-2 text-(--ivory)"
-                  : "bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105 hover:border-dashed hover:border-2 hover:border-(--cornell)"
-              }`}
-            >
-              {tab}
-            </button>
-          );
-        })}
-      </div>
 
-      <div
-        role="tabpanel"
-        className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-2"
-      >
-        {visibleProjects.length > 0 ? (
-          visibleProjects.map((project) => (
-            <div key={project.id} className="projectCard overflow-hidden p-6 text-left transition hover:scale-105">
-              <h3 className="mb-3 text-xl font-bold">{project.title}</h3>
+                <img src={project.image} alt={project.title} className="rounded" />
 
-              <img
-                src={project.image}
-                alt={`${project.title} project preview`}
-                className="h-56 w-full rounded-lg object-cover"
-              />
 
-              <div className="mt-2 flex flex-wrap gap-2">
-                                {project.categories.map((category) => (
-                                    <span
-                                        key={category}
-                                        className="inline-block px-3 py-1 border border-(--blackbean) rounded-full text-xs font-dot tracking-[0.15em] bg-(--cornell) text-(--ivory)"
-                                    >
-                                        {category}
-                                    </span>
-                                ))}
-                            </div>
+                <h3 className="mt-2 font-space text-lg"> {project.title} </h3>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-block px-3 py-1 border border-(--blackbean) rounded-full text-xs font-dot tracking-[0.15em] bg-(--cornell) text-(--ivory)"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-              <p className="mt-4">{project.description}</p>
+                <p className="m-2 text-slate-700 font-dot tracking-[0.15em]">{project.descriptor}</p>
 
-              {project.link && (
                 <a
                   href={project.link}
                   target="_blank"
@@ -127,13 +110,14 @@ export default function Home() {
                 >
                   View project →
                 </a>
-              )}
-            </div>
-          ))
-        ) : (
-          <p className="md:col-span-2 font-dot tracking-[0.15em]"> No projects in this category yet.</p>
-        )}
-      </div>
+
+
+              </div>
+            ))
+          ) : (
+            <p className="md:col-span-2"> No projects in this category yet.</p>
+          )}
+        </div>
       </section>
 
 

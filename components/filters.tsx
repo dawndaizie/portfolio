@@ -13,10 +13,10 @@ export default function FilterBar({ tags, active, setActive }: Props) {
                 <button
                     key={tag}
                     onClick={() => setActive(tag)}
-                    className={`px-4 py-1 border rounded-full font-space text-sm transition-all duration-200
+                    className={`rounded-lg px-10 py-2 font-dot tracking-[0.15em]  transition
                 ${active === tag
-                            ? "bg-(--cornell) text-(--ivory) border-dashed"
-                            : "hover:bg-(--sky)"}`}
+                            ? "bg-(--cornell) border-dashed border-2 text-(--ivory)"
+                            : "bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105"}`}
                 >
                     {tag}
                 </button>
