@@ -400,40 +400,78 @@ mask: radial-gradient(100% 100%, #000 calc(var(--r)/tan(180deg/5)), #0000 0),
 
 .muuri-grid {
   position: relative;
-  width: 100%;
 }
 
 .muuri-item {
   position: absolute;
-  margin: 0 12px 24px;
-  z-index: 1;
-  touch-action: none;
+  display: block;
+  margin: 14px;
+  touch-action: pan-y;
 }
 
-.muuri-item.muuri-item-dragging,
-.muuri-item.is-resizing {
-  z-index: 30;
-}
-
-.muuri-item.muuri-item-releasing {
-  z-index: 20;
+.muuri-item-content {
+  position: relative;
+  width: 100%;
+  transform-origin: center center;
 }
 
 .muuri-item.muuri-item-hidden {
   z-index: 0;
 }
 
-.muuri-item-content {
-  position: relative;
+.muuri-item.muuri-item-releasing {
+  z-index: 3;
+}
+
+.muuri-item.muuri-item-dragging {
+  z-index: 4;
 }
 
 .muuri-item.is-resizing {
-  transition: none !important;
+  z-index: 5;
+  opacity: 0.92;
+}
+
+.muuri-item.is-resizing .muuri-item-content {
+  transition: none;
 }
 
 @media (max-width: 640px) {
+  .muuri-grid {
+    min-height: 1100px;
+  }
+
   .muuri-item {
-    width: calc(100% - 24px) !important;
-    margin: 0 12px 20px;
+    margin: 10px;
+  }
+
+  .muuri-item-content {
+    transform: rotate(0deg) !important;
+  }
+}
+
+
+// Hanging String
+
+.clothespin {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.clothespin:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 4px;
+  border-radius: 0.375rem;
+}
+
+@media (hover: hover) {
+  .clothespin:hover {
+    transform: translateX(-50%) translateY(-2px);
+  }
+}
+
+@media (max-width: 640px) {
+  .clothespin {
+    min-height: 48px;
+    min-width: 44px;
   }
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-
+import { BiX } from "react-icons/bi";
 
 export default function ProjectNav({
   tags,
@@ -55,7 +55,7 @@ export default function ProjectNav({
           aria-label="project nav toggle"
           className="flex h-14 w-10 items-center justify-center rounded-r-md bg-(--ivory) text-xs font-bold text-(--blackbean) shadow-md"
         >
-          <span className="[writing-mode:vertical-lr]">{mobileOpen ? "✕" : "NAV"}</span>
+          <span className="[writing-mode:vertical-lr]">{mobileOpen ? <BiX className="text-3xl" /> : "NAV"}</span>
         </button>
       </div>
 
