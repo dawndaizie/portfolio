@@ -46,12 +46,19 @@
   background-size: 40px 40px;
   background-position: -19px -19px;
   width: 90%;
+  max-width: 1200px; /* Optional max-width so the background shows on sides */
   margin-inline: auto;
   box-sizing: border-box;
-  //overflow-x: hidden;
-  max-width: 100%;
   padding: 1.5rem 1rem;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  
+  /* Make sure overflow is visible so items can spill out */
+  overflow: visible !important;
+}
+
+/* Ensure no parent wrapper clips the dragged elements */
+body {
+  overflow-x: hidden; /* Keeps window from getting horizontal scrollbars */
 }
 
 @media (min-width: 768px) {
@@ -174,45 +181,79 @@
 //**********************************************************************
 // PLAYGROUND CLASSES
 
-.play-grid .react-grid-item {
-  overflow: visible;
+.play-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem 1.5rem;
+  align-items: start;
 }
 
-.play-grid .react-grid-item>.react-resizable-handle {
-  width: 48px !important;
-  height: 48px !important;
-  right: -14px !important;
-  bottom: -14px !important;
-  z-index: 40;
-  cursor: se-resize;
+.play-card {
+  min-width: 0;
 }
 
-.play-grid .react-grid-item>.react-resizable-handle::after {
-  display: none !important;
+.play-card--wide img {
+  aspect-ratio: 16 / 11;
 }
 
-.play-grid .react-grid-item.react-grid-placeholder {
-  border-radius: 0.75rem;
-  background: color-mix(in srgb,
-      var(--sky) 35%,
-      transparent);
-  opacity: 0.6;
+.play-card--tall img {
+  aspect-ratio: 4 / 5;
 }
 
-.play-grid .react-grid-item.react-draggable-dragging {
-  z-index: 50 !important;
+.play-card--square img {
+  aspect-ratio: 1 / 1;
 }
 
-.play-grid .react-grid-item.react-resizable-resizing {
-  z-index: 50 !important;
+.play-card--small img {
+  aspect-ratio: 5 / 4;
 }
 
-@media (max-width: 640px) {
-  .play-grid .react-grid-item>.react-resizable-handle {
-    width: 44px !important;
-    height: 44px !important;
-    right: -12px !important;
-    bottom: -12px !important;
+@media (min-width: 640px) {
+  .play-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 2rem;
+  }
+
+  .play-card--wide {
+    grid-column: span 2 / span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .play-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4rem 2rem;
+  }
+
+  .play-card--wide {
+    grid-column: span 2 / span 2;
+  }
+
+  .play-card--tall {
+    grid-row: span 2 / span 2;
+  }
+
+  .play-card--square {
+    grid-column: span 2 / span 2;
+  }
+
+  .play-card:nth-child(2n) {
+    margin-top: 4rem;
+  }
+
+  .play-card:nth-child(3n) {
+    margin-top: 8rem;
+  }
+
+  .play-card:nth-child(5n) {
+    margin-top: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .play-card,
+  .play-card * {
+    transition-duration: 0ms !important;
   }
 }
 

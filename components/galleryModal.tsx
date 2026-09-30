@@ -1,9 +1,11 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import BaseModal from "./baseModal";
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import BaseModal from './baseModal';
+import { BiX } from 'react-icons/bi';
 
-type Artwork = {
+export type Artwork = {
   name: string;
   image: string;
   descriptor: string;
@@ -12,6 +14,7 @@ type Artwork = {
 
 type GalleryModalProps = {
   work: Artwork;
+  allWorks?: Artwork[];
   currentIndex: number;
   totalImages: number;
   onClose: () => void;
@@ -21,6 +24,7 @@ type GalleryModalProps = {
 
 export default function GalleryModal({
   work,
+  allWorks = [],
   currentIndex,
   totalImages,
   onClose,
@@ -28,85 +32,111 @@ export default function GalleryModal({
   onNext,
 }: GalleryModalProps) {
   const hasMultipleImages = totalImages > 1;
+  const onNextRef = useRef(onNext);
+  const onPrevRef = useRef(onPrevious);
+  onNextRef.current = onNext;
+  onPrevRef.current = onPrevious;
 
+  // Preload adjacent images for smooth navigation
   useEffect(() => {
+    if (!allWorks.length) return;
+    const nextIdx = (currentIndex + 1) % allWorks.length;
+    const prevIdx = (currentIndex - 1 + allWorks.length) % allWorks.length;
+
+    const img1 = new window.Image();
+    img1.src = allWorks[nextIdx].image;
+    const img2 = new window.Image();
+    img2.src = allWorks[prevIdx].image;
+  }, [currentIndex, allWorks]);
+
+  // Stable keyboard arrow navigation
+  useEffect(() => {
+    if (!hasMultipleImages) return;
+
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowLeft" && hasMultipleImages) {
-        onPrevious();
-      }
-
-      if (event.key === "ArrowRight" && hasMultipleImages) {
-        onNext();
-      }
+      if (event.key === 'ArrowLeft') onPrevRef.current();
+      if (event.key === 'ArrowRight') onNextRef.current();
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [hasMultipleImages, onNext, onPrevious]);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [hasMultipleImages]);
 
   return (
-    <BaseModal
-      label={`${work.name} image viewer`}
-      onClose={onClose}
-    >
-      <div className="mb-3 flex items-center justify-between">
-        <p className="rounded-full bg-white/80 px-4 py-2 text-sm text-slate-600 shadow-sm backdrop-blur-sm">
-          {currentIndex + 1} / {totalImages}
-        </p>
+    <BaseModal label={`${work.name} image viewer`} onClose={onClose}>
+      <div className="relative w-full">
+        {/* Top Header Bar */}
+        <div className="mb-3 flex items-center justify-between px-1">
+          <p className="rounded-full bg-white/95 px-4 py-1.5 font-dot text-xs tracking-wider text-(--blackbean) shadow-sm backdrop-blur-sm">
+            {currentIndex + 1} / {totalImages}
+          </p>
 
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close image modal"
-          className="grid h-11 w-11 place-items-center rounded-full bg-[var(--ivory)] text-2xl leading-none text-[var(--blackbean)] shadow-md transition hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--sky)]"
-        >
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close image modal"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-(--ivory) text-2xl font-bold leading-none text-(--blackbean) shadow-md transition-transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-(--sky)"
+          >
+            <BiX className="text-3xl" />
+          </button>
+        </div>
 
-      <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl">
-        <img
-          src={work.image}
-          alt={work.name}
-          width={1200}
-          height={900}
-          className="block max-h-[70vh] w-full object-contain"
-        />
-
-        {hasMultipleImages && (
-          <>
+      
+        <div className="relative flex w-full items-center justify-center">
+         
+          {hasMultipleImages && (
             <button
               type="button"
               onClick={onPrevious}
               aria-label="View previous artwork"
-              className="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-3xl text-[var(--blackbean)] shadow-lg transition hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--sky)] sm:left-5 sm:h-14 sm:w-14"
-            >
-              <span aria-hidden="true">‹</span>
+              className="absolute -left-5 lg:-left-7 z-20 flex h-12 w-12 -translate-x-full items-center justify-center rounded-full bg-(--ivory) text-(--blackbean) shadow-xl transition-all hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-(--sky) max-md:left-3 max-md:translate-x-0">
+              <span
+                className="h-5 w-5 -translate-x-0.5">
+              ᐊ
+              </span>
             </button>
+          )}
 
+         
+          <div className="relative flex h-[64vh] sm:h-[70vh] lg:h-[74vh] w-full items-center justify-center overflow-hidden rounded-2xl p-2 sm:p-4">
+            <div className="relative h-full w-full">
+              <Image
+                src={work.image}
+                alt={work.name}
+                fill
+                priority
+                sizes="(max-width: 1024px) 95vw, 1200px"
+                quality={85}
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          {hasMultipleImages && (
             <button
               type="button"
               onClick={onNext}
               aria-label="View next artwork"
-              className="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-3xl text-[var(--blackbean)] shadow-lg transition hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--sky)] sm:right-5 sm:h-14 sm:w-14"
+              className="absolute -right-5 lg:-right-7 z-20 flex h-12 w-12 translate-x-full items-center justify-center rounded-full bg-(--ivory) text-(--blackbean) shadow-xl transition-all hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-(--sky) max-md:right-3 max-md:translate-x-0"
             >
-              <span aria-hidden="true">›</span>
+              <span
+                className="h-5 w-5 translate-x-0.5"
+              >
+              ᐅ
+              </span>
             </button>
-          </>
-        )}
-      </div>
+          )}
+        </div>
 
-      <div className="mt-4 rounded-2xl border border-[#efdeda] bg-[#fff8f5] px-5 py-5 text-left shadow-lg sm:px-8 sm:py-6">
-        <h2 className="font-space text-2xl text-[var(--blackbean)]">
-          {work.name}
-        </h2>
-
-        <p className="mt-2 font-dot tracking-[0.15em] text-base leading-relaxed text-slate-700 sm:text-lg">
-          {work.descriptor}
-        </p>
+       
+        <div className="mt-3.5 rounded-2xl border border-(--blackbean)/10 bg-(--ivory) px-6 py-4 text-left shadow-lg">
+          <h2 className="font-kiwi text-2xl text-(--blackbean)">
+            {work.name}
+          </h2>
+          <p className="mt-1 font-dot text-sm tracking-wider text-(--blackbean)/75">
+            {work.descriptor}
+          </p>
+        </div>
       </div>
     </BaseModal>
   );

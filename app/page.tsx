@@ -132,4 +132,4 @@ export default function Home() {
 }
 
 
-// interchanging projects -> gallery like, or carousel.. rough
+
