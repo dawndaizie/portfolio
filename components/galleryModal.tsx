@@ -106,7 +106,6 @@ export default function GalleryModal({
                 fill
                 priority
                 sizes="(max-width: 1024px) 95vw, 1200px"
-                quality={85}
                 className="object-contain"
               />
             </div>
