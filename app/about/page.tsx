@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function About() {
     return (
-        <main className="font-funnel min-h-screen max-w-full flex flex-col items-center justify-center">
+        <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center">
 
         <div id="notebook" className="flex flex-row gap-5 bg-red-500 h-125 w-175 justify-between items-center -rotate-5">
 

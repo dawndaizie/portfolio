@@ -34,7 +34,7 @@ export default function ProjectNav({
           <p className="mb-2 font-space text-xs font-bold tracking-wider text-(--cornell)">
             Sections
           </p>
-          <ul className="space-y-2 font-cozy text-sm font-medium">
+          <ul className="space-y-2 font-dot tracking-[0.15em] text-sm font-medium">
             {tags.map((tag) => (
               <li key={tag.id}>
                 <button
@@ -78,7 +78,7 @@ export default function ProjectNav({
           <p className="mb-2 font-space text-xs font-bold uppercase tracking-widest text-(--cornell)">
             Navigation
           </p>
-          <ul className="space-y-2 font-cozy text-base bg-(--ivory) p-5 ring-1 ring-(--sky) rounded-lg shadow-[0_10px_25px_rgba(0,0,0,0.18)]">
+          <ul className="space-y-2 font-dot tracking-[0.15em] text-base bg-(--ivory) p-5 ring-1 ring-(--sky) rounded-lg shadow-[0_10px_25px_rgba(0,0,0,0.18)]">
             {tags.map((tag) => (
               <li key={tag.id}>
                 <button

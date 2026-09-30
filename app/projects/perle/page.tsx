@@ -13,7 +13,7 @@ const navSections = [
 export default function Perle() {
 
     return (
-        <main className="font-funnel relative flex w-full flex-col items-center">
+        <main className="font-space relative flex w-full flex-col items-center">
 
             <section id="hero" className="py-40 pb-10 max-w-full items-center flex flex-col">
 
