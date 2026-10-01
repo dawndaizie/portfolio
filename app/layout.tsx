@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${space.variable} ${dot.variable} ${kiwi.variable} ${emoji.variable}`}>
       <body
-        className={`relative min-h-screen w-full overflow-x-hidden antialiased`}
+        className={`relative min-h-dvh w-full overflow-x-hidden antialiased`}
       >
           <MovingBG
             letter="a"
@@ -56,14 +56,16 @@ export default function RootLayout({
             speed={30} />
 
             <Loader>
-          <div className="relative z-10 flex min-h-screen w-full flex-col items-center justify-between">
+          <div className="relative z-10 flex min-h-dvh w-full flex-col items-center justify-between">
 
 
             <Nav />
-            <main className="overlay relative min-h-[60vh] min-w-0 flex-1">
+            <main className="overlay relative min-w-0 flex-1">
               <Transition>
+                <div className="flex-1 w-full flex flex-col">
                 {children}
                 {/* <CustomCursor /> */}
+                </div>
               </Transition>
             </main>
 

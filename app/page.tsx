@@ -6,8 +6,6 @@ import { useState } from "react";
 import FilterBar from "../components/filters";
 
 
-
-
 export default function Home() {
 
   const tags = ["favorites", "dev", "design", "art"];

@@ -28,7 +28,7 @@ export default function ScrollUp() {
             
             <div className={`transition-all duration-500 ${visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                 <button onClick={scrollToTop}
-                    className="flower rounded-full shadow-lg transition hover:scale-110 hover:cursor-pointer">
+                    className="flower rounded-full shadow-lg transition text-(--ivory) hover:scale-110 hover:cursor-pointer">
                     ↑
                 </button>
             </div>
