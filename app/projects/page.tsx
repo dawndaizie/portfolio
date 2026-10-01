@@ -168,7 +168,7 @@ export default function Projects() {
                                     {project.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="inline-block px-3 py-1 border border-(--blackbean) rounded-full text-xs font-dot tracking-[0.15em] bg-(--cornell) text-(--ivory)"
+                                            className="inline-block px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot tracking-[0.15em] bg-(--cornell) text-(--ivory)"
                                         >
                                             {tag}
                                         </span>
@@ -179,8 +179,7 @@ export default function Projects() {
 
                                 <a
                                     href={project.link}
-                                    target="_blank"
-                                    rel="noreferrer"
+                                    target="_self"
                                     className="mt-4 inline-block underline underline-offset-4"
                                 >
                                     View project →
