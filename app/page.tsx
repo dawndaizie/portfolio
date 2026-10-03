@@ -80,7 +80,7 @@ export default function Home() {
           <div className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2">
           {filtered.length > 0 ? (
             filtered.map((project) => (
-              <div key={project.title} className="projectCard overflow-hidden p-6 text-left transition hover:scale-105">
+              <Link key={project.title} href={project.link} className="projectCard overflow-hidden p-6 text-left transition hover:scale-105">
 
 
                 <img src={project.image} alt={project.title} className="rounded" />
@@ -100,16 +100,10 @@ export default function Home() {
 
                 <p className="m-2 text-slate-700 font-dot tracking-[0.15em]">{project.descriptor}</p>
 
-                <a
-                  href={project.link}
-                  target="_self"
-                  className="mt-4 inline-block underline underline-offset-4"
-                >
-                  View project →
-                </a>
+                
 
 
-              </div>
+              </Link>
             ))
           ) : (
             <p className="md:col-span-2"> No projects in this category yet.</p>

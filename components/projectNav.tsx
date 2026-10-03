@@ -21,7 +21,7 @@ export default function ProjectNav({
   return (
     <>
       <div
-        className={`fixed top-1/3 z-40 flex items-center transition-transform duration-300 md:hidden ${mobileOpen ? "translate-x-0" : "-translate-x-[calc(100%-2.5rem)]"
+        className={`fixed top-1/3 z-40 flex items-center transition-transform duration-300 xl:hidden ${mobileOpen ? "translate-x-0" : "-translate-x-[calc(100%-2.5rem)]"
           } left-0`}
       >
 
@@ -64,11 +64,9 @@ export default function ProjectNav({
 
 
       <aside
-        className="pointer-events-none sticky top-28 z-30 hidden h-0 w-full justify-start md:flex"
+        className="pointer-events-none sticky top-28 z-30 hidden h-0 w-full justify-start xl:flex"
       >
-        <div
-          className="pointer-events-auto relative -left-10 w-48 -rotate-2 rounded-lg bg-(--ivory) p-5 text-(--blackbean) shadow-[0_10px_25px_rgba(0,0,0,0.18)] ring-1 ring-(--sky) transition-transform duration-200 hover:rotate-0"
-        >
+         <div className="pointer-events-auto relative -left-20 w-44 -rotate-2 rounded-xl bg-(--ivory) p-4 text-(--blackbean) shadow-[0_10px_25px_rgba(53,23,16,0.12)] ring-1 ring-(--sky) transition-transform duration-200 hover:rotate-0">
 
           <div className="absolute -top-3.5 left-1/2 h-7 w-7 -translate-x-1/2 rounded-full bg-(--cornell) shadow-[0_4px_6px_rgba(0,0,0,0.3)] ring-2 ring-rose-700">
             <div className="absolute top-1 left-1.5 h-2 w-2 rounded-full bg-(--ivory)/80"></div>

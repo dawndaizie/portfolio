@@ -55,14 +55,14 @@ export default function Footer() {
                                 ↗
                             </span>
                         </a>
-                        <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm" href="https://github.com/dawniquecasteele" target="_blank" rel="noreferrer">
+                        <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm" href="https://github.com/dawndaizie" target="_blank" rel="noreferrer">
                             Github
                             <span className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-(--blackbean)/60">
                                 ↗
                             </span>
                         </a>
 
-                        <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm" href="https://www.artstation.com/dawnstelay" target="_blank" rel="noreferrer">
+                        <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm" href="https://www.artstation.com/dawndaizie" target="_blank" rel="noreferrer">
                             Artstation
                             <span className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-(--blackbean)/60">
                                 ↗
