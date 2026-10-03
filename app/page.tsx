@@ -66,18 +66,18 @@ export default function Home() {
 
       <section id="featured" className="min-h-screen max-w-screen items-center text-center">
 
-        <h1 className="text-3xl"> featured projects</h1>
+        
 
-        <div
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
-          role="tablist"
-          aria-label="project categories"
-        >
+        <div className="mx-auto max-w-7xl">
+
+          <h1 className="text-3xl m-10 mb-5 font-space text-center text-(--blackbean)"> featured projects</h1>
           <FilterBar
             tags={tags}
             active={active}
             setActive={setActive}
           />
+
+          <div className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2">
           {filtered.length > 0 ? (
             filtered.map((project) => (
               <div key={project.title} className="projectCard overflow-hidden p-6 text-left transition hover:scale-105">
@@ -114,6 +114,7 @@ export default function Home() {
           ) : (
             <p className="md:col-span-2"> No projects in this category yet.</p>
           )}
+          </div>
         </div>
       </section>
 
