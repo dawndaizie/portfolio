@@ -22,10 +22,10 @@ export default function BiteMe() {
                     <div className="flex flex-col items-start text-left lg:col-span-7">
                         <div className="mb-4 flex flex-wrap gap-2">
                             <span className="inline-flex pb-2 pt-2 items-center rounded-lg border border-dashed border-1 bg-(--cornell) px-3 py-1 font-dot text-xs tracking-[0.14em] uppercase text-(--ivory) shadow-sm">
-                                Visual Development
+                                Animation
                             </span>
                             <span className="inline-flex pb-2 pt-2 items-center rounded-lg border border-dashed border-1 bg-(--cornell) px-3 py-1 font-dot text-xs tracking-[0.14em] uppercase text-(--ivory) shadow-sm">
-                                Animation
+                                Visual Development
                             </span>
                         </div>
 

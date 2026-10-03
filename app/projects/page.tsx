@@ -8,7 +8,7 @@ export default function Projects() {
 
     const [active, setActive] = useState("all")
 
-    const tags = ["all", "animation", "brand design", "game dev", "product design", "software dev", "ui/ux design", "visual dev"];
+    const tags = ["all", "animation", "brand design", "game dev", "software dev", "ui/ux design", "visual dev"];
 
     const projects = [
         {
@@ -30,7 +30,7 @@ export default function Projects() {
         {
             title: "Charm",
             image: "/banner.png",
-            tags: ["brand design", "product design"],
+            tags: ["brand design"],
             link: "/projects/charm",
             descriptor:"Branding for a mature, elegant, yet modern tea company.",
         },
@@ -38,7 +38,7 @@ export default function Projects() {
         {
             title: "CocoCoins",
             image: "/banner.png",
-            tags: ["product design", "software dev"],
+            tags: ["ui/ux design", "software dev"],
             link: "/projects/cococoins",
             descriptor:"A fun, beach themed financial tracker.",
         },
@@ -108,7 +108,7 @@ export default function Projects() {
         {
             title: "Skin to Skin",
             image: "/banner.png",
-            tags: ["product design"],
+            tags: ["ui/ux design"],
             link: "/projects/skin-to-skin",
             descriptor:"here are a bunch of words...",
         },
