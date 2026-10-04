@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BiX } from "react-icons/bi";
+import Link from "next/link";
 
 export default function ProjectNav({
   tags,
@@ -66,17 +67,14 @@ export default function ProjectNav({
       <aside
         className="pointer-events-none sticky top-28 z-30 hidden h-0 w-full justify-start xl:flex"
       >
-         <div className="pointer-events-auto relative -left-20 w-44 -rotate-2 rounded-xl bg-(--ivory) p-4 text-(--blackbean) shadow-[0_10px_25px_rgba(53,23,16,0.12)] ring-1 ring-(--sky) transition-transform duration-200 hover:rotate-0">
-
-          <div className="absolute -top-3.5 left-1/2 h-7 w-7 -translate-x-1/2 rounded-full bg-(--cornell) shadow-[0_4px_6px_rgba(0,0,0,0.3)] ring-2 ring-rose-700">
-            <div className="absolute top-1 left-1.5 h-2 w-2 rounded-full bg-(--ivory)/80"></div>
-          </div>
-
-
-          <p className="mb-2 font-space text-xs font-bold uppercase tracking-widest text-(--cornell)">
-            Navigation
-          </p>
-          <ul className="space-y-2 font-dot tracking-[0.15em] text-base bg-(--ivory) p-5 ring-1 ring-(--sky) rounded-lg shadow-[0_10px_25px_rgba(0,0,0,0.18)]">
+        <div className="pointer-events-auto relative -left-20 w-44 -rotate-2 rounded-xl  text-(--blackbean) shadow-[0_10px_25px_rgba(53,23,16,0.12)] transition-transform duration-200 hover:rotate-0">
+          <ul className="space-y-2 font-dot tracking-[0.15em] text-base bg-(--ivory) p-7 ring-1 ring-(--sky) rounded-lg shadow-[0_10px_25px_rgba(0,0,0,0.18)]">
+            <div className="absolute -top-3.5 left-1/2 h-7 w-7 -translate-x-1/2 rounded-full bg-(--cornell) shadow-[0_4px_6px_rgba(0,0,0,0.3)] ring-2 ring-rose-700">
+              <div className="absolute top-1 left-1.5 h-2 w-2 rounded-full bg-(--ivory)/80"></div>
+            </div>
+            <p className="mb-2 font-space text-xs font-bold uppercase text-(--cornell)">
+              Navigation
+            </p>
             {tags.map((tag) => (
               <li key={tag.id}>
                 <button
@@ -91,6 +89,9 @@ export default function ProjectNav({
                 </button>
               </li>
             ))}
+
+            <Link href="/projects" className="mt-5 font-space text-xs flex font-bold uppercase text-(--blackbean) ring ring-2 ring-(--cornell)/20 rounded-lg p-2 hover:text-(--cornell) hover:scale-105 transform duration-200 hover:shadow-sm hover:ring-(--cornell)"> 
+            ↩ Back to Projects</Link>
           </ul>
         </div>
       </aside>

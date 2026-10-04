@@ -8,7 +8,7 @@ type Props = {
 
 export default function FilterBar({ tags, active, setActive }: Props) {
     return (
-        <div className="flex flex-wrap gap-3 mb-8 ml-5 text-center justify-center">
+        <div className="flex flex-wrap gap-3 mb-8 text-center justify-center">
             {tags.map((tag) => (
                 <button
                     key={tag}

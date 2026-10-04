@@ -18,6 +18,14 @@ export default function Home() {
       tags: ["favorites", "dev"],
       link: "/projects/cococoins",
     },
+    {
+      id: 2,
+      title: "CocoCoins",
+      descriptor: "beach themed financial tracker.",
+      image: "/banner.png",
+      tags: ["favorites", "dev"],
+      link: "/projects/cococoins",
+    },
   ]
 
   const [active, setActive] = useState("favorites");
@@ -76,38 +84,60 @@ export default function Home() {
             active={active}
             setActive={setActive}
           />
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-7">
+                    {filtered.length > 0 ? (
+                        filtered.map((project) =>
+                            <Link
+                                key={project.id}
+                                href={project.link}
+                                className="projectCard group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-(--blackbean)/15 bg-(--ivory)/90 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-(--blackbean) hover:bg-(--ivory) hover:shadow-[0_16px_36px_rgba(53,23,16,0.14)]"
+                            >
+                                <div className="">
 
-          <div className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2">
-          {filtered.length > 0 ? (
-            filtered.map((project) => (
-              <Link key={project.title} href={project.link} className="projectCard overflow-hidden p-6 text-left transition hover:scale-105">
+                                    <div className="relative aspect-[16/9] w-full rounded-xl border border-(--blackbean)/10 bg-white/60 p-2 shadow-inner">
+                                        <div className="relative h-full w-full overflow-hidden rounded-lg bg-(--blackbean)/5">
 
+                                            <Image
+                                                src={project.image}
+                                                alt={project.title}
+                                                fill
+                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
+                                        </div>
+                                    </div>
+                                    <div className="mt-5 flex flex-wrap gap-2">
+                                        {project.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="inline-flex px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot uppercase tracking-[0.15em] bg-(--cornell) text-(--ivory)"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
 
-                <img src={project.image} alt={project.title} className="rounded" />
+                                    <h2 className="mt-3 font-space text-2xl font-bold tracking-tight text-(--blackbean) group-hover:text-(--cornell) transition-colors">
+                                        {project.title}
+                                    </h2>
+                                    <p className="mt-2 text-xs sm:text-sm font-dot tracking-wide leading-relaxed text-(--blackbean)/80 line-clamp-3">
+                                        {project.descriptor}
+                                    </p>
+                                </div>
+                                <div className="mt-5 flex items-center justify-between border-t border-(--blackbean)/10 pt-3 text-xs font-medium text-(--blackbean)/70">
+                                    <span className="font-dot tracking-widest uppercase text-[11px]">View Project</span>
+                                    <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-(--blackbean) shadow-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-(--blackbean) group-hover:text-(--ivory)">
+                                        ↗
+                                    </span>
+                                </div>
 
+                            </Link>
 
-                <h3 className="mt-2 font-space text-lg"> {project.title} </h3>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-block px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot tracking-[0.15em] bg-(--cornell) text-(--ivory)"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="m-2 text-slate-700 font-dot tracking-[0.15em]">{project.descriptor}</p>
-
-                
-
-
-              </Link>
-            ))
-          ) : (
-            <p className="md:col-span-2"> No projects in this category yet.</p>
-          )}
+                        )
+                    ) : (
+                        <div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-(--blackbean)/25 bg-white/50">
+                            <p className="md:col-span-2"> No projects in this category yet.</p>
+                        </div>
+                    )}
           </div>
         </div>
       </section>

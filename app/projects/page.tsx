@@ -3,6 +3,7 @@
 import { useState } from "react";
 import FilterBar from "../../components/filters";
 import Link from "next/link";
+import Image from "next/image"
 
 export default function Projects() {
 
@@ -16,7 +17,8 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["animation", "visual dev"],
             link: "/projects/bite-me",
-            descriptor:"A selfish vampire prince is banished to a reform school for supernatural delinquents, where he and his misfit friends navigate choatic and dangerous school antics while uncovering a long-hidden conspiracy in the magical world.",
+            descriptor: "A selfish vampire prince is banished to a reform school for supernatural delinquents, where he and his misfit friends navigate choatic and dangerous school antics while uncovering a long-hidden conspiracy in the magical world.",
+
         },
 
         {
@@ -24,7 +26,8 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["animation", "visual dev"],
             link: "/projects/blue",
-            descriptor:"Short animated film about a mermaid attending a night carnival."
+            descriptor: "Short animated film about a mermaid attending a night carnival.",
+
         },
 
         {
@@ -32,7 +35,8 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["brand design"],
             link: "/projects/charm",
-            descriptor:"Branding for a mature, elegant, yet modern tea company.",
+            descriptor: "Branding for a mature, elegant, yet modern tea company.",
+
         },
 
         {
@@ -40,7 +44,8 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["ui/ux design", "software dev"],
             link: "/projects/cococoins",
-            descriptor:"A fun, beach themed financial tracker.",
+            descriptor: "A fun, beach themed financial tracker web application.",
+
         },
 
         {
@@ -48,42 +53,45 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["visual dev"],
             link: "/projects/fmn",
-            descriptor:"A dungeon-crawler rpg game where a girl in a post apocalyptic dream world searches for her missing ssiter.",
+            descriptor: "A dungeon-crawler rpg game where a girl in a post apocalyptic dream world searches for her missing ssiter.",
+
         },
 
-        { 
+        {
             title: "Haunt My Heart",
             image: "/banner.png",
             tags: ["game dev", "visual dev"],
             link: "/projects/hmh",
-            descriptor: "Play (and fall in love) as a newly hired “exorcist” who handles malicious spirits in a world where ghosts and humans live together."
+            descriptor: "Play (and fall in love) as a newly hired “exorcist” who handles malicious spirits in a world where ghosts and humans coexist.",
 
         },
 
-        { 
+        {
             title: "Javapaws",
             image: "/banner.png",
             tags: ["game dev", "visual dev"],
             link: "/projects/javapaws",
-            descriptor: "Cafe game."
+            descriptor: "A cozy cafe management and character interaction game.",
+
 
         },
 
-        { 
+        {
             title: "mariposa",
             image: "/banner.png",
             tags: ["software dev"],
             link: "/projects/mariposa",
-            descriptor: "Music transposer"
+            descriptor: "An interactive music transposer and scale visualization utility.",
 
         },
 
-        { 
+        {
             title: "Minimax",
             image: "/banner.png",
             tags: ["game dev"],
             link: "/projects/minimax",
-            descriptor: "Mini games galore!"
+            descriptor: "A collection of playful retro mini-games built for quick rounds.",
+
 
         },
 
@@ -92,16 +100,18 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["brand design"],
             link: "/projects/perle",
-            descriptor:"Brand design for an artsy nail sticker compnay.",
+            descriptor: "Brand identity and packaging design for an artsy nail sticker compnay.",
+
         },
 
 
-        { 
+        {
             title: "Pippoke",
             image: "/banner.png",
             tags: ["ui/ux design", "software dev"],
             link: "/projects/pippoke",
-            descriptor: "Reminder app"
+            descriptor: "Reminder app",
+
 
         },
 
@@ -110,7 +120,8 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["ui/ux design"],
             link: "/projects/skin-to-skin",
-            descriptor:"here are a bunch of words...",
+            descriptor: "Mobile UX case study focused on mindful self-care routines.",
+
         },
 
         {
@@ -118,7 +129,8 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["software dev"],
             link: "/projects/smart-evaluator",
-            descriptor:"here are a bunch of words...",
+            descriptor: "here are a bunch of words...",
+
         },
 
         {
@@ -126,7 +138,8 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["visual dev"],
             link: "/projects/tsfrml",
-            descriptor:"After the worst 17th birthday, Kaia Aquino vents her frustrations to a random fish off the town pier, only to accidentally strike a deal with a powerful fish demon.",
+            descriptor: "After the worst 17th birthday, Kaia vents her frustrations to a random fish off the pier—only to strike a deal with a fish demon.",
+
         },
 
         {
@@ -134,7 +147,8 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["brand design"],
             link: "/projects/twee-bakery",
-            descriptor:"Brand design for home bakery",
+            descriptor: "Playful artisan brand identity and menu system for a boutique home bakery.",
+
         },
 
     ]
@@ -146,42 +160,78 @@ export default function Projects() {
 
 
     return (
-        <main className="py-20 font-space min-h-full max-w-full">
-            <div className="mx-auto max-w-7xl">
-                <h1 className="py-10 m-10 mb-5 text-6xl font-kiwi text-center text-(--blackbean)">All Projects</h1>
-                <FilterBar
-                    tags={tags}
-                    active={active}
-                    setActive={setActive}
-                />
+        <main className="py-30 font-space min-h-full w-full text-(--blackbean)">
+            <div className="mx-auto px-4 ">
+                <div className="text-center mb-8 sm:mb-14">
+                    <p className="font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2">
+                        Selected Works · 2024–2026
+                    </p>
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-kiwi text-(--blackbean) leading-none">
+                        All Projects
+                    </h1>
+                    
+                </div>
+                <div className="mb-12">
+                    <FilterBar
+                        tags={tags}
+                        active={active}
+                        setActive={setActive}
+                    />
+                </div>
 
-                <div className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-3">
+                <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-7">
                     {filtered.length > 0 ? (
-                        filtered.map((project) => (
-                            <Link href={project.link} key={project.title} className="projectCard overflow-hidden p-6 text-left transition hover:scale-105">
+                        filtered.map((project) =>
+                            <Link
+                                key={project.title}
+                                href={project.link}
+                                className="projectCard group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-(--blackbean)/15 bg-(--ivory)/90 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-(--blackbean) hover:bg-(--ivory) hover:shadow-[0_16px_36px_rgba(53,23,16,0.14)]"
+                            >
+                                <div className="">
 
+                                    <div className="relative aspect-[16/9] w-full rounded-xl border border-(--blackbean)/10 bg-white/60 p-2 shadow-inner">
+                                        <div className="relative h-full w-full overflow-hidden rounded-lg bg-(--blackbean)/5">
 
-                                <img src={project.image} alt={project.title} className="rounded" />
+                                            <Image
+                                                src={project.image}
+                                                alt={project.title}
+                                                fill
+                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
+                                        </div>
+                                    </div>
+                                    <div className="mt-5 flex flex-wrap gap-2">
+                                        {project.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="inline-flex px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot uppercase tracking-[0.15em] bg-(--cornell) text-(--ivory)"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
 
-
-                                <h3 className="mt-2 font-space text-lg"> {project.title} </h3>
-                                <div className="mt-2 flex flex-wrap gap-2">
-                                    {project.tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="inline-block px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot tracking-[0.15em] bg-(--cornell) text-(--ivory)"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
+                                    <h2 className="mt-3 font-space text-2xl font-bold tracking-tight text-(--blackbean) group-hover:text-(--cornell) transition-colors">
+                                        {project.title}
+                                    </h2>
+                                    <p className="mt-2 text-xs sm:text-sm font-dot tracking-wide leading-relaxed text-(--blackbean)/80 line-clamp-3">
+                                        {project.descriptor}
+                                    </p>
+                                </div>
+                                <div className="mt-5 flex items-center justify-between border-t border-(--blackbean)/10 pt-3 text-xs font-medium text-(--blackbean)/70">
+                                    <span className="font-dot tracking-widest uppercase text-[11px]">View Project</span>
+                                    <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-(--blackbean) shadow-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-(--blackbean) group-hover:text-(--ivory)">
+                                        ↗
+                                    </span>
                                 </div>
 
-                                <p className="m-2 text-slate-700 font-dot tracking-[0.15em]">{project.descriptor}</p>
-
                             </Link>
-                        ))
+
+                        )
                     ) : (
-                        <p className="md:col-span-2"> No projects in this category yet.</p>
+                        <div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-(--blackbean)/25 bg-white/50">
+                            <p className="md:col-span-2"> No projects in this category yet.</p>
+                        </div>
                     )}
                 </div>
             </div>
