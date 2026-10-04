@@ -11,7 +11,6 @@ export default function Home() {
   const tags = ["favorites", "dev", "design", "art"];
   const projects = [
     {
-      id: 1,
       title: "CocoCoins",
       descriptor: "beach themed financial tracker.",
       image: "/banner.png",
@@ -19,11 +18,10 @@ export default function Home() {
       link: "/projects/cococoins",
     },
     {
-      id: 2,
-      title: "CocoCoins",
+      title: "Bite Me",
       descriptor: "beach themed financial tracker.",
       image: "/banner.png",
-      tags: ["favorites", "dev"],
+      tags: ["favorites", "art"],
       link: "/projects/cococoins",
     },
   ]
@@ -35,7 +33,7 @@ export default function Home() {
       : projects.filter((p) => p.tags.includes(active))
 
   return (
-    <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center">
+    <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center text-(--blackbean)">
 
       <section id="hero" className="py-90 h-50 max-w-full flex items-center">
         <div className="flex flex-col items-center justify-center m-10">
@@ -72,23 +70,31 @@ export default function Home() {
       </section>
 
 
-      <section id="featured" className="min-h-screen max-w-screen items-center text-center">
+      <section id="featured" className="py-30 font-space min-h-full w-full text-(--blackbean)">
 
-        
+        <div className="mx-auto px-4 ">
+                <div className="text-center mb-8 sm:mb-14">
+                    <p className="font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2">
+                        some of my favs! · 2024–2026
+                    </p>
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-kiwi text-(--blackbean) leading-none">
+                        featured projects
+                    </h1>
+                    
+                </div>
+                <div className="mb-12">
+                    <FilterBar
+                        tags={tags}
+                        active={active}
+                        setActive={setActive}
+                    />
+                </div>
 
-        <div className="mx-auto max-w-7xl">
-
-          <h1 className="text-3xl m-10 mb-5 font-space text-center text-(--blackbean)"> featured projects</h1>
-          <FilterBar
-            tags={tags}
-            active={active}
-            setActive={setActive}
-          />
-          <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-7">
+                <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-7">
                     {filtered.length > 0 ? (
                         filtered.map((project) =>
                             <Link
-                                key={project.id}
+                                key={project.title}
                                 href={project.link}
                                 className="projectCard group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-(--blackbean)/15 bg-(--ivory)/90 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-(--blackbean) hover:bg-(--ivory) hover:shadow-[0_16px_36px_rgba(53,23,16,0.14)]"
                             >
@@ -138,8 +144,8 @@ export default function Home() {
                             <p className="md:col-span-2"> No projects in this category yet.</p>
                         </div>
                     )}
-          </div>
-        </div>
+                </div>
+            </div>
       </section>
 
 
