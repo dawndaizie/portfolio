@@ -183,21 +183,18 @@ body {
 
 // Scroll Up
 .flower {
-  background-color: var(--blackbean);
-  width: 75px;
-  --r: calc(50%/(1 + 1/sin(180deg/5)));
+  
+  --r: 5px; /* control the radius */
+
+  
   aspect-ratio: 1;
-  $m: (
-  );
+  padding: var(--r);
+  
+  mask: 
+    radial-gradient(50% 50%,#0000 66%,#000 67%) round 
+     var(--r) var(--r)/calc(2*var(--r)) calc(2*var(--r)), 
+    conic-gradient(#000 0 0) content-box;
 
-@for $i from 1 through 5 {
-  $m: list.append($m,
-      radial-gradient(50% 50%, #000 100%, #0000) no-repeat calc(50% + 50%*cos(360deg*#{calc($i / 5)})) calc(50% + 50%*sin(360deg*#{calc($i / 5)})) / calc(2*var(--r)) calc(2*var(--r)),
-      comma);
-}
-
-mask: radial-gradient(100% 100%, #000 calc(var(--r)/tan(180deg/5)), #0000 0),
-#{$m};
 }
 
 // Footer

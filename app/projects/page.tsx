@@ -90,7 +90,7 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["game dev"],
             link: "/projects/minimax",
-            descriptor: "A collection of playful retro mini-games built for quick rounds.",
+            descriptor: "A collection of playful mini-games built for quick rounds.",
 
 
         },
@@ -106,11 +106,11 @@ export default function Projects() {
 
 
         {
-            title: "Pippoke",
+            title: "Pippokey",
             image: "/banner.png",
-            tags: ["ui/ux design", "software dev"],
-            link: "/projects/pippoke",
-            descriptor: "Reminder app",
+            tags: ["animation", "visual dev"],
+            link: "/projects/pippokey",
+            descriptor: "cutesy duck faces life!",
 
 
         },
@@ -197,7 +197,7 @@ export default function Projects() {
                                                 alt={project.title}
                                                 fill
                                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
+                                                className="object-cover" />
                                         </div>
                                     </div>
                                     <div className="mt-5 flex flex-wrap gap-2">

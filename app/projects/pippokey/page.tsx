@@ -10,10 +10,10 @@ const navSections = [
     { id: "thoughts", label: "Thoughts" },
 ];
 
-export default function Perle() {
 
+export default function Pippokey() {
     return (
-        <main className="font-space relative flex w-full flex-col items-center">
+<main className="font-space relative flex w-full flex-col items-center">
 
             <section id="hero" className="w-full max-w-6xl px-4 mt-20 pt-10 pb-12 sm:px-6 md:pt-16 md:pb-16">
 
@@ -21,16 +21,19 @@ export default function Perle() {
                     <div className="flex flex-col items-start text-left lg:col-span-7">
                         <div className="mb-4 flex flex-wrap gap-2">
                             <span className="inline-flex pb-2 pt-2 items-center rounded-lg border border-dashed border-1 bg-(--cornell) px-3 py-1 font-dot text-xs tracking-[0.14em] uppercase text-(--ivory) shadow-sm">
-                                Brand Design
+                                Animation
+                            </span>
+                            <span className="inline-flex pb-2 pt-2 items-center rounded-lg border border-dashed border-1 bg-(--cornell) px-3 py-1 font-dot text-xs tracking-[0.14em] uppercase text-(--ivory) shadow-sm">
+                                Visual Development
                             </span>
                         </div>
 
                         <h1 className="font-space text-4xl sm:text-5xl md:text-6xl font-bold text-(--blackbean) leading-[1.5]">
-                            Perle
+                            Pippokey
                         </h1>
 
                         <p className="mt-5 text-base sm:text-lg font-dot leading-relaxed tracking-[0.15em] text-(--blackbean)/85">
-BRand Identiy and packaging design for an artsy nail sticker company.                        </p>
+Cutesy duck faces life!                        </p>
 
                         <div className="mt-6 flex flex-wrap items-center gap-6 border-t border-(--blackbean)/10 pt-5 text-xs text-(--blackbean)/70">
                             <div>
@@ -38,7 +41,7 @@ BRand Identiy and packaging design for an artsy nail sticker company.           
                                     Role
                                 </span>
                                 <span className="font-medium text-(--blackbean)">
-                                    Graphic Designer
+                                    Solo Animator & Concept Artist
                                 </span>
                             </div>
                             <div className="h-6 w-px bg-(--blackbean)/15 hidden sm:block" />
@@ -57,7 +60,7 @@ BRand Identiy and packaging design for an artsy nail sticker company.           
                         <div className="group relative overflow-hidden rounded-2xl border border-(--blackbean)/15 bg-white p-2.5 shadow-[0_12px_32px_rgba(53,23,16,0.12)] transition duration-300 hover:shadow-[0_18px_40px_rgba(53,23,16,0.18)]">
                             <img
                                 src="/banner.png"
-                                alt="Perle project banner"
+                                alt="Pippokey project banner"
                                 className="h-auto w-full rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                             />
                         </div>
@@ -75,7 +78,7 @@ BRand Identiy and packaging design for an artsy nail sticker company.           
                             Tools
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
-                            Affinity
+                            Clip Studio EX
                         </p>
                     </div>
 
@@ -85,7 +88,7 @@ BRand Identiy and packaging design for an artsy nail sticker company.           
                             Deliverables
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
-                            Full logo suite · Packaging design
+                            Concept Art · Test Animation
                         </p>
                     </div>
 
@@ -95,7 +98,7 @@ BRand Identiy and packaging design for an artsy nail sticker company.           
                             Key Skills
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
-                            Graphic Design · Packaging Design · 
+                            2D Animation · Narrative/Worldbuilding · Character Design
                         </p>
                     </div>
                 </div>
@@ -107,30 +110,6 @@ BRand Identiy and packaging design for an artsy nail sticker company.           
 
             <section id="overview" className="min-h-screen max-w-screen items-center text-center">
                 <h1 className="text-4xl font-space m-2">OVERVIEW</h1>
-                
-                <div className="text-md">
-                    Perle
-
-                    Brief: Never have boring nails again! Perle saves you a trip to the salon, and
-                    allows you to create your own gel nails in the comfort of your home with their DIY gel kits.
-                    Their brand is anything but stale, so make it creative, playful, and pretty!
-
-                    target audience: 18-28 years old
-                    location: global, perle ships worldwide
-                    interests and hobbies: self-care, beauty, socail media, and going out
-                    values: self confidence, flexibility, and authenticity
-
-                    Deliverables:
-                    Full logo suite
-                    Packaging design
-
-                    Suggested Color Palette
-                    #EEAFDB
-                    #D2D6F6
-                    #9C94C4
-                    #4F33A3
-                </div>
-
             </section>
 
 
@@ -146,11 +125,10 @@ BRand Identiy and packaging design for an artsy nail sticker company.           
                 <h1 className="text-4xl font-space m-2">FINAL</h1>
             </section>
 
-            <section id="final" className="min-h-screen max-w-screen items-center text-center">
+            <section id="thoughts" className="min-h-screen max-w-screen items-center text-center">
                 <h1 className="text-4xl font-space m-2">THOUGHTS</h1>
             </section>
 
         </main>
-
     )
-};
+}

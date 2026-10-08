@@ -45,7 +45,7 @@ export default function Nav() {
                 <div className="flex justify-between h-25">
                     <div className="flex items-center">
                         <Link href="/">
-                            <img className="aspect-auto object-contain max-w-full m-auto max-h-100 pb-2 transition-transform duration-200 hover:rotate-10 hover:scale-97" src="/applebear.svg" alt="logo depicting bear stuck in apple (my logo!)" width="50" height="50" />
+                            <img className="aspect-auto object-contain max-w-full m-auto max-h-100 pb-2 transition-transform duration-200 hover:rotate-7 hover:scale-105" src="/logopng.png" alt="logo depicting bear stuck in apple (my logo!)" width="65" height="65" />
                         </Link>
                     </div>
 

@@ -32,7 +32,7 @@ export default function ProjectNav({
             <div className="absolute top-1 left-1 h-2 w-2 rounded-full bg-(--ivory)/70" />
           </div>
 
-          <p className="mb-2 font-space text-xs font-bold tracking-wider text-(--cornell)">
+          <p className="mb-2 font-space text-xs font-bold uppercase tracking-wider text-(--cornell)">
             Sections
           </p>
           <ul className="space-y-2 font-dot tracking-[0.15em] text-sm font-medium">
@@ -48,6 +48,8 @@ export default function ProjectNav({
               </li>
             ))}
           </ul>
+           <Link href="/projects" className="mt-5 font-space text-xs flex font-bold uppercase text-(--blackbean) ring ring-2 ring-(--cornell)/20 rounded-lg p-2 hover:text-(--cornell) hover:scale-105 transform duration-200 hover:shadow-sm hover:ring-(--cornell)"> 
+            ↩ Back to Projects</Link>
         </div>
 
         <button

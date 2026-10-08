@@ -49,11 +49,7 @@ export default function RootLayout({
       <body
         className={`relative min-h-dvh w-full overflow-x-hidden antialiased`}
       >
-          <MovingBG
-            letter="a"
-            color="var(--ivory)"
-            fontVar="var(--font-pixel-emoji)"
-            speed={30} />
+          <MovingBG/>
 
             <Loader>
           <div className="relative z-10 flex min-h-dvh w-full flex-col items-center justify-between">

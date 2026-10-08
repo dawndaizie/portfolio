@@ -49,10 +49,10 @@ export default function BiteMe() {
                             <div className="h-6 w-px bg-(--blackbean)/15 hidden sm:block" />
                             <div>
                                 <span className="font-dot uppercase tracking-[0.15em] text-(--cornell) block font-bold">
-                                    Format
+                                    EST.
                                 </span>
                                 <span className="font-medium text-(--blackbean)">
-                                    Pitch Bible · 2D Animation Concept
+                                    2025
                                 </span>
                             </div>
                         </div>
@@ -90,9 +90,9 @@ export default function BiteMe() {
                             Deliverables
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
-                            Pitch Deck, Storyboards, Animation, Scripts
+                            Pitch Deck  · Storyboards · Animation · Scripts
                         </p>
-                    </div>
+                    </div> 
 
 
                     <div className="flex flex-col justify-start border-t border-(--blackbean)/10 pt-4 lg:border-t-0 lg:pt-0 lg:border-l lg:pl-6">
@@ -100,7 +100,7 @@ export default function BiteMe() {
                             Key Skills
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
-                            Character Design, Narrative/Worldbuilding, Environment Design
+                            Character Design · Narrative/Worldbuilding · Environment Design
                         </p>
                     </div>
                 </div>

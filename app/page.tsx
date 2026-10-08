@@ -22,7 +22,7 @@ export default function Home() {
       descriptor: "beach themed financial tracker.",
       image: "/banner.png",
       tags: ["favorites", "art"],
-      link: "/projects/cococoins",
+      link: "/projects/bite-me",
     },
   ]
 
@@ -108,7 +108,7 @@ export default function Home() {
                                                 alt={project.title}
                                                 fill
                                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
+                                                className="object-cover " />
                                         </div>
                                     </div>
                                     <div className="mt-5 flex flex-wrap gap-2">

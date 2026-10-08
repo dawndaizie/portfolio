@@ -2,21 +2,15 @@
 
 import { useEffect, useState } from "react";
 
-interface MovingBGProps {
-    letter?: string;
-    color?: string;
-    fontVar?: string;
-    size?: number;
-    speed?: number;
-}
 
-export default function MovingBG({
-    letter = "C",
-    color = "var(--blackbean, #facc15)",
-    fontVar = "var(--font-pixel-emoji), sans-serif",
-    size = 80,
-    speed = 25,
-}: MovingBGProps) {
+
+export default function MovingBG() {
+
+     const letter = "a";
+        const color = "var(--ivory)";
+    const fontVar = "var(--font-pixel-emoji), sans-serif";
+    const size = 80;
+    const speed = 30;
     const [bgDataUrl, setBgDataUrl] = useState<string>("");
 
     useEffect(() => {
@@ -43,12 +37,12 @@ export default function MovingBG({
             const half = size / 2;
             const fontSize = Math.floor(size * 0.3);
 
-            ctx.fillStyle = resolvedColor || "#facc15";
+            ctx.fillStyle = resolvedColor;
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.font = `${fontSize}px ${resolvedFontFamily}`;
 
-            // Draw two offset letters for the staggered diagonal pattern
+           
             ctx.fillText(letter, half / 2, half / 2);
             ctx.fillText(letter, size - half / 2, size - half / 2);
 

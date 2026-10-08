@@ -34,13 +34,7 @@ export default function Footer() {
             <div className="max-w-6xl text-sm p-6 sm:p-10 mt-3">
                 <div className="flex-row gap-8 items-end justify-between">
                     <div className="space-y-3 mb-4">
-                        <div className="inline-flex items-center gap-2 rounded-full border border-(--blackbean)/10 bg-white/60 px-3 py-1 text-xs font-dot tracking-wider text-(--blackbean)">
-                            <span className="relative flex h-2 w-2">
-                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-400 opacity-75" />
-                                <span className="relative inline-flex h-2 w-2 rounded-full bg-lime-500" />
-                            </span>
-                            available for work!
-                        </div>
+                        
 
                         <h2 className="font-space text-3xl font-bold sm:text-4xl text-(--blackbean) pb-3">
                             interested in working together?

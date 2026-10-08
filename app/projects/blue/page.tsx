@@ -49,10 +49,10 @@ export default function Blue() {
                             <div className="h-6 w-px bg-(--blackbean)/15 hidden sm:block" />
                             <div>
                                 <span className="font-dot uppercase tracking-[0.15em] text-(--cornell) block font-bold">
-                                    Format
+                                    Est.
                                 </span>
                                 <span className="font-medium text-(--blackbean)">
-                                    2D Animation Concept · Storyboard · Animatic
+                                    2026
                                 </span>
                             </div>
                         </div>
@@ -90,7 +90,7 @@ export default function Blue() {
                             Deliverables
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
-                            Concept Art, Storyboards, Animatic
+                            Concept Art · Storyboards · Animatic
                         </p>
                     </div>
 
