@@ -85,19 +85,20 @@ export default function Art() {
                                 type="button"
                                 onClick={() => setSelectedIndex(index)}
                                 aria-label={`Open ${work.name}`}
-                                className="group overflow-hidden rounded-xl text-left focus:outline-none focus:ring-1 focus:ring-(--sky) focus:ring-offset-4"
+                                className="group overflow-hidden text-left duration-500 hover:scale-105"
                             >
                                 <img
                                     src={work.image}
                                     alt={work.name}
                                     width={600}
                                     height={400}
-                                    className="h-auto w-full rounded-xl transition-transform duration-500 ease-out group-hover:scale-105"
+                                    className="h-auto w-full"
                                 />
                             </button>
                         ))) : (
-                        <p className="md:col-span-2 text-center font-dot tracking-[0.15em]"> No projects in this category yet.</p>
-                    )}
+<div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-(--blackbean)/25 bg-white/50">
+                            <p className="md:col-span-2"> No art in this category yet.</p>
+                        </div>                    )}
                 </div>
             </div>
 

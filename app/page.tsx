@@ -19,7 +19,7 @@ export default function Home() {
     },
     {
       title: "Bite Me",
-      descriptor: "beach themed financial tracker.",
+      descriptor: "Visual development project for a animated show about an out-of-control teenage vampire prince sentenced to military school.",
       image: "/banner.png",
       tags: ["favorites", "art"],
       link: "/projects/bite-me",
@@ -115,7 +115,7 @@ export default function Home() {
                                         {project.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="inline-flex px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot uppercase tracking-[0.15em] bg-(--cornell) text-(--ivory)"
+                                                className="inline-flex px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot uppercase tracking-[0.15em] bg-(--blackbean) text-(--ivory)"
                                             >
                                                 {tag}
                                             </span>

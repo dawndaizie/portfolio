@@ -206,7 +206,7 @@ export default function PlayPage() {
         <button
           type="button"
           onClick={initializePositions}
-          className="group flex items-center gap-2 rounded-full border border-(--blackbean)/25 bg-(--ivory) px-5 py-2 font-dot text-xs tracking-wider text-(--blackbean) transition-all hover:border-(--blackbean) hover:shadow-sm active:scale-95"
+          className="group flex items-center gap-2 rounded-lg border border-(--blackbean)/50 bg-(--ivory) px-5 py-2 font-dot text-xs tracking-wider text-(--blackbean) transition-all hover:border-(--blackbean) hover:shadow-sm hover:text-(--cornell) active:scale-95"
         >
           <span className="inline-block transition-transform duration-300 group-hover:-rotate-45">
             ↺
@@ -242,6 +242,7 @@ export default function PlayPage() {
                   src={piece.image}
                   alt={piece.name}
                   fill
+                  
                   draggable={false}
                   className="object-cover select-none pointer-events-none"
                 />

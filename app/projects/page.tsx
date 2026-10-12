@@ -17,7 +17,7 @@ export default function Projects() {
             image: "/banner.png",
             tags: ["animation", "visual dev"],
             link: "/projects/bite-me",
-            descriptor: "A selfish vampire prince is banished to a reform school for supernatural delinquents, where he and his misfit friends navigate choatic and dangerous school antics while uncovering a long-hidden conspiracy in the magical world.",
+            descriptor: "Visual development project for a animated show about an out-of-control teenage vampire prince sentenced to military school.",
 
         },
 
@@ -204,7 +204,7 @@ export default function Projects() {
                                         {project.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="inline-flex px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot uppercase tracking-[0.15em] bg-(--cornell) text-(--ivory)"
+                                                className="inline-flex px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot uppercase tracking-[0.15em] bg-(--blackbean) text-(--ivory)"
                                             >
                                                 {tag}
                                             </span>

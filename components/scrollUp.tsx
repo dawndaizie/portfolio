@@ -28,7 +28,7 @@ export default function ScrollUp() {
             
             <div className={`transition-all duration-500 ${visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                 <button onClick={scrollToTop}
-                    className="flower bg-(--blackbean)/85 h-[55px] md:h-[75px] shadow-lg transition text-(--ivory) hover:scale-110 hover:-rotate-5 hover:cursor-pointer">
+                    className="stampEffect px-4 py-4 bg-(--blackbean)/85 h-[55px] w-[55px] md:h-[75px] md:w-[75px] shadow-lg transition text-(--ivory) hover:scale-110 hover:-rotate-5 hover:cursor-pointer">
                     ↑
                 </button>
             </div>
