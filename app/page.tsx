@@ -16,6 +16,10 @@ export default function Home() {
       image: "/banner.png",
       tags: ["favorites", "dev"],
       link: "/projects/cococoins",
+      passNo: 'CC-0804',
+      date: '2025/2026',
+      section: 'DEV // UI',
+      accentColor: 'text-(--cornell)',
     },
     {
       title: "Bite Me",
@@ -23,6 +27,10 @@ export default function Home() {
       image: "/banner.png",
       tags: ["favorites", "art"],
       link: "/projects/bite-me",
+      passNo: 'BM-1031',
+      date: '2024/2025',
+      section: 'VISDEV // 2D',
+      accentColor: 'text-(--cornell)',
     },
   ]
 
@@ -70,82 +78,129 @@ export default function Home() {
       </section>
 
 
-      <section id="featured" className="py-30 font-space min-h-full w-full text-(--blackbean)">
+      <section
+        id="featured"
+        className="py-24 font-space min-h-full w-full text-(--blackbean)"
+      >
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="text-center mb-10 sm:mb-14">
+            <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2">
+              Admit One · 2024–2026
+            </p>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-kiwi text-(--blackbean) leading-none">
+              featured projects
+            </h2>
+          </div>
 
-        <div className="mx-auto px-4 ">
-                <div className="text-center mb-8 sm:mb-14">
-                    <p className="font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2">
-                        some of my favs! · 2024–2026
+          <div className="mb-14">
+            <FilterBar tags={tags} active={active} setActive={setActive} />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 lg:gap-14">
+            {filtered.length > 0 ? (
+              filtered.map((project) => (
+                <Link
+                  key={project.title}
+                  href={project.link}
+                  className="projectCard ticketCard group flex flex-col justify-between p-6 sm:p-7 select-none cursor-pointer"
+                >
+                  <div>
+                    <div className="flex items-center justify-between border-b border-(--blackbean)/10 pb-3 text-[11px] font-dot tracking-widest uppercase text-(--blackbean)/70">
+                      <span className="flex items-center gap-1.5 font-bold text-(--cornell)">
+                        <span className="h-1.5 w-1.5 rounded-full bg-(--cornell) animate-pulse" />
+                        ADMIT ONE
+                      </span>
+                      <span>{project.passNo}</span>
+                    </div>
+
+                    <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden rounded-xl border border-(--blackbean)/10 bg-white/70 p-2 shadow-inner">
+                      <div className="relative h-full w-full overflow-hidden rounded-lg bg-(--blackbean)/5">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center rounded-md border border-dashed border-(--cornell)/30 bg-(--cornell) px-2.5 py-0.5 font-dot text-[10px] tracking-wider uppercase text-(--ivory)"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <h3 className="mt-3 font-space text-2xl font-bold tracking-tight text-(--blackbean) transition-colors group-hover:text-(--cornell)">
+                      {project.title}
+                    </h3>
+
+                    <p className="mt-2 text-xs sm:text-sm font-dot tracking-wide leading-relaxed text-(--blackbean)/80 line-clamp-3">
+                      {project.descriptor}
                     </p>
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-kiwi text-(--blackbean) leading-none">
-                        featured projects
-                    </h1>
-                    
-                </div>
-                <div className="mb-12">
-                    <FilterBar
-                        tags={tags}
-                        active={active}
-                        setActive={setActive}
-                    />
-                </div>
+                  </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-7">
-                    {filtered.length > 0 ? (
-                        filtered.map((project) =>
-                            <Link
-                                key={project.title}
-                                href={project.link}
-                                className="projectCard group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-(--blackbean)/15 bg-(--ivory)/90 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-(--blackbean) hover:bg-(--ivory) hover:shadow-[0_16px_36px_rgba(53,23,16,0.14)]"
-                            >
-                                <div className="">
+                  <div className="mt-8 pt-5">
+                    <div className="grid grid-cols-3 gap-2 font-dot text-[10px] sm:text-[11px] tracking-wider uppercase text-(--blackbean)/75">
+                      <div>
+                        <span className="block text-[9px] text-(--cornell) font-bold">
+                          DATE
+                        </span>
+                        <span>{project.date}</span>
+                      </div>
+                      <div>
+                        <span className="block text-[9px] text-(--cornell) font-bold">
+                          HALL
+                        </span>
+                        <span>{project.section}</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="block text-[9px] text-(--cornell) font-bold">
+                          GATE
+                        </span>
+                        <span>BOARDING ↗</span>
+                      </div>
+                    </div>
 
-                                    <div className="relative aspect-[16/9] w-full rounded-xl border border-(--blackbean)/10 bg-white/60 p-2 shadow-inner">
-                                        <div className="relative h-full w-full overflow-hidden rounded-lg bg-(--blackbean)/5">
+                    <div className="mt-4 flex items-center justify-between border-t border-(--blackbean)/10 pt-3">
+                      <div className="flex items-center gap-0.5 opacity-65 group-hover:opacity-100 transition-opacity">
+                        <span className="h-5 w-0.5 bg-(--blackbean)" />
+                        <span className="h-5 w-1 bg-(--blackbean)" />
+                        <span className="h-5 w-0.5 bg-(--blackbean)" />
+                        <span className="h-5 w-1.5 bg-(--blackbean)" />
+                        <span className="h-5 w-0.5 bg-(--blackbean)" />
+                        <span className="h-5 w-2 bg-(--blackbean)" />
+                        <span className="h-5 w-0.5 bg-(--blackbean)" />
+                        <span className="h-5 w-1 bg-(--blackbean)" />
+                        <span className="h-5 w-1.5 bg-(--blackbean)" />
+                        <span className="h-5 w-0.5 bg-(--blackbean)" />
+                        <span className="h-5 w-2 bg-(--blackbean)" />
+                        <span className="h-5 w-0.5 bg-(--blackbean)" />
+                        <span className="h-5 w-1 bg-(--blackbean)" />
+                        <span className="h-5 w-1.5 bg-(--blackbean)" />
+                      </div>
 
-                                            <Image
-                                                src={project.image}
-                                                alt={project.title}
-                                                fill
-                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                                className="object-cover " />
-                                        </div>
-                                    </div>
-                                    <div className="mt-5 flex flex-wrap gap-2">
-                                        {project.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="inline-flex px-3 py-1 pb-2 pt-2 border border-dashed border-1 rounded-lg text-xs font-dot uppercase tracking-[0.15em] bg-(--blackbean) text-(--ivory)"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-
-                                    <h2 className="mt-3 font-space text-2xl font-bold tracking-tight text-(--blackbean) group-hover:text-(--cornell) transition-colors">
-                                        {project.title}
-                                    </h2>
-                                    <p className="mt-2 text-xs sm:text-sm font-dot tracking-wide leading-relaxed text-(--blackbean)/80 line-clamp-3">
-                                        {project.descriptor}
-                                    </p>
-                                </div>
-                                <div className="mt-5 flex items-center justify-between border-t border-(--blackbean)/10 pt-3 text-xs font-medium text-(--blackbean)/70">
-                                    <span className="font-dot tracking-widest uppercase text-[11px]">View Project</span>
-                                    <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-(--blackbean) shadow-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-(--blackbean) group-hover:text-(--ivory)">
-                                        ↗
-                                    </span>
-                                </div>
-
-                            </Link>
-
-                        )
-                    ) : (
-                        <div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-(--blackbean)/25 bg-white/50">
-                            <p className="md:col-span-2"> No projects in this category yet.</p>
-                        </div>
-                    )}
-                </div>
-            </div>
+                      <span className="font-dot text-[10px] tracking-[0.2em] uppercase text-(--blackbean)/60 group-hover:text-(--cornell) transition-colors">
+                        SCAN // ENTER ↗
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-(--blackbean)/25 bg-white/50">
+                <p className="font-dot text-lg text-(--blackbean)">
+                  No projects found in this category.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
       </section>
 
 

@@ -24,7 +24,7 @@ export default function ScrollUp() {
 
     return (
         <div className={`${visible ? "" : "pointer-events-none"}`}>
-        <div className="fixed bottom-0 right-0 m-8 font-space">
+        <div className="z-100 fixed bottom-0 right-0 m-8 font-space">
             
             <div className={`transition-all duration-500 ${visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                 <button onClick={scrollToTop}
