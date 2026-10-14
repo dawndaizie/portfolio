@@ -195,7 +195,7 @@ export default function PlayPage() {
     <main className="relative w-full overflow-visible py-25 font-space text-(--blackbean)">
       <div className="mb-10 flex flex-col items-start justify-between gap-4 border-b border-(--blackbean)/10 pb-6 sm:flex-row sm:items-center">
         <div>
-          <h1 className="font-kiwi text-4xl sm:text-5xl text-(--blackbean)">
+          <h1 className="font-redact text-4xl sm:text-5xl text-(--blackbean)">
             Playground
           </h1>
           <p className="mt-1 font-space text-xs sm:text-sm text-(--blackbean)/70">

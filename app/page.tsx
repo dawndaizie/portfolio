@@ -3,10 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 import FilterBar from "../components/filters";
 
 
 export default function Home() {
+
+  const router = useRouter();
+  const [tearingLink, setTearingLink] = useState<string | null>(null);
+
+  const photoStripItems = [
+    { id: '1', image: '/works/calico.png', },
+    { id: '2', image: '/works/Cecil Iteration Sequence.png', },
+    { id: '3', image: '/banner.png', },
+    { id: '4', image: '/banner.png', },
+    { id: '5', image: '/works/calico.png', },
+    { id: '6', image: '/works/Cecil Iteration Sequence.png', },
+  ];
 
   const tags = ["favorites", "dev", "design", "art"];
   const projects = [
@@ -40,13 +53,24 @@ export default function Home() {
       ? projects
       : projects.filter((p) => p.tags.includes(active))
 
+
+  const handleTicketClick = (e: React.MouseEvent, link: string) => {
+    e.preventDefault();
+    if (tearingLink) return;
+
+    setTearingLink(link);
+    setTimeout(() => {
+      router.push(link);
+    }, 380);
+  };
+
   return (
     <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center text-(--blackbean)">
 
       <section id="hero" className="py-90 h-50 max-w-full flex items-center">
         <div className="flex flex-col items-center justify-center m-10">
           <h3 className="font-dot text-2xl mt-7 text-left ">hi, I'm</h3>
-          <h1 className="lg:text-7xl text-4xl font-kiwi m-2">dawniqueca steele</h1>
+          <h1 className="lg:text-7xl text-4xl font-redact m-2">dawniqueca steele</h1>
           <h3 className="text-lg mt-7 font-dot tracking-[0.15em] text-center">An Atlanta-based multidiscplinary designer, focusing on storytelling and interaction ⋆˚꩜｡</h3>
         </div>
         <div className=" justify-center mt-10 w-200">
@@ -55,24 +79,69 @@ export default function Home() {
 
       </section>
 
-      <section id="gallery" className="min-h-120 w-full flex flex-col items-center">
+      <section id="gallery" className="w-full py-10 flex flex-col items-center select-none overflow-hidden">
 
-        <div className="carouselContainer">
-          <div className="carousel">
-            <div className="carouselCard">1</div>
-            <div className="carouselCard">2</div>
-            <div className="carouselCard">3</div>
-            <div className="carouselCard">4</div>
-            <div className="carouselCard">5</div>
-            <div className="carouselCard">6</div>
-          </div>
-          <div aria-hidden className="carousel">
-            <div className="carouselCard">1</div>
-            <div className="carouselCard">2</div>
-            <div className="carouselCard">3</div>
-            <div className="carouselCard">4</div>
-            <div className="carouselCard">5</div>
-            <div className="carouselCard">6</div>
+        <div className="w-full max-w-6xl px-4 sm:px-6 mb-3 flex items-center justify-between text-[11px] font-dot tracking-[0.2em] uppercase text-(--blackbean)/60">
+          <span className="flex items-center gap-1.5 font-bold text-(--cornell)">
+            ROLL // 35MM CONTINUOUS STRIP
+          </span>
+          <span>ISO 400 · RAW EXPOSURES</span>
+        </div>
+
+
+        <div className="filmStripContainer w-full overflow-hidden relative">
+
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-20 bg-gradient-to-r from-[#faf8f5] to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-20 bg-gradient-to-l from-[#faf8f5] to-transparent" />
+
+
+          <div className="filmStripTrack flex items-center">
+
+
+            <div className="continuousFilmRibbon flex items-center shrink-0">
+              {photoStripItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="filmExposureFrame group relative flex flex-col items-center justify-center px-4 py-8 shrink-0 cursor-pointer"
+                >
+
+                  <div className="relative aspect-[16/9] w-52 sm:w-64 overflow-hidden rounded-md bg-black/5 border border-(--blackbean)/15 shadow-inner group-hover:scale-105 transition-200">
+                    <Image
+                      src={item.image}
+                      alt={item.id}
+                      fill
+                      sizes="260px"
+                      className="object-cover transition-transform duration-500 ease-out"
+                    />
+                  </div>
+
+                  <div className="absolute right-0 top-0 bottom-0 w-px bg-(--blackbean)/20 pointer-events-none" />
+                </div>
+              ))}
+            </div>
+
+
+            <div aria-hidden="true" className="continuousFilmRibbon flex items-center shrink-0">
+              {photoStripItems.map((item) => (
+                <div
+                  key={`clone-${item.id}`}
+                  className="filmExposureFrame group relative flex flex-col items-center justify-center px-4 py-8 shrink-0 cursor-pointer"
+                >
+
+                  <div className="relative aspect-[16/9] w-52 sm:w-64 overflow-hidden rounded-md bg-black/5 border border-(--blackbean)/15 shadow-inner">
+                    <Image
+                      src={item.image}
+                      alt={item.id}
+                      fill
+                      sizes="260px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute right-0 top-0 bottom-0 w-px bg-(--blackbean)/20 pointer-events-none" />
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
@@ -87,7 +156,7 @@ export default function Home() {
             <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2">
               Admit One · 2024–2026
             </p>
-            <h2 className="text-5xl sm:text-6xl md:text-7xl font-kiwi text-(--blackbean) leading-none">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-redact text-(--blackbean) leading-none">
               featured projects
             </h2>
           </div>
@@ -107,7 +176,7 @@ export default function Home() {
                   <div>
                     <div className="flex items-center justify-between border-b border-(--blackbean)/10 pb-3 text-[11px] font-dot tracking-widest uppercase text-(--blackbean)/70">
                       <span className="flex items-center gap-1.5 font-bold text-(--cornell)">
-                        <span className="h-1.5 w-1.5 rounded-full bg-(--cornell) animate-pulse" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-(--cornell)" />
                         ADMIT ONE
                       </span>
                       <span>{project.passNo}</span>
@@ -216,3 +285,4 @@ export default function Home() {
 
 
 
+// PRINT STRIP FOR CAROUSEL

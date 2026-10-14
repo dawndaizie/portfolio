@@ -70,7 +70,7 @@ export default function Art() {
     return (
         <main className="py-20 font-space min-h-full max-w-full">
             <div className="mx-auto max-w-7xl">
-                <h1 className="py-10 m-10 mb-5 text-6xl font-kiwi text-center text-(--blackbean)">Gallery</h1>
+                <h1 className="py-10 m-10 mb-5 text-6xl font-redact text-center text-(--blackbean)">Gallery</h1>
                 <FilterBar
                     tags={tags}
                     active={active}

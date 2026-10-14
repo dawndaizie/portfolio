@@ -166,7 +166,7 @@ export default function Projects() {
                     <p className="font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2">
                         Selected Works · 2024–2026
                     </p>
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-kiwi text-(--blackbean) leading-none">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-redact text-(--blackbean) leading-none">
                         All Projects
                     </h1>
                     

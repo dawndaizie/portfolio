@@ -29,14 +29,14 @@ export default function Footer() {
 
 
     return (
-        <div className="footer w-full flex flex-col font-space mt-16 px-4 pb-8 sm:px-8 sm:flex-row">
+        <div className="footer w-full flex flex-col font-space tracking-[0.2em] mt-16 px-4 pb-8 sm:px-8 sm:flex-row">
 
             <div className="max-w-6xl text-sm p-6 sm:p-10 mt-3">
                 <div className="flex-row gap-8 items-end justify-between">
                     <div className="space-y-3 mb-4">
                         
 
-                        <h2 className="font-space text-3xl font-bold sm:text-4xl text-(--blackbean) pb-3">
+                        <h2 className="font-redact text-3xl font-semibold sm:text-4xl text-(--blackbean) pb-3">
                             interested in working together?
                         </h2>
                     </div>

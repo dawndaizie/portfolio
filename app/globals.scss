@@ -6,6 +6,7 @@
   --font-dot: var(--font-dotgothic16);
   --font-kiwi: var(--font-kiwi-soda);
   --font-emoji: var(--font-pixel-emoji);
+  --font-redact: var(--font-redaction35);
 
 }
 
@@ -53,7 +54,6 @@ body {
   background-position: -14px -14px;
 
   width: 93%;
-  max-width: 1200px;
   margin-inline: auto;
   box-sizing: border-box;
   padding: 1.5rem 1rem;
@@ -100,55 +100,84 @@ body {
 }
 
 //**********************************************************************
-// HOMEPAGE CLASSES
+// HOMEPAGE CAROUSEL CLASSES
 
-// Gallery
-.carouselContainer {
-  margin: 100px auto;
-  margin-top: 2em;
-  width: 90%;
+.filmStripContainer {
+  width: 100%;
   display: flex;
-  overflow-x: auto;
-  gap: 1em;
+  position: relative;
 }
 
-.carouselContainer::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel {
+.filmStripTrack {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  animation: scrolling 27s infinite linear;
-  padding-right: 1em;
+  width: max-content;
+  will-change: transform;
+  animation: continuous-film-marquee 30s linear infinite;
 }
 
-
-.carouselCard {
-  flex: 0 0 10em;
-  height: 5em;
-  padding: 1em;
-  background: var(--sky);
-  font-size: 3rem;
-  border-radius: .2em;
-  text-align: center;
-  align-content: center;
-  color: var(--ivory);
+.filmStripContainer:hover .filmStripTrack {
+  animation-play-state:paused;
 }
 
-@keyframes scrolling {
+@keyframes continuous-film-marquee {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
-
   100% {
-    transform: translateX(-100%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
+.continuousFilmRibbon {
+  position: relative;
+  background-color: var(--blackbean);
+  border-top: 2px solid rgba(53, 23, 16, 0.2);
+  border-bottom: 2px solid rgba(53, 23, 16, 0.2);
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 8px 24px rgba(53, 23, 16, 0.1),
+    0 2px 4px rgba(53, 23, 16, 0.05);
 
+
+  background-image: 
+    radial-gradient(circle at 10px 9px, rgba(243, 239, 238, 0.8) 3.5px, transparent 4px),
+    radial-gradient(circle at 10px calc(100% - 9px), rgba(246, 243, 242, 0.8) 3.5px, transparent 4px);
+  background-size: 20px 100%;
+  background-repeat: repeat-x;
+}
+
+.continuousFilmRibbon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/paperTexture.jpg');
+  background-repeat: repeat;
+  background-size: 320px auto;
+  mix-blend-mode: multiply;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.continuousFilmRibbon > * {
+  position: relative;
+  z-index: 2;
+}
+
+.filmExposureFrame {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.filmExposureFrame:hover {
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filmStripTrack {
+    animation: none !important;
+  }
+}
 
 //**********************************************************************
 // PROJECT CARD CLASSES

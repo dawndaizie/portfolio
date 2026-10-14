@@ -33,6 +33,11 @@ const emoji = localFont({
   src: "../public/fonts/PixelEmoji.woff2"
 })
 
+const redact = localFont({
+  variable: "--font-redaction35",
+  src: "../public/fonts/Redaction35.woff2"
+})
+
 
 export const metadata: Metadata = {
   title: "dawniqueca steele ⋆˚ೀ",
@@ -45,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${space.variable} ${dot.variable} ${kiwi.variable} ${emoji.variable}`}>
+    <html lang="en" className={`${space.variable} ${dot.variable} ${kiwi.variable} ${emoji.variable} ${redact.variable}`}>
       <body
         className={`relative min-h-dvh w-full overflow-x-hidden antialiased`}
       >
