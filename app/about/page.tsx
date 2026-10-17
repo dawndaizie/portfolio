@@ -44,6 +44,7 @@ export default function About() {
 
 
 
+
             {/*<section id="hero" className="min-h-200 w-full flex flex-row items-center ml-10 mr-20 p-50">
 
                 <img className="aspect-auto object-contain max-w-full m-auto max-h-100 rounded shadow-md" src="/idsquare.png" alt="image of myself" />
@@ -126,3 +127,5 @@ export default function About() {
         </main>
     );
 }
+
+// inventory options? able to turn model around? gambling sidequest?

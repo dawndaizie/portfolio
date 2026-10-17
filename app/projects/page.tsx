@@ -143,10 +143,10 @@ export default function Projects() {
         },
 
         {
-            title: "Twee Bakery",
+            title: "Twee Bakehouse",
             image: "/banner.png",
             tags: ["brand design"],
-            link: "/projects/twee-bakery",
+            link: "/projects/twee-bakehouse",
             descriptor: "Playful artisan brand identity and menu system for a boutique home bakery.",
 
         },

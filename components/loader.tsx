@@ -73,7 +73,7 @@ export default function Loader({
       {loading && (
         <div
           aria-hidden="true"
-          className={`font-kiwi fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-700 ${
+          className={`font-redact fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-700 ${
             fadeOut ? "pointer-events-none opacity-0" : "opacity-100"
           }`}
         >

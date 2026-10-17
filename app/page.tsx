@@ -67,7 +67,7 @@ export default function Home() {
   return (
     <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center text-(--blackbean)">
 
-      <section id="hero" className="py-90 h-50 max-w-full flex items-center">
+      <section id="hero" className="py-10 max-w-full flex flex-col md:flex-row items-center ">
         <div className="flex flex-col items-center justify-center m-10">
           <h3 className="font-dot text-2xl mt-7 text-left ">hi, I'm</h3>
           <h1 className="lg:text-7xl text-4xl font-redact m-2">dawniqueca steele</h1>
@@ -205,8 +205,8 @@ export default function Home() {
                       ))}
                     </div>
 
-                    <h3 className="mt-3 font-space text-2xl font-bold tracking-tight text-(--blackbean) transition-colors group-hover:text-(--cornell)">
-                      {project.title}
+                    <h3 className="mt-3 font-redact text-2xl  text-(--blackbean) transition-colors group-hover:text-(--cornell)">
+                      [{project.title}]
                     </h3>
 
                     <p className="mt-2 text-xs sm:text-sm font-dot tracking-wide leading-relaxed text-(--blackbean)/80 line-clamp-3">
