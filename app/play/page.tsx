@@ -18,9 +18,9 @@ type PlayPiece = {
 const BASE_WORKS: PlayPiece[] = [
   {
     id: 'calico',
-    name: 'calico',
-    image: '/works/calico.png',
-    descriptor: 'nice place',
+    name: 'inyourthoughts',
+    image: '/playSection/inyourthoughts.jpg',
+    descriptor: '18 x 24, acrylic on canvas',
     initialX: 12,
     initialY: 60,
     width: 250,
@@ -29,24 +29,24 @@ const BASE_WORKS: PlayPiece[] = [
   },
   {
     id: 'cecil',
-    name: 'cecil iteration',
-    image: '/works/Cecil Iteration Sequence.png',
+    name: 'meow',
+    image: '/playSection/meow.jpg',
     descriptor: 'character iteration',
     initialX: 42,
     initialY: 40,
     width: 250,
-    aspectRatio: 'aspect-[4/3]',
+    aspectRatio: 'aspect-[1/1]',
     rotation: 3,
   },
   {
     id: 'calico-study',
-    name: 'calico study',
-    image: '/works/calico.png',
+    name: 'scary tree',
+    image: '/playSection/scaryTree.png',
     descriptor: 'illustrations',
     initialX: 70,
     initialY: 70,
     width: 250,
-    aspectRatio: 'aspect-[4/3]',
+    aspectRatio: 'aspect-[5/7]',
     rotation: -2,
   },
 ];
@@ -242,7 +242,7 @@ export default function PlayPage() {
                   src={piece.image}
                   alt={piece.name}
                   fill
-                  
+                  sizes="(max-width: 640px) 250px, 300px"
                   draggable={false}
                   className="object-cover select-none pointer-events-none"
                 />

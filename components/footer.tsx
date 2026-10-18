@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Footer() {
     const [copied, setCopied] = useState(false);
@@ -29,12 +30,10 @@ export default function Footer() {
 
 
     return (
-        <div className="footer w-full flex flex-col font-dot tracking-[0.2em] mt-16 px-4 pb-8 sm:px-8 sm:flex-row">
-
+        <div className="footer w-full flex flex-col font-dot tracking-[0.2em] mt-16 px-4 pb-8 sm:px-8 md:flex-row">
             <div className="max-w-6xl text-sm p-6 sm:p-10 mt-3">
                 <div className="flex-row gap-8 items-end justify-between">
                     <div className="space-y-3 mb-4">
-                        
 
                         <h2 className="font-redact text-3xl font-semibold sm:text-4xl text-(--blackbean) pb-3">
                             interested in working together?
@@ -45,30 +44,20 @@ export default function Footer() {
                     <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs sm:text-sm">
                         <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm hover:font-semibold" href="https://linkedin.com/in/dawniquecasteele" target="_blank" rel="noreferrer">
                             LinkedIn
-                            <span className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-(--blackbean)/60">
-                                ↗
-                            </span>
                         </a>
                         <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm hover:font-semibold " href="https://github.com/dawndaizie" target="_blank" rel="noreferrer">
                             Github
-                            <span className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-(--blackbean)/60">
-                                ↗
-                            </span>
                         </a>
 
                         <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm hover:font-semibold " href="https://www.artstation.com/dawndaizie" target="_blank" rel="noreferrer">
                             Artstation
-                            <span className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-(--blackbean)/60">
-                                ↗
-                            </span>
-
                         </a>
                         <div className="group relative flex items-center overflow-hidden rounded-lg border border-(--blackbean)/15 bg-white/80 p-0.5 transition-all duration-300 hover:border-(--blackbean) hover:bg-white hover:shadow-sm">
                             <a className="text-(--blackbean) flex items-center gap-1.5 px-3.5 py-1.5 hover:font-semibold transition-colors hover:text-(--cornell)" href={`mailto:${email}`}>
-                                Email<span className="text-(--blackbean)/60">↗</span>
+                                Email
                             </a>
 
-                           
+
                             <button
                                 type="button"
                                 onClick={handleCopy}
