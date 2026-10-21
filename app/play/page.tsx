@@ -17,7 +17,7 @@ type PlayPiece = {
 
 const BASE_WORKS: PlayPiece[] = [
   {
-    id: 'calico',
+    id: 'inyourthoughts',
     name: 'inyourthoughts',
     image: '/playSection/inyourthoughts.jpg',
     descriptor: '18 x 24, acrylic on canvas',
@@ -28,10 +28,10 @@ const BASE_WORKS: PlayPiece[] = [
     rotation: -4,
   },
   {
-    id: 'cecil',
+    id: 'meow',
     name: 'meow',
     image: '/playSection/meow.jpg',
-    descriptor: 'character iteration',
+    descriptor: 'commissioned painting',
     initialX: 42,
     initialY: 40,
     width: 250,
@@ -39,10 +39,10 @@ const BASE_WORKS: PlayPiece[] = [
     rotation: 3,
   },
   {
-    id: 'calico-study',
+    id: 'scary tree',
     name: 'scary tree',
     image: '/playSection/scaryTree.png',
-    descriptor: 'illustrations',
+    descriptor: 'procreate illustration for halloween',
     initialX: 70,
     initialY: 70,
     width: 250,
@@ -65,6 +65,21 @@ export default function PlayPage() {
   const positionsRef = useRef<Map<string, ItemPos>>(new Map());
   const highestZRef = useRef<number>(50);
   const [isReady, setIsReady] = useState(false);
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setActiveTooltip(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
 
   const applyTransform = (
     id: string,
@@ -75,9 +90,8 @@ export default function PlayPage() {
   ) => {
     const el = itemRefs.current.get(id);
     if (!el) return;
-    el.style.transform = `translate3d(${x}px, ${y}px, 0px) rotate(${rotation}deg) scale(${
-      isDragging ? 1.04 : 1
-    })`;
+    el.style.transform = `translate3d(${x}px, ${y}px, 0px) rotate(${rotation}deg) scale(${isDragging ? 1.04 : 1
+      })`;
   };
 
   const initializePositions = useCallback(() => {
@@ -134,7 +148,6 @@ export default function PlayPage() {
     const targetEl = itemRefs.current.get(id);
     if (!container || !currentPos || !targetEl) return;
 
-    // Bring clicked element to top
     highestZRef.current += 1;
     currentPos.zIndex = highestZRef.current;
     targetEl.style.zIndex = `${highestZRef.current}`;
@@ -158,14 +171,11 @@ export default function PlayPage() {
 
       const containerRect = container.getBoundingClientRect();
 
-      // Bounds allow item to drag out of the overlay onto the moving background:
-      // Left bound: allowed all the way to the window's left edge
       const minX = -containerRect.left + 8;
-      // Right bound: allowed all the way to the window's right edge
       const maxX = window.innerWidth - containerRect.left - pieceWidth + 8;
-      
-      const minY = -containerRect.top + 70; // Keep below fixed navbar
-      const maxY = containerRect.height + 400; // Allow dragging down into footer area
+
+      const minY = -containerRect.top + 70;
+      const maxY = containerRect.height + 400;
 
       currentX = Math.max(minX, Math.min(startX + deltaX, maxX));
       currentY = Math.max(minY, Math.min(startY + deltaY, maxY));
@@ -189,7 +199,20 @@ export default function PlayPage() {
 
     window.addEventListener('pointermove', onPointerMove, { passive: true });
     window.addEventListener('pointerup', onPointerUp, { once: true });
+
+  
   };
+
+  const showTooltip = (id: string) => {
+      setActiveTooltip(id);
+      const position = positionsRef.current.get(id);
+      const element = itemRefs.current.get(id);
+      if (!position || !element) return;
+
+      highestZRef.current += 1;
+      position.zIndex = highestZRef.current;
+      element.style.zIndex = `${position.zIndex}`;
+    };
 
   return (
     <main className="relative w-full overflow-visible py-25 font-space text-(--blackbean)">
@@ -215,43 +238,91 @@ export default function PlayPage() {
         </button>
       </div>
 
-      
+
       <div
+      
         ref={containerRef}
         className="relative min-h-[75vh] w-full overflow-visible touch-none"
       >
-        {BASE_WORKS.map((piece) => (
-          <div
-            key={piece.id}
-            ref={(node) => {
-              if (node) itemRefs.current.set(piece.id, node);
-              else itemRefs.current.delete(piece.id);
-            }}
-            onPointerDown={(e) => handlePointerDown(e, piece.id)}
-            style={{
-              width: `${piece.width}px`,
-              opacity: isReady ? 1 : 0,
-            }}
-            className="absolute left-0 top-0 cursor-grab touch-none transition-opacity duration-300 will-change-transform"
-          >
-            <div className="group relative rounded-2xl shadow-[0_10px_25px_rgba(53,23,16,0.15)] ring-1 ring-(--blackbean)/15 transition-shadow hover:shadow-[0_20px_35px_rgba(53,23,16,0.22)]">
-              <div
-                className={`relative overflow-hidden rounded-xl bg-(--blackbean)/5 ${piece.aspectRatio} pointer-events-none`}
-              >
-                <Image
-                  src={piece.image}
-                  alt={piece.name}
-                  fill
-                  sizes="(max-width: 640px) 250px, 300px"
-                  draggable={false}
-                  className="object-cover select-none pointer-events-none"
-                />
-              </div>
+       {BASE_WORKS.map((piece) => {
+  const tooltipId = `play-tooltip-${piece.id}`;
+  const isTooltipOpen = activeTooltip === piece.id;
 
-              
-            </div>
+  return (
+    <div
+      key={piece.id}
+      ref={(node) => {
+        if (node) {
+          itemRefs.current.set(piece.id, node);
+        } else {
+          itemRefs.current.delete(piece.id);
+        }
+      }}
+      tabIndex={0}
+      aria-label={piece.name}
+      aria-describedby={tooltipId}
+      onPointerEnter={(event) => {
+        if (event.pointerType !== 'touch') {
+          showTooltip(piece.id);
+        }
+      }}
+      onPointerLeave={(event) => {
+        if (!event.currentTarget.contains(document.activeElement)) {
+          setActiveTooltip((current) =>
+            current === piece.id ? null : current
+          );
+        }
+      }}
+      onFocus={() => showTooltip(piece.id)}
+      onBlur={(event) => {
+        if (!event.currentTarget.matches(':hover')) {
+          setActiveTooltip((current) =>
+            current === piece.id ? null : current
+          );
+        }
+      }}
+      onPointerDown={(event) => handlePointerDown(event, piece.id)}
+      style={{
+        width: `${piece.width}px`,
+        opacity: isReady ? 1 : 0,
+      }}
+      className="play-poster absolute left-0 top-0 cursor-grab touch-none transition-opacity duration-300 will-change-transform"
+    >
+      <div className="relative rounded-2xl shadow-[0_10px_25px_rgba(53,23,16,0.15)] ring-1 ring-(--blackbean)/15 transition-shadow hover:shadow-[0_20px_35px_rgba(53,23,16,0.22)]">
+        <div
+          className={`relative overflow-hidden rounded-xl bg-(--blackbean)/5 ${piece.aspectRatio} pointer-events-none`}
+        >
+          <Image
+            src={piece.image}
+            alt={piece.name}
+            fill
+            sizes="(max-width: 640px) 250px, 300px"
+            draggable={false}
+            className="object-cover select-none pointer-events-none"
+          />
+        </div>
+
+        <div
+          id={tooltipId}
+          role="tooltip"
+          className={`play-tooltip ${
+            isTooltipOpen ? 'is-visible' : ''
+          }`}
+        >
+          <div className="play-tooltip__label">
+            <span className="play-tooltip__marker" aria-hidden="true">
+              ✦
+            </span>
+
+            <p className="play-tooltip__text font-space">
+              {piece.descriptor}
+            </p>
           </div>
-        ))}
+        </div>
+      </div>
+    </div>
+  );
+})}
       </div>
     </main>
   );
