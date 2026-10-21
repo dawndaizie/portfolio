@@ -109,22 +109,23 @@ body {
   filter: blur(2.5px) grayscale(20%);
   transform: scale(0.97) !important;
   animation-play-state: paused;
-  transition: opacity 350ms ease, filter 350ms ease, transform 350ms ease;
+  transition: opacity 400ms ease, filter 400ms ease, transform 400ms ease;
 }
 
 .toploaderWrapper {
   perspective: 1000px;
   animation: toploader-ambient 6s ease-in-out infinite alternate;
-  will-change: transform;
+  will-change: transform, filter, opacity;
+  transition: opacity 350ms ease, filter 350ms ease;
 }
 
 .toploaderWrapper:nth-child(odd) {
-  animation-duration: 6.8s;
+  animation-duration: 7s;
   animation-delay: -1.5s;
 }
 
 .toploaderWrapper:nth-child(even) {
-  animation-duration: 5.8s;
+  animation-duration: 6s;
   animation-delay: -3.2s;
 }
 
@@ -132,6 +133,7 @@ body {
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   100% {
     transform: translateY(-5px) rotate(0.4deg);
   }
@@ -144,35 +146,50 @@ body {
 
 .toploaderPlastic {
   background: rgba(102, 98, 98, 0.096);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
   border: 1px solid rgba(193, 203, 203, 0.868);
-  box-shadow: 
+  box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
     0 8px 30px rgba(53, 23, 16, 0.12),
     0 2px 6px rgba(53, 23, 16, 0.05);
 
-  transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+  //transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
   transform-style: preserve-3d;
-  transition: transform 120ms ease-out, box-shadow 300ms ease;
+  //transition: transform 120ms ease-out, box-shadow 300ms ease;
+  will-change: transform;
 }
 
-.toploaderWrapper.is-active .toploaderPlastic {
-  box-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 24px 48px rgba(53, 23, 16, 0.2),
-    0 6px 14px rgba(53, 23, 16, 0.08);
-}
+//.toploaderWrapper.is-active .toploaderPlastic {
+//  box-shadow:
+//    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+//    0 24px 48px rgba(53, 23, 16, 0.2),
+//    0 6px 14px rgba(53, 23, 16, 0.08);
+//}
 
 .toploaderLip {
   position: absolute;
   top: 0;
   left: 20px;
   right: 20px;
-  height: 2px;
+  height: 4px;
   background: rgba(219, 221, 223, 0.95);
   border-radius: 0 0 2px 2px;
   box-shadow: 0 1px 3px rgba(53, 23, 16, 0.15);
   z-index: 25;
+}
+
+.toploaderPlasticGlare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+    rgba(255, 255, 255, 0.45) 0%,
+    transparent 65%
+  );
 }
 
 .tradingCardInner::after {
@@ -198,47 +215,45 @@ body {
   opacity: 0;
   transition: opacity 300ms ease;
 
-  background: 
-    radial-gradient(
-      circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(252, 243, 193, 0.6) 20%, // Pale gold
-      rgba(199, 219, 230, 0.5) 40%, // Silver sky
-      rgba(244, 180, 200, 0.45) 60%, // Rose pink
-      transparent 80%
-    );
+  //background:
+ //   radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+   //   rgba(255, 255, 255, 0.85) 0%,
+    //  rgba(252, 243, 193, 0.6) 20%, 
+     // rgba(199, 219, 230, 0.5) 40%, 
+      //rgba(244, 180, 200, 0.45) 60%, 
+      //transparent 80%);
 
   mix-blend-mode: color-dodge;
 }
 
-.toploaderWrapper.is-active .holoFoilOverlay {
-  opacity: 0.75;
-}
+//.toploaderWrapper.is-active .holoFoilOverlay {
+//  opacity: 0.75;
+//}
 
-.toploaderPlastic::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 20;
-  opacity: 0;
-  background: radial-gradient(
-    circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
-    rgba(255, 255, 255, 0.4) 0%,
-    transparent 60%
-  );
-  transition: opacity 300ms ease;
-}
+//.toploaderPlastic::before {
+  //content: '';
+  //position: absolute;
+  //inset: 0;
+  //border-radius: inherit;
+  //pointer-events: none;
+  //z-index: 20;
+  //opacity: 0;
+  //background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+  //    rgba(255, 255, 255, 0.4) 0%,
+  //    transparent 60%);
+  //transition: opacity 300ms ease;
+//}
 
-.toploaderWrapper.is-active .toploaderPlastic::before {
-  opacity: 1;
-}
+//.toploaderWrapper.is-active .toploaderPlastic::before {
+//  opacity: 1;
+//}
 
 @media (prefers-reduced-motion: reduce) {
+
   .toploaderWrapper,
-  .toploaderPlastic,
-  .holoFoilOverlay {
+  .toploaderPlastic
+  //.holoFoilOverlay 
+  {
     animation: none !important;
     transition: none !important;
     transform: none !important;

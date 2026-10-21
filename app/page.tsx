@@ -18,7 +18,7 @@ export default function Home() {
   const projects: ToploaderProject[] = [
     {
       title: "CocoCoins",
-      descriptor: "beach themed financial tracker.",
+      descriptor: "beach themed budget and finance tracker using MERN stack.",
       image: "/banner.png",
       tags: ["favorites", "dev"],
       link: "/projects/cococoins",
@@ -30,7 +30,7 @@ export default function Home() {
     },
     {
       title: "Bite Me",
-      descriptor: "Visual development project for a animated show about an out-of-control teenage vampire prince sentenced to military school.",
+      descriptor: "Animation pitch about an out-of-control vampire prince sentenced to military school.",
       image: "/banner.png",
       tags: ["favorites", "art"],
       link: "/projects/bite-me",
@@ -92,7 +92,7 @@ export default function Home() {
             <FilterBar tags={tags} active={active} setActive={setActive} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
             {filtered.length > 0 ? (
               filtered.map((project) => (
                 <ProjectCard key={project.title} project={project} />
