@@ -22,10 +22,8 @@ export default function Home() {
       image: "/banner.png",
       tags: ["favorites", "dev"],
       link: "/projects/cococoins",
-      cardNo: 'NO. 008 // HOLO',
       hp: 'HP 120',
-      typeBadge: 'DEV',
-      stickerDeco: '⋆˚🐾｡ BEACH EDITION',
+      stickerDeco: '⋆˚🐾｡ SAND DOLLARS',
     },
     {
       title: "Bite Me",
@@ -33,10 +31,8 @@ export default function Home() {
       image: "/banner.png",
       tags: ["favorites", "art"],
       link: "/projects/bite-me",
-      cardNo: 'NO. 010 // ULTRA',
       hp: 'HP 180',
-      typeBadge: 'VISDEV / 2D',
-      stickerDeco: '⋆˚🩸｡ VAMPIRE ACADEMY',
+      stickerDeco: '⋆˚🩸｡ DELIQUENTS',
     },
   ]
 

@@ -11,9 +11,8 @@ export type ToploaderProject = {
   image: string;
   tags: string[];
   link: string;
-  cardNo: string;
   hp: string;
-  typeBadge: string;
+
   stickerDeco: string;
 };
 
@@ -207,7 +206,14 @@ export default function ProjectCard({ project }: { project: ToploaderProject }) 
             <div className="relative z-10 flex items-center justify-between border-b border-(--blackbean)/10 pb-2.5 text-[11px] font-dot tracking-wider text-(--blackbean)/80">
               <span className="font-bold text-(--cornell) flex items-center gap-1.5">
                 ✦
-                {project.typeBadge}
+                {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-md border border-dashed border-(--cornell)/30 bg-(--cornell) px-2.5 py-0.5 font-dot text-[10px] tracking-wider uppercase text-(--ivory)"
+                >
+                  {tag}
+                </span>
+              ))}
               </span>
 
               <span className="font-bold text-(--blackbean) font-mono">{project.hp}</span>
@@ -223,17 +229,6 @@ export default function ProjectCard({ project }: { project: ToploaderProject }) 
                   className="object-cover"
                 />
               </div>
-            </div>
-
-            <div className="relative z-10 mt-3.5 flex flex-wrap gap-1.5">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center rounded-md border border-dashed border-(--cornell)/30 bg-(--cornell) px-2.5 py-0.5 font-dot text-[10px] tracking-wider uppercase text-(--ivory)"
-                >
-                  {tag}
-                </span>
-              ))}
             </div>
 
             <div className="relative z-10">
