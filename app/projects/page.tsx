@@ -21,7 +21,7 @@ export default function Projects() {
             link: "/projects/bite-me",
             descriptor: "Visual development project for a animated show about an out-of-control teenage vampire prince sentenced to military school.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
+
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -35,7 +35,6 @@ export default function Projects() {
             link: "/projects/blue",
             descriptor: "Short animated film about a mermaid attending a night carnival.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -48,7 +47,6 @@ export default function Projects() {
             link: "/projects/charm",
             descriptor: "Branding for a mature, elegant, yet modern tea company.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -61,7 +59,6 @@ export default function Projects() {
             link: "/projects/cococoins",
             descriptor: "A fun, beach themed financial tracker web application.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -74,7 +71,6 @@ export default function Projects() {
             link: "/projects/fmn",
             descriptor: "A dungeon-crawler rpg game where a girl in a post apocalyptic dream world searches for her missing ssiter.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -87,7 +83,6 @@ export default function Projects() {
             link: "/projects/hmh",
             descriptor: "Play (and fall in love) as a newly hired “exorcist” who handles malicious spirits in a world where ghosts and humans coexist.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -100,7 +95,6 @@ export default function Projects() {
             link: "/projects/javapaws",
             descriptor: "A cozy cafe management and character interaction game.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -114,7 +108,6 @@ export default function Projects() {
             link: "/projects/mariposa",
             descriptor: "An interactive music transposer and scale visualization utility.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -127,7 +120,6 @@ export default function Projects() {
             link: "/projects/minimax",
             descriptor: "A collection of playful mini-games built for quick rounds.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -141,7 +133,6 @@ export default function Projects() {
             link: "/projects/perle",
             descriptor: "Brand identity and packaging design for an artsy nail sticker compnay.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -155,7 +146,6 @@ export default function Projects() {
             link: "/projects/pippokey",
             descriptor: "cutesy duck faces life!",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -169,7 +159,6 @@ export default function Projects() {
             link: "/projects/skin-to-skin",
             descriptor: "Mobile UX case study focused on mindful self-care routines.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -182,7 +171,6 @@ export default function Projects() {
             link: "/projects/smart-evaluator",
             descriptor: "here are a bunch of words...",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -195,7 +183,6 @@ export default function Projects() {
             link: "/projects/tsfrml",
             descriptor: "After the worst 17th birthday, Kaia vents her frustrations to a random fish off the pier—only to strike a deal with a fish demon.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -208,7 +195,6 @@ export default function Projects() {
             link: "/projects/twee-bakehouse",
             descriptor: "Playful artisan brand identity and menu system for a boutique home bakery.",
             cardNo: 'NO. 008 // HOLO',
-            rarity: 'SECRET RARE ★★★',
             hp: 'HP 120',
             typeBadge: 'DEV',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -224,14 +210,14 @@ export default function Projects() {
 
     return (
         <main className="py-30 font-space min-h-full w-full text-(--blackbean)">
-            <div className="mx-auto px-4 ">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="text-center mb-8 sm:mb-14">
-                    <p className="font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2">
-                        Selected Works · 2024–2026
-                    </p>
                     <h1 className="text-5xl sm:text-6xl md:text-7xl font-redact text-(--blackbean) leading-none">
                         All Projects
                     </h1>
+                    <p className="font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2">
+                       2024–2026 · Use the following filters to find appropriate projects!
+                    </p>
 
                 </div>
                 <div className="mb-12">

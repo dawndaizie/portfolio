@@ -23,6 +23,12 @@ const dot = DotGothic16({
   weight: ["400"],
 })
 
+const redact = localFont({
+  variable: "--font-redaction35",
+  src: "../public/fonts/Redaction35.woff2"
+})
+
+
 const kiwi = localFont({
   variable: "--font-kiwi-soda",
   src: "../public/fonts/KiwiSoda.woff2",
@@ -33,10 +39,6 @@ const emoji = localFont({
   src: "../public/fonts/PixelEmoji.woff2"
 })
 
-const redact = localFont({
-  variable: "--font-redaction35",
-  src: "../public/fonts/Redaction35.woff2"
-})
 
 
 export const metadata: Metadata = {

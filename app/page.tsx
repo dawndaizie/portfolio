@@ -23,7 +23,6 @@ export default function Home() {
       tags: ["favorites", "dev"],
       link: "/projects/cococoins",
       cardNo: 'NO. 008 // HOLO',
-      rarity: 'SECRET RARE ★★★',
       hp: 'HP 120',
       typeBadge: 'DEV',
       stickerDeco: '⋆˚🐾｡ BEACH EDITION',
@@ -35,8 +34,7 @@ export default function Home() {
       tags: ["favorites", "art"],
       link: "/projects/bite-me",
       cardNo: 'NO. 010 // ULTRA',
-      rarity: 'FIRST EDITION ★★★',
-      hp: 'HP 180', 
+      hp: 'HP 180',
       typeBadge: 'VISDEV / 2D',
       stickerDeco: '⋆˚🩸｡ VAMPIRE ACADEMY',
     },
@@ -74,11 +72,11 @@ export default function Home() {
 
       </section>
 
-       <section
+      <section
         id="featured"
         className="py-24 font-space min-h-full w-full text-(--blackbean)"
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-8xl px-4 sm:px-6">
           <div className="text-center mb-10 sm:mb-14">
             <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2">
               archive · 2024–2026
@@ -102,26 +100,27 @@ export default function Home() {
                 <p className="font-dot text-lg text-(--blackbean)">
                   No projects in this category yet.
                 </p>
-                
+
               </div>
             )}
           </div>
         </div>
       </section>
-
+            {/*
       <section id="demo-reel" className=" min-h-full pb-15 items-center gap-2 flex flex-col md:flex-row">
-            <div className="md:w-[50%]">
-               <p className="text-center font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2">
-              work in action!
-            </p>
-<h2 className="font-redact text-5xl text-center">demo reel</h2>
+        <div className="md:w-[50%]">
+          <p className="text-center font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2">
+            work in action!
+          </p>
+          <h2 className="font-redact text-5xl text-center">demo reel</h2>
 
-            </div>
-            <div className="md:w-[65%]">
-              <img src="/banner.png" />
-            </div>
-        
+        </div>
+        <div className="md:w-[65%]">
+          <img src="/banner.png" />
+        </div>
+
       </section>
+      */}
 
     </main>
 
