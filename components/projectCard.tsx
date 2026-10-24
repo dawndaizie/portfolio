@@ -11,8 +11,6 @@ export type ToploaderProject = {
   image: string;
   tags: string[];
   link: string;
-  hp: string;
-
   stickerDeco: string;
 };
 
@@ -205,18 +203,18 @@ export default function ProjectCard({ project }: { project: ToploaderProject }) 
 
             <div className="relative z-10 flex items-center justify-between border-b border-(--blackbean)/10 pb-2.5 text-[11px] font-dot tracking-wider text-(--blackbean)/80">
               <span className="font-bold text-(--cornell) flex items-center gap-1.5">
-                ✦
+                
                 {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center rounded-md border border-dashed border-(--cornell)/30 bg-(--cornell) px-2.5 py-0.5 font-dot text-[10px] tracking-wider uppercase text-(--ivory)"
+                  className="items-center line-clamp-1 rounded-md border border-dashed border-(--cornell)/30 bg-(--cornell) px-2.5 py-1 font-dot text-[12px] tracking-[0.15em] uppercase text-(--ivory)"
                 >
                   {tag}
                 </span>
               ))}
               </span>
 
-              <span className="font-bold text-(--blackbean) font-mono">{project.hp}</span>
+              <span className="font-bold text-(--blackbean) font-mono">⋆.𐙚 ̊</span>
             </div>
 
             <div className="relative z-10 mt-3 aspect-[1/1] w-full overflow-hidden rounded-lg border-2 border-(--blackbean)/15 bg-white p-1.5 shadow-sm">
@@ -236,7 +234,7 @@ export default function ProjectCard({ project }: { project: ToploaderProject }) 
                 {project.title}
               </h3>
 
-              <p className="toploaderDescriptor mt-1.5 text-xs sm:text-sm font-mono tracking-wide leading-relaxed text-(--blackbean)/85">
+              <p className="toploaderDescriptor mt-1.5 text-sm sm:text-[14px] font-mono tracking-wide leading-relaxed text-(--blackbean)/85">
                 {project.descriptor}
               </p>
             </div>
@@ -244,7 +242,7 @@ export default function ProjectCard({ project }: { project: ToploaderProject }) 
 
           </div>
 
-          <div className="absolute bottom-1.5 right-2 z-30 rounded-md bg-white px-2.5 py-1 font-dot text-[10px] font-bold text-(--blackbean) border border-(--blackbean)/20 shadow-md backdrop-blur-xs -rotate-2">
+          <div className="absolute bottom-1.5 right-2 z-30 rounded-md bg-white px-2.5 py-1 font-dot text-[11px] tracking-[0.15em]  font-bold text-(--blackbean) border border-(--blackbean)/20 shadow-md backdrop-blur-xs -rotate-2">
             {project.stickerDeco}
           </div>
         </div>

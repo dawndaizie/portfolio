@@ -20,7 +20,6 @@ export default function Projects() {
             tags: ["animation", "visual dev"],
             link: "/projects/bite-me",
             descriptor: "Animation pitch about an out-of-control vampire prince sentenced to military school.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ BEACH EDITION',
 
         },
@@ -31,7 +30,6 @@ export default function Projects() {
             tags: ["animation", "visual dev"],
             link: "/projects/blue",
             descriptor: "Short animated film about a mermaid attending a night carnival.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡  MERMAID CARNIVAL',
         },
 
@@ -41,7 +39,6 @@ export default function Projects() {
             tags: ["brand design"],
             link: "/projects/charm",
             descriptor: "Branding for a mature, elegant, yet modern tea company.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ I <3 TEA',
         },
 
@@ -51,7 +48,6 @@ export default function Projects() {
             tags: ["ui/ux design", "software dev"],
             link: "/projects/cococoins",
             descriptor: "A fun, beach themed financial tracker web application.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ SAND DOLLARS',
         },
 
@@ -61,7 +57,6 @@ export default function Projects() {
             tags: ["visual dev"],
             link: "/projects/fmn",
             descriptor: "A dungeon-crawler rpg game where a girl in a post-apocalyptic dream world searches for her missing sister.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ DREAM SCAPES',
         },
 
@@ -71,7 +66,6 @@ export default function Projects() {
             tags: ["game dev", "visual dev"],
             link: "/projects/hmh",
             descriptor: "Play (and fall in love) as an “exorcist” who handles malicious spirits in a world where ghosts and humans coexist.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ GHOSTLY LOVE',
         },
 
@@ -81,7 +75,6 @@ export default function Projects() {
             tags: ["game dev", "visual dev"],
             link: "/projects/javapaws",
             descriptor: "A cozy cafe management and character interaction game.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ BUNNY BOBA',
 
         },
@@ -92,7 +85,6 @@ export default function Projects() {
             tags: ["software dev"],
             link: "/projects/mariposa",
             descriptor: "An interactive music transposer and scale visualization utility.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ FLOWERY TUNES',
         },
 
@@ -102,7 +94,6 @@ export default function Projects() {
             tags: ["game dev"],
             link: "/projects/minimax",
             descriptor: "A repertoire of playful mini-games built for quick rounds.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ MINI GAMES GALORE',
 
         },
@@ -113,7 +104,6 @@ export default function Projects() {
             tags: ["brand design"],
             link: "/projects/perle",
             descriptor: "Brand identity and packaging design for an artsy nail sticker company.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ DECO NAILS',
         },
 
@@ -124,7 +114,6 @@ export default function Projects() {
             tags: ["animation", "visual dev"],
             link: "/projects/pippokey",
             descriptor: "Cutesy duck and friends have to work for the rest of their lives!!",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ STUPID DUCK',
 
         },
@@ -135,7 +124,6 @@ export default function Projects() {
             tags: ["ui/ux design"],
             link: "/projects/skin-to-skin",
             descriptor: "Mobile UX case study focused on mindful self-care routines.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ self care routines',
         },
 
@@ -145,7 +133,6 @@ export default function Projects() {
             tags: ["software dev"],
             link: "/projects/smart-evaluator",
             descriptor: "here are a bunch of words...",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ MRO analysis',
         },
 
@@ -155,7 +142,6 @@ export default function Projects() {
             tags: ["visual dev"],
             link: "/projects/tsfrml",
             descriptor: "After the worst 17th birthday, Kaia vents her frustrations to a fish, only to strike a deal with a fish demon.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ ACCIDENTAL PACTS',
         },
 
@@ -165,7 +151,6 @@ export default function Projects() {
             tags: ["brand design"],
             link: "/projects/twee-bakehouse",
             descriptor: "Playful artisan brand identity and menu system for a boutique home bakery.",
-            hp: 'HP 120',
             stickerDeco: '⋆˚🐾｡ HOMEMADE SWEETS',
         },
 
@@ -197,7 +182,7 @@ export default function Projects() {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mt-30">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 lg:gap-16 mt-30">
                     {filtered.length > 0 ? (
                         filtered.map((project) => (
                             <ProjectCard key={project.title} project={project} />

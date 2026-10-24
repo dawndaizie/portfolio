@@ -22,7 +22,6 @@ export default function Home() {
       image: "/banner.png",
       tags: ["favorites", "dev"],
       link: "/projects/cococoins",
-      hp: 'HP 120',
       stickerDeco: '⋆˚🐾｡ SAND DOLLARS',
     },
     {
@@ -31,7 +30,6 @@ export default function Home() {
       image: "/banner.png",
       tags: ["favorites", "art"],
       link: "/projects/bite-me",
-      hp: 'HP 180',
       stickerDeco: '⋆˚🩸｡ DELIQUENTS',
     },
   ]
