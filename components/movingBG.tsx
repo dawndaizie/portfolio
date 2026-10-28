@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 
 export default function MovingBG() {
 
-     const letter = "a";
-        const color = "var(--ivory)";
+    const letter = "a";
+    const color = "var(--ivory)";
     const fontVar = "var(--font-pixel-emoji), sans-serif";
     const size = 80;
     const speed = 30;
@@ -42,7 +42,7 @@ export default function MovingBG() {
             ctx.textBaseline = "middle";
             ctx.font = `${fontSize}px ${resolvedFontFamily}`;
 
-           
+
             ctx.fillText(letter, half / 2, half / 2);
             ctx.fillText(letter, size - half / 2, size - half / 2);
 
@@ -56,7 +56,8 @@ export default function MovingBG() {
             className="pointer-events-none fixed inset-0 -z-10  min-h-screen w-screen overflow-hidden bg-(--sky)"
         >
             <div
-                className="pointer-events-none absolute -inset-[100px] opacity-55"
+                className={`moving-bg-layer pointer-events-none absolute -inset-[100px] opacity-55 ${bgDataUrl ? 'is-ready' : ''
+                    }`}
                 style={{
                     backgroundImage: bgDataUrl ? `url(${bgDataUrl})` : undefined,
                     backgroundRepeat: "repeat",

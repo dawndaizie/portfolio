@@ -2,18 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import FilterBar from "../components/filters";
 import Spline from "@splinetool/react-spline";
 import ProjectCard, { ToploaderProject } from "../components/projectCard";
-
+import { motion } from 'framer-motion';
+import RotateTypewriter from "../components/rotateTypewriter";
 
 export default function Home() {
 
   const router = useRouter();
-  const [tearingLink, setTearingLink] = useState<string | null>(null);
-
   const tags = ["favorites", "dev", "design", "art"];
   const projects: ToploaderProject[] = [
     {
@@ -23,6 +22,7 @@ export default function Home() {
       tags: ["favorites", "dev"],
       link: "/projects/cococoins",
       stickerDeco: '⋆˚🐾｡ SAND DOLLARS',
+      locked: false,
     },
     {
       title: "Bite Me",
@@ -31,6 +31,7 @@ export default function Home() {
       tags: ["favorites", "art"],
       link: "/projects/bite-me",
       stickerDeco: '⋆˚🩸｡ DELIQUENTS',
+      locked: false,
     },
   ]
 
@@ -40,31 +41,81 @@ export default function Home() {
       ? projects
       : projects.filter((p) => p.tags.includes(active))
 
+  
+  const [isSiteReady, setIsSiteReady] = useState(false);
 
-  const handleTicketClick = (e: React.MouseEvent, link: string) => {
-    e.preventDefault();
-    if (tearingLink) return;
+useEffect(() => {
+  const handleReady = () => setIsSiteReady(true);
 
-    setTearingLink(link);
-    setTimeout(() => {
-      router.push(link);
-    }, 380);
+  if (document.documentElement.dataset.loaderDone === 'true') {
+    setIsSiteReady(true);
+    return;
+  }
+
+  window.addEventListener('portfolio:ready', handleReady);
+
+  return () => {
+    window.removeEventListener('portfolio:ready', handleReady);
   };
+}, []);
 
   return (
     <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center text-(--blackbean)">
 
       <section id="hero" className="py-10 max-w-full flex flex-col md:flex-row items-center border-b border-(--blackbean)/10 pb-6">
-        <div className="flex flex-col items-center text-center justify-center m-10">
-          <h3 className="font-dot text-2xl mt-7 text-left ">hi, I'm</h3>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-redact m-2">dawniqueca steele</h1>
-          <h3 className="text-lg mt-7 font-dot tracking-[0.15em] text-center">An Atlanta-based multidiscplinary designer, focusing on storytelling and interaction ⋆˚꩜｡</h3>
-        </div>
-        <div className=" justify-center mt-10 w-200">
-          <img className="aspect-auto object-contain m-auto" src="/hero-animation.png" />
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="flex w-full max-w-[520px] flex-col items-center text-center justify-center m-10">
+          <h3 className="font-dot text-2xl mt-7 text-left">
+            hi, im
+          </h3>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.72, ease: [0.22, 1, 0.36, 1] }}
+            className="text-5xl sm:text-6xl md:text-7xl font-redact m-2"
+          >
+            dawniqueca steele
+          </motion.h1>
+
+          <h3 className="text-lg mt-7 font-dot tracking-[0.15em] text-center"
+          >
+            <RotateTypewriter
+              array={[
+                'An Atlanta-based multidisciplinary designer',
+                'focusing on storytelling and interaction',
+                'animator',
+                ' ⋆˚꩜｡"',
+                'interaction designer',
+              ]}
+            />
+
+          </h3>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
+          className="flex justify-center mt-10 w-full max-w-[640px]"
+        >
+          <img
+            data-hero-image="true"
+            className="aspect-auto object-contain m-auto"
+            src="/hero-animation.png"
+            alt="An animated chibi illustration of Dawniqueca"
+            width={800}
+            height={800}
+            fetchPriority="high"
+            decoding="async"
+          />
+        </motion.div>
 
       </section>
+
 
       <section
         id="featured"
@@ -100,7 +151,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-            {/*
+      {/*
       <section id="demo-reel" className=" min-h-full pb-15 items-center gap-2 flex flex-col md:flex-row">
         <div className="md:w-[50%]">
           <p className="text-center font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2">

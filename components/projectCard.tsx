@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
@@ -12,6 +12,7 @@ export type ToploaderProject = {
   tags: string[];
   link: string;
   stickerDeco: string;
+  locked: boolean;
 };
 
 export default function ProjectCard({ project }: { project: ToploaderProject }) {

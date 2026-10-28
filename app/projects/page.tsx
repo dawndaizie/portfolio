@@ -20,7 +20,8 @@ export default function Projects() {
             tags: ["animation", "visual dev"],
             link: "/projects/bite-me",
             descriptor: "Animation pitch about an out-of-control vampire prince sentenced to military school.",
-            stickerDeco: '⋆˚🐾｡ BEACH EDITION',
+            stickerDeco: '⋆˚🐾｡ SAND DOLLARS',
+            locked: false,
 
         },
 
@@ -31,6 +32,7 @@ export default function Projects() {
             link: "/projects/blue",
             descriptor: "Short animated film about a mermaid attending a night carnival.",
             stickerDeco: '⋆˚🐾｡  MERMAID CARNIVAL',
+            locked: true,
         },
 
         {
@@ -40,6 +42,7 @@ export default function Projects() {
             link: "/projects/charm",
             descriptor: "Branding for a mature, elegant, yet modern tea company.",
             stickerDeco: '⋆˚🐾｡ I <3 TEA',
+            locked: false,
         },
 
         {
@@ -49,6 +52,7 @@ export default function Projects() {
             link: "/projects/cococoins",
             descriptor: "A fun, beach themed financial tracker web application.",
             stickerDeco: '⋆˚🐾｡ SAND DOLLARS',
+            locked: false,
         },
 
         {
@@ -58,6 +62,7 @@ export default function Projects() {
             link: "/projects/fmn",
             descriptor: "A dungeon-crawler rpg game where a girl in a post-apocalyptic dream world searches for her missing sister.",
             stickerDeco: '⋆˚🐾｡ DREAM SCAPES',
+            locked: false,
         },
 
         {
@@ -67,6 +72,7 @@ export default function Projects() {
             link: "/projects/hmh",
             descriptor: "Play (and fall in love) as an “exorcist” who handles malicious spirits in a world where ghosts and humans coexist.",
             stickerDeco: '⋆˚🐾｡ GHOSTLY LOVE',
+            locked: false,
         },
 
         {
@@ -76,6 +82,7 @@ export default function Projects() {
             link: "/projects/javapaws",
             descriptor: "A cozy cafe management and character interaction game.",
             stickerDeco: '⋆˚🐾｡ BUNNY BOBA',
+            locked: false,
 
         },
 
@@ -86,6 +93,7 @@ export default function Projects() {
             link: "/projects/mariposa",
             descriptor: "An interactive music transposer and scale visualization utility.",
             stickerDeco: '⋆˚🐾｡ FLOWERY TUNES',
+            locked: false,
         },
 
         {
@@ -95,7 +103,7 @@ export default function Projects() {
             link: "/projects/minimax",
             descriptor: "A repertoire of playful mini-games built for quick rounds.",
             stickerDeco: '⋆˚🐾｡ MINI GAMES GALORE',
-
+            locked: false,
         },
 
         {
@@ -105,6 +113,7 @@ export default function Projects() {
             link: "/projects/perle",
             descriptor: "Brand identity and packaging design for an artsy nail sticker company.",
             stickerDeco: '⋆˚🐾｡ DECO NAILS',
+            locked: true,
         },
 
 
@@ -115,6 +124,7 @@ export default function Projects() {
             link: "/projects/pippokey",
             descriptor: "Cutesy duck and friends have to work for the rest of their lives!!",
             stickerDeco: '⋆˚🐾｡ STUPID DUCK',
+            locked: false,
 
         },
 
@@ -125,6 +135,7 @@ export default function Projects() {
             link: "/projects/skin-to-skin",
             descriptor: "Mobile UX case study focused on mindful self-care routines.",
             stickerDeco: '⋆˚🐾｡ self care routines',
+            locked: false,
         },
 
         {
@@ -134,6 +145,7 @@ export default function Projects() {
             link: "/projects/smart-evaluator",
             descriptor: "here are a bunch of words...",
             stickerDeco: '⋆˚🐾｡ MRO analysis',
+            locked: false,
         },
 
         {
@@ -143,6 +155,7 @@ export default function Projects() {
             link: "/projects/tsfrml",
             descriptor: "After the worst 17th birthday, Kaia vents her frustrations to a fish, only to strike a deal with a fish demon.",
             stickerDeco: '⋆˚🐾｡ ACCIDENTAL PACTS',
+            locked: true,
         },
 
         {
@@ -152,6 +165,7 @@ export default function Projects() {
             link: "/projects/twee-bakehouse",
             descriptor: "Playful artisan brand identity and menu system for a boutique home bakery.",
             stickerDeco: '⋆˚🐾｡ HOMEMADE SWEETS',
+            locked: false,
         },
 
     ]
