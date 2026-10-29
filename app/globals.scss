@@ -558,21 +558,7 @@ body {
 }
 
 
-.moving-bg-layer {
-  opacity: 0;
-  transition: opacity 600ms ease;
-
-  &.is-ready {
-    opacity: 0.55;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .moving-bg-layer {
-    animation: none !important;
-  }
-}
-
+// Typewriter Effect
 .typewriter-cursor {
   display: inline-block;
 
@@ -617,5 +603,64 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .rotate-typewriter .typewriter-cursor {
     animation: none !important;
+  }
+}
+
+// Dither Effect 
+.dither {
+  color: inherit;
+
+  &__word {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  &__cell {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+  }
+
+ &__letter {
+    opacity: 1;
+    transition: opacity 180ms ease;
+
+    &.is-waiting {
+      opacity: 0.045;
+    }
+
+    &.is-scrambling {
+      opacity: 0.08;
+    }
+  }
+
+  &__glyph {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--font-dotgothic16), monospace;
+    font-size: 0.6em;
+    font-weight: 400;
+    letter-spacing: 0;
+
+    color: var(--blackbean);
+    opacity: 0.35;
+
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dither__letter {
+    opacity: 1 !important;
+    transition: none;
+  }
+
+  .dither__glyph {
+    display: none;
   }
 }

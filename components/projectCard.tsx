@@ -8,6 +8,7 @@ export type ToploaderProject = {
   title: string;
   descriptor: string;
   image: string;
+  sections: string[];
   tags: string[];
   link: string;
   stickerDeco: string;
@@ -42,7 +43,7 @@ export default function ProjectCard({ project }: { project: ToploaderProject }) 
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="items-center line-clamp-1 rounded-md border border-dashed border-(--cornell)/30 bg-(--cornell) px-2.5 py-1 font-dot text-[12px] tracking-[0.15em] uppercase text-(--ivory)"
+                    className="items-center line-clamp-1 rounded-md border border-dashed border-(--blackbean)/30 bg-(--blackbean) px-2.5 py-1 font-dot text-[9px] tracking-[0.15em] uppercase text-(--ivory)"
                   >
                     {tag}
                   </span>
