@@ -58,7 +58,7 @@ export default function RootLayout({
       >
           <MovingBG/>
 
-            <Loader>
+          {/*<Loader>*/}
           <div className="relative z-10 flex min-h-dvh w-full flex-col items-center justify-between">
 
 
@@ -76,7 +76,7 @@ export default function RootLayout({
             <ScrollUp />
           </div>
 
-        </Loader>
+        {/*</Loader>*/}
 
       </body>
     </html>

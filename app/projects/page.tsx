@@ -140,7 +140,7 @@ export default function Projects() {
 
         {
             title: "Smart Evaluator",
-            image: "/banner.png",
+            image: "/banners/smartEvaluatorBanner.svg",
             tags: ["software dev"],
             link: "/projects/smart-evaluator",
             descriptor: "here are a bunch of words...",

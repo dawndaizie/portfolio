@@ -48,23 +48,19 @@ body {
 
 .overlay {
   background-color: white;
-
   background-image: radial-gradient(rgba(53, 23, 16, 0.12) 1px, transparent 1px);
   background-size: 28px 28px;
   background-position: -14px -14px;
-
   width: 90%;
   margin-inline: auto;
   box-sizing: border-box;
   padding: 1.5rem 1rem;
   border-radius: 12px;
   position: relative;
-
   border: 1px solid rgba(53, 23, 16, 0.08);
   box-shadow:
     0 2px 8px rgba(53, 23, 16, 0.06),
     0 12px 32px rgba(53, 23, 16, 0.12);
-
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
@@ -76,11 +72,9 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-
   background-image: url('/paperTexture.jpg');
   background-repeat: repeat;
   background-size: 450px auto;
-
   mix-blend-mode: multiply;
   opacity: 0.25;
   pointer-events: none;
@@ -99,69 +93,63 @@ body {
   }
 }
 
+//**********************************************************************
+// HOMEPAGE CLASSES
+
 
 //**********************************************************************
 // PROJECT CARDS
 
 .grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-auto-rows: 1fr;
   align-items: stretch;
+  gap: 2.5rem;
+  > * {
+    min-width: 0;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
-.grid:has(.toploaderWrapper.is-active) .toploaderWrapper:not(.is-active) {
-  opacity: 0.42;
-  filter: blur(2.5px) grayscale(20%);
-  animation-play-state: paused;
-  transition: opacity 400ms ease, filter 400ms ease, transform 400ms ease;
-}
 
 .toploaderWrapper {
-  perspective: 1000px;
-  animation: toploader-ambient 6s ease-in-out infinite alternate;
-  will-change: transform, filter, opacity;
-  transition: opacity 350ms ease, filter 350ms ease;
-  
+  position: relative;
+  display: flex;
+  min-width: 0;
 }
 
-.toploaderWrapper:nth-child(odd) {
-  animation-duration: 7s;
-  animation-delay: -1.5s;
-}
-
-.toploaderWrapper:nth-child(even) {
-  animation-duration: 6s;
-  animation-delay: -3.2s;
-}
-
-@keyframes toploader-ambient {
-  0% {
-    transform: translateY(0px) rotate(0deg);
+.toploaderCard {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 1rem;
+  &:focus-visible {
+    outline: 2px dashed var(--cornell);
+    outline-offset: 6px;
   }
-
-  100% {
-    transform: translateY(-5px) rotate(0.4deg);
-  }
-}
-
-.toploaderWrapper.is-active {
-  animation-play-state: paused;
-  z-index: 40;
 }
 
 .toploaderPlastic {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
   box-sizing: border-box;
-  background: rgba(102, 98, 98, 0.096);
-  backdrop-filter: blur(4px);
+  background:  rgba(102, 98, 98, 0.096);;
   border: 1px solid rgba(193, 203, 203, 0.868);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 8px 30px rgba(53, 23, 16, 0.12),
-    0 2px 6px rgba(53, 23, 16, 0.05);
-
-  transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
-  transform-style: preserve-3d;
-  transition: transform 120ms ease-out, box-shadow 300ms ease;
-  will-change: transform;
+    0 8px 24px rgba(53, 23, 16, 0.1);
 }
 
 .toploaderLip {
@@ -173,47 +161,65 @@ body {
   background: rgba(219, 221, 223, 0.95);
   border-radius: 0 0 2px 2px;
   box-shadow: 0 1px 3px rgba(53, 23, 16, 0.15);
+  pointer-events: none;
   z-index: 25;
+}
+
+.tradingCardInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  > .aspect-\[1\/1\] {
+    flex-shrink: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: url("/paperTexture.jpg");
+    background-repeat: repeat;
+    background-size: 300px auto;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 2;
+  }
 }
 
 .toploaderPlasticGlare {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 35%,
+    rgba(255, 255, 255, 0.45) 0%,
+    transparent 65%
+  );
+  opacity: 0;
   pointer-events: none;
   z-index: 20;
-  opacity: 0;
-  background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
-      rgba(255, 255, 255, 0.45) 0%,
-      transparent 65%);
-}
-
-.tradingCardInner::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background-image: url('/paperTexture.jpg');
-  background-repeat: repeat;
-  background-size: 300px auto;
-  mix-blend-mode: multiply;
-  opacity: 0.22;
-  pointer-events: none;
-  z-index: 2;
+  transition: opacity 220ms ease;
 }
 
 .holoFoilOverlay {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    rgba(252, 243, 193, 0.35) 0%,
+    rgba(199, 219, 230, 0.25) 35%,
+    rgba(244, 180, 200, 0.22) 65%,
+    transparent 85%
+  );
+  opacity: 0;
   pointer-events: none;
   z-index: 3;
-  opacity: 0;
-  transition: opacity 300ms ease;
-
-
-
-  mix-blend-mode: soft-light;
+  transition: opacity 220ms ease;
 }
 
 .toploaderDescriptor {
@@ -226,22 +232,11 @@ body {
   -webkit-line-clamp: 3;
   overflow: hidden;
   overflow-wrap: anywhere;
-
   @media (min-width: 640px) {
     font-size: 0.875rem;
   }
 }
 
-
-@media (prefers-reduced-motion: reduce) {
-
-  .toploaderWrapper,
-  .toploaderPlastic {
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
-  }
-}
 
 //**********************************************************************
 // PLAYGROUND CLASSES
@@ -457,6 +452,7 @@ body {
 }
 
 @keyframes loader-apple-bounce {
+
   0%,
   100% {
     transform: translateY(0) rotate(-4deg);
@@ -482,6 +478,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .loader-screen,
   .loader-scene,
   .loader-apple__body,
@@ -618,6 +615,7 @@ body {
 }
 
 @keyframes typewriter-blink {
+
   0%,
   50% {
     opacity: 1;

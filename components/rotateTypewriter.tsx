@@ -20,33 +20,25 @@ export default function RotateTypewriter({
   deleteSpeed = 28,
   pauseTime = 1800,
 }: RotateTypewriterProps) {
-  const [hasStarted, setHasStarted] = useState(false);
+   const [reduceMotion, setReduceMotion] = useState<boolean | null>(null);
 
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
+   useEffect(() => {
+    const preference = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
-    ).matches;
+    );
 
-    const handleReady = () => {
-      if (prefersReducedMotion) {
-        setHasStarted(true);
-        return;
-      }
-
-      setTimeout(() => setHasStarted(true), startDelay);
+    const updatePreference = () => {
+      setReduceMotion(preference.matches);
     };
 
-    if (document.documentElement.dataset.loaderDone === 'true') {
-      handleReady();
-      return;
-    }
-
-    window.addEventListener('portfolio:ready', handleReady);
+    updatePreference();
+    preference.addEventListener('change', updatePreference);
 
     return () => {
-      window.removeEventListener('portfolio:ready', handleReady);
+      preference.removeEventListener('change', updatePreference);
     };
-  }, [startDelay]);
+  }, []);
+    
 
   const longestString = array.reduce(
     (longest, current) =>
@@ -54,13 +46,7 @@ export default function RotateTypewriter({
     ''
   );
 
-  if (!hasStarted) {
-    return (
-      <span className={`rotate-typewriter ${className}`}>
-        <span className="invisible">{longestString}</span>
-      </span>
-    );
-  }
+
 
   return (
     <span className={`rotate-typewriter ${className}`}>

@@ -12,7 +12,6 @@ import RotateTypewriter from "../components/rotateTypewriter";
 
 export default function Home() {
 
-  const router = useRouter();
   const tags = ["favorites", "dev", "design", "art"];
   const projects: ToploaderProject[] = [
     {
@@ -97,29 +96,29 @@ useEffect(() => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 8 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
-          className="flex justify-center mt-10 w-full max-w-[640px]"
-        >
-          <img
-            data-hero-image="true"
-            className="aspect-auto object-contain m-auto"
-            src="/hero-animation.png"
-            alt="An animated chibi illustration of Dawniqueca"
-            width={800}
-            height={800}
-            fetchPriority="high"
-            decoding="async"
-          />
-        </motion.div>
+  className="hero-chibi flex justify-center mt-10 w-full max-w-[640px]"
+  initial={{ opacity: 0, scale: 0.96, y: 8 }}
+  animate={{ opacity: 1, scale: 1, y: 0 }}
+  transition={{ duration: 0.65, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
+>
+  <Image
+    data-hero-image="true"
+    src="/hero-animation.png"
+    alt="An animated chibi illustration of Dawniqueca"
+    width={800}
+    height={800}
+    priority
+    sizes="(max-width: 768px) 90vw, 640px"
+    className="h-auto w-full max-w-[640px] object-contain"
+  />
+</motion.div>
 
       </section>
 
 
       <section
         id="featured"
-        className="py-24 font-space min-h-full w-full text-(--blackbean)"
+        className="featured-section py-24 font-space min-h-full w-full text-(--blackbean)"
       >
         <div className="mx-auto max-w-8xl px-4 sm:px-6">
           <div className="text-center mb-10 sm:mb-14">
