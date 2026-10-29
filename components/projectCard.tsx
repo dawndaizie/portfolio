@@ -20,22 +20,20 @@ export default function ProjectCard({ project }: { project: ToploaderProject }) 
 
  
   return (
-    <div className="toploaderWrapper">
+    <div className="toploaderWrapper hover:scale-102 transition">
       <Link
         href={project.link}
         className="toploaderCard group block relative select-none cursor-pointer"
       >
 
         <div className="toploaderPlastic relative rounded-2xl p-4 sm:p-5">
-
-          <div className="toploaderPlasticGlare" />
           <div className="toploaderLip" />
 
 
-          <div className="tradingCardInner relative rounded-xl border border-(--blackbean)/20 bg-white p-4 flex flex-col justify-between overflow-hidden shadow-inner">
+          <div className="cardInner relative rounded-xl border border-(--blackbean)/20 bg-white p-4 flex flex-col justify-between overflow-hidden shadow-inner">
 
 
-            <div className="holoFoilOverlay" />
+          
 
 
             <div className="relative z-10 flex items-center justify-between border-b border-(--blackbean)/10 pb-2.5 text-[11px] font-dot tracking-wider text-(--blackbean)/80">
@@ -72,7 +70,7 @@ export default function ProjectCard({ project }: { project: ToploaderProject }) 
                 {project.title}
               </h3>
 
-              <p className="toploaderDescriptor mt-1.5 text-sm sm:text-[14px] font-mono tracking-wide leading-relaxed text-(--blackbean)/85">
+              <p className="mt-1.5 text-sm sm:text-[14px] font-mono tracking-wide leading-relaxed text-(--blackbean)/85">
                 {project.descriptor}
               </p>
             </div>
