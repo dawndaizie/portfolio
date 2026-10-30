@@ -124,7 +124,7 @@ export default function CornerWidgets() {
               className="notice__spark"
               aria-hidden="true"
             >
-              ✦
+              ⋆.𐙚 ̊
             </span>
 
             <p className="notice__message">

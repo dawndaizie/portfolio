@@ -96,9 +96,12 @@ export default function Art() {
                                 />
                             </button>
                         ))) : (
-<div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-(--blackbean)/25 bg-white/50">
-                            <p className="md:col-span-2"> No art in this category yet.</p>
-                        </div>                    )}
+                        <div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-(--blackbean)/25 bg-white/50">
+                            <p className="font-dot text-lg text-(--blackbean)">
+                                No projects in this category yet.
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
 

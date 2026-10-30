@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import Image from 'next/image';
-import BaseModal from './baseModal';
+import MovingBG from './movingBG';
 import { BiX } from 'react-icons/bi';
 
 export type Artwork = {
@@ -24,124 +24,223 @@ type GalleryModalProps = {
 
 export default function GalleryModal({
   work,
-  allWorks = [],
   currentIndex,
   totalImages,
   onClose,
   onPrevious,
   onNext,
 }: GalleryModalProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  const titleId = useId();
+
+  const callbacksRef = useRef({
+    onClose,
+    onPrevious,
+    onNext,
+  });
+
   const hasMultipleImages = totalImages > 1;
-  const onNextRef = useRef(onNext);
-  const onPrevRef = useRef(onPrevious);
-  onNextRef.current = onNext;
-  onPrevRef.current = onPrevious;
-
 
   useEffect(() => {
-    if (!allWorks.length) return;
-    const nextIdx = (currentIndex + 1) % allWorks.length;
-    const prevIdx = (currentIndex - 1 + allWorks.length) % allWorks.length;
-
-    const img1 = new window.Image();
-    img1.src = allWorks[nextIdx].image;
-    const img2 = new window.Image();
-    img2.src = allWorks[prevIdx].image;
-  }, [currentIndex, allWorks]);
-
+    callbacksRef.current = {
+      onClose,
+      onPrevious,
+      onNext,
+    };
+  }, [onClose, onPrevious, onNext]);
 
   useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    const previousFocus =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+
+    if (!dialog.open) {
+      dialog.showModal();
+    }
+
+    closeButtonRef.current?.focus({ preventScroll: true });
+
+    return () => {
+      if (dialog.open) {
+        dialog.close();
+      }
+
+      document.body.style.overflow = previousOverflow;
+
+      if (previousFocus?.isConnected) {
+        previousFocus.focus({ preventScroll: true });
+      }
+    };
+  }, []);
+
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLDialogElement>
+  ) => {
     if (!hasMultipleImages) return;
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') onPrevRef.current();
-      if (event.key === 'ArrowRight') onNextRef.current();
-    };
+    const target = event.target;
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [hasMultipleImages]);
+    if (
+      target instanceof HTMLElement &&
+      target.closest('input, textarea, select, [contenteditable="true"]')
+    ) {
+      return;
+    }
+
+    if (event.altKey || event.ctrlKey || event.metaKey) return;
+
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      callbacksRef.current.onPrevious();
+    }
+
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      callbacksRef.current.onNext();
+    }
+  };
 
   return (
-    <BaseModal label={`${work.name} image viewer`} onClose={onClose}>
-      <div className="flex w-full flex-col gap-3 font-space text-(--blackbean)">
-
-        <div className="flex items-center justify-between px-1">
-          <p className="rounded-full bg-white/95 px-4 py-1.5 font-dot text-xs tracking-wider text-(--blackbean) shadow-sm backdrop-blur-sm">
-            {currentIndex + 1} / {totalImages}
-          </p>
-
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close image modal"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-(--ivory) text-xl font-bold leading-none text-(--blackbean) shadow-md transition-transform hover:scale-105 active:scale-95"
-          >
-            <BiX className="text-3xl" />
-          </button>
-        </div>
-
-
-
-
-
-
-        <div className="relative flex h-[52vh] sm:h-[60vh] md:h-[64vh] w-full items-center justify-center overflow-hidden rounded-2xl p-2 sm:p-4">
-          <div className="relative h-full w-full ">
-            <Image
-              src={work.image}
-              alt={work.name}
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 1200px"
-              className="object-contain "
-            />
-          </div>
-        </div>
-
-        <div className="stampEffect flex flex-col items-center justify-between gap-3 rounded-xl border border-(--blackbean)/10 bg-white p-3 sm:px-5 sm:py-3.5 shadow-md">
-
-          <div className="min-w-0 flex-1">
-            <h2 className="font-space text-lg sm:text-xl font-bold text-(--blackbean)">
-              {work.name}
-            </h2>
-            <p className="font-dot text-center text-xs tracking-wider text-(--blackbean)/75">
-              {work.descriptor}
-            </p>
-          </div>
-          <div className="justify-between">
-            {hasMultipleImages && (
-              <div className="justify-between">
-                <button
-                  type="button"
-                  onClick={onPrevious}
-                  aria-label="View previous artwork"
-                  className="h-9 w-9 m-2 sm:h-10 sm:w-10 ring ring-2 ring-(--blackbean) items-center justify-center rounded-full bg-white text-base font-bold text-(--blackbean) shadow-sm transition hover:scale-105 hover:bg-(--blackbean) hover:text-(--ivory) active:scale-95">
-
-                  ᐊ
-
-                </button>
-
-                <button
-                  type="button"
-                  onClick={onNext}
-                  aria-label="View next artwork"
-                  className="h-9 w-9 m-2 sm:h-10 sm:w-10 ring ring-2 ring-(--blackbean) items-center justify-center rounded-full bg-white text-base font-bold text-(--blackbean) shadow-sm transition hover:scale-105 hover:bg-(--blackbean) hover:text-(--ivory) active:scale-95 ">
-                  ᐅ
-
-                </button>
-              </div>
-            )}
-          </div>
-
-        </div>
-
-
+    <dialog
+      ref={dialogRef}
+      className="galleryModal font-space"
+      aria-labelledby={titleId}
+      aria-modal="true"
+      onKeyDown={handleKeyDown}
+      onCancel={(event) => {
+        event.preventDefault();
+        callbacksRef.current.onClose();
+      }}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) {
+          callbacksRef.current.onClose();
+        }
+      }}
+    >
+      <div className="galleryModal__background" aria-hidden="true">
+        <MovingBG />
       </div>
 
+      <div className="galleryModal__shell">
+        <header className="galleryModal__toolbar">
+          <div className="galleryModal__location font-dot">
+            <span aria-hidden="true">  
+              ⋆.𐙚 ̊
+            </span>
+            <span className="tracking-[0.15em]">art archive</span>
+          </div>
 
+          <div className="galleryModal__toolbarActions">
+            <span className="galleryModal__counter font-dot">
+              <span className="sr-only">Artwork </span>
+              {currentIndex + 1}
+              <span aria-hidden="true"> / </span>
+              <span className="sr-only"> of </span>
+              {totalImages}
+            </span>
 
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="galleryModal__button galleryModal__close"
+              onClick={() => callbacksRef.current.onClose()}
+              aria-label="Close artwork viewer"
+            >
+              <BiX aria-hidden="true" />
+            </button>
+          </div>
+        </header>
 
-    </BaseModal>
+        <figure className="galleryModal__figure">
+          <div className="galleryModal__stage">
+            <div
+              key={work.image}
+              className="galleryModal__image"
+            >
+              <Image
+                src={work.image}
+                alt={work.name}
+                fill
+                loading="eager"
+                sizes="(max-width: 899px) 96vw, (max-width: 1500px) 68vw, 1100px"
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          <figcaption className="galleryModal__caption">
+            <div className="galleryModal__details">
+              <p className="galleryModal__eyebrow font-dot">
+                selected artwork
+              </p>
+
+              <h2
+                id={titleId}
+                className="galleryModal__title font-redact"
+              >
+                {work.name}
+              </h2>
+
+              {work.descriptor && (
+                <p className="galleryModal__description">
+                  {work.descriptor}
+                </p>
+              )}
+
+              {work.tags.length > 0 && (
+                <ul
+                  className="galleryModal__tags font-dot"
+                  aria-label="Artwork categories"
+                >
+                  {work.tags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            {hasMultipleImages && (
+              <nav
+                className="galleryModal__navigation"
+                aria-label="Artwork navigation"
+              >
+                <button
+                  type="button"
+                  className="galleryModal__button"
+                  onClick={() => callbacksRef.current.onPrevious()}
+                  aria-label="View previous artwork"
+                >
+                  <span aria-hidden="true">←</span>
+                </button>
+
+                <button
+                  type="button"
+                  className="galleryModal__button"
+                  onClick={() => callbacksRef.current.onNext()}
+                  aria-label="View next artwork"
+                >
+                  <span aria-hidden="true">→</span>
+                </button>
+              </nav>
+            )}
+          </figcaption>
+        </figure>
+
+        <p className="galleryModal__hint font-dot">
+          esc to close
+          {hasMultipleImages && ' · arrow keys to explore'}
+        </p>
+      </div>
+    </dialog>
   );
 }
