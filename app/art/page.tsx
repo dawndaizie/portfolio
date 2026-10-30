@@ -1,15 +1,10 @@
 'use client'
 
 import { useState } from 'react';
-import GalleryModal from "../../components/galleryModal";
+import Image from 'next/image';
+import GalleryModal, { type Artwork, } from '../../components/galleryModal';
 import FilterBar from '../../components/filters';
 
-type Artwork = {
-    name: string;
-    image: string;
-    descriptor: string;
-    tags: string[];
-};
 
 export default function Art() {
 
@@ -40,24 +35,35 @@ export default function Art() {
             ? works
             : works.filter((p) => p.tags.includes(active));
 
+    const selectedWork =
+        selectedIndex !== null
+            ? filtered[selectedIndex]
+            : undefined;
 
     const closeModal = () => {
         setSelectedIndex(null);
     };
 
     const showNext = () => {
-        setSelectedIndex((currentIndex) => {
-            if (currentIndex === null) return 0;
+        if (filtered.length < 2) return;
 
-            return (currentIndex + 1) % filtered.length;
+        setSelectedIndex((index) => {
+            if (index === null) return null;
+
+            return (index + 1) % filtered.length;
         });
     };
 
     const showPrevious = () => {
-        setSelectedIndex((currentIndex) => {
-            if (currentIndex === null) return 0;
+        if (filtered.length < 2) return;
 
-            return (currentIndex - 1 + filtered.length) % filtered.length;
+        setSelectedIndex((index) => {
+            if (index === null) return null;
+
+            return (
+                (index - 1 + filtered.length) %
+                filtered.length
+            );
         });
     };
 
@@ -66,46 +72,109 @@ export default function Art() {
         setSelectedIndex(null);
     };
 
+    const artworkCount = filtered.length;
 
     return (
-        <main className="py-20 font-space min-h-full max-w-full">
-            <div className="mx-auto max-w-7xl">
-                <h1 className="py-10 m-10 mb-5 text-6xl font-redact text-center text-(--blackbean)">Gallery</h1>
-                <FilterBar
-                    tags={tags}
-                    active={active}
-                    setActive={changeFilter}
-                />
+        <main className="artPage font-space py-40">
+            <div className="artPage__container">
+                <header className="artPage__header ">
 
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-                    {filtered.length > 0 ? (
-                        filtered.map((work, index) => (
-                            <button
-                                key={work.name}
-                                type="button"
-                                onClick={() => setSelectedIndex(index)}
-                                aria-label={`Open ${work.name}`}
-                                className="group overflow-hidden text-left duration-500 hover:scale-105"
+                    <h1 className="artPage__title font-redact text-5xl sm:text-6xl md:text-7xl xl:text-8xl">
+                        art archive
+                    </h1>
+
+                    <p className="artPage__intro">
+                        a collection of my drawings, studies, and animation
+                    </p>
+                </header>
+
+                <section
+                    className="artPage__collection"
+                    aria-label="Browse artwork"
+                >
+                    <div className="artPage__filters">
+                        <FilterBar
+                            tags={tags}
+                            active={active}
+                            setActive={changeFilter}
+                        />
+                    </div>
+
+                    <div className="artPage__collectionHeader">
+                        <h2 className="artPage__collectionTitle font-dot">
+                            {active === 'all' ? 'All artwork' : active}
+                        </h2>
+
+                        <p
+                            className="artPage__count font-dot"
+                            role="status"
+                            aria-atomic="true"
+                        >
+                            {artworkCount}{' '}
+                            {artworkCount === 1 ? 'piece' : 'pieces'}
+                        </p>
+                    </div>
+
+                    {artworkCount > 0 ? (
+                        <ul className="artPage__grid">
+                            {filtered.map((work, index) => (
+                                <li
+                                    key={work.image}
+                                    className="artPage__item"
+                                >
+                                    <button
+                                        type="button"
+                                        className="artCard"
+                                        onClick={() => setSelectedIndex(index)}
+                                        aria-label={`View ${work.name}`}
+                                        aria-haspopup="dialog"
+                                    >
+                                        <span className="artCard__preview">
+                                            <Image
+                                                src={work.image}
+                                                alt=""
+                                                fill
+                                                loading={index === 0 ? 'eager' : 'lazy'}
+                                                sizes="(max-width: 639px) 90vw, (max-width: 1023px) 44vw, (max-width: 1500px) 28vw, 420px"
+                                                className="artCard__image"
+                                            />
+                                        </span>
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <div className="artPage__empty">
+                            <span
+                                className="artPage__emptyMark font-dot"
+                                aria-hidden="true"
                             >
-                                <img
-                                    src={work.image}
-                                    alt={work.name}
-                                    width={600}
-                                    height={400}
-                                    className="h-auto w-full"
-                                />
+                                ⋆.𐙚 ̊
+                            </span>
+
+                            <h3 className="font-redact">
+                                there's... nothing here??
+                            </h3>
+
+                            <p>
+                                There are no artworks in this category yet.
+                            </p>
+
+                            <button
+                                type="button"
+                                onClick={() => changeFilter('all')}
+                                className="mt-5 rounded-lg px-10 py-2 font-dot tracking-[0.15em]  transition font-dot bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105"
+                            >
+                                Back to all artwork →
                             </button>
-                        ))) : (
-<div className="col-span-full py-16 text-center rounded-2xl border border-dashed border-(--blackbean)/25 bg-white/50">
-                            <p className="md:col-span-2"> No art in this category yet.</p>
-                        </div>                    )}
-                </div>
+                        </div>
+                    )}
+                </section>
             </div>
 
-
-            {selectedIndex !== null && filtered[selectedIndex] && (
+            {selectedIndex !== null && selectedWork && (
                 <GalleryModal
-                    work={filtered[selectedIndex]}
+                    work={selectedWork}
                     currentIndex={selectedIndex}
                     totalImages={filtered.length}
                     onClose={closeModal}
@@ -114,5 +183,5 @@ export default function Art() {
                 />
             )}
         </main>
-    )
+    );
 }

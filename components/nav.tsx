@@ -31,8 +31,7 @@ export default function Nav() {
     }, []);
 
     const navLinks = [
-        { href: "/", label: "home" },
-        { href: "/projects", label: "projects" },
+        { href: "/", label: "work" },
         { href: "/art", label: "art" },
         { href: "/play", label: "play" },
         { href: "/about", label: "about" },
@@ -40,7 +39,7 @@ export default function Nav() {
 
 
     return (
-        <nav className={`nav fixed w-full bg-white font-dot  tracking-[0.2em] text-(--blackbean) text-sm shadow-md transition-transform duration-300 z-50 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}>
+        <nav className={`nav fixed w-full font-dot  tracking-[0.2em] text-(--blackbean) text-sm shadow-md transition-transform duration-300 z-50 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-25">
                     <div className="flex items-center">

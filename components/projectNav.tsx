@@ -48,7 +48,7 @@ export default function ProjectNav({
               </li>
             ))}
           </ul>
-           <Link href="/projects" className="mt-5 font-space text-xs flex font-bold uppercase text-(--blackbean) ring ring-2 ring-(--cornell)/20 rounded-lg p-2 hover:text-(--cornell) hover:scale-105 transform duration-200 hover:shadow-sm hover:ring-(--cornell)"> 
+           <Link href="/#featured" className="mt-5 font-space text-xs flex font-bold uppercase text-(--blackbean) ring ring-2 ring-(--cornell)/20 rounded-lg p-2 hover:text-(--cornell) hover:scale-105 transform duration-200 hover:shadow-sm hover:ring-(--cornell)"> 
             ↩ Back to Projects</Link>
         </div>
 
@@ -92,7 +92,7 @@ export default function ProjectNav({
               </li>
             ))}
 
-            <Link href="/projects" className="mt-5 font-space text-xs flex font-bold uppercase text-(--blackbean) ring ring-2 ring-(--cornell)/20 rounded-lg p-2 hover:text-(--cornell) hover:scale-105 transform duration-200 hover:shadow-sm hover:ring-(--cornell)"> 
+            <Link href="/#featured" className="mt-5 font-space text-xs flex font-bold uppercase text-(--blackbean) ring ring-2 ring-(--cornell)/20 rounded-lg p-2 hover:text-(--cornell) hover:scale-105 transform duration-200 hover:shadow-sm hover:ring-(--cornell)"> 
             ↩ Back to Projects</Link>
           </ul>
         </div>

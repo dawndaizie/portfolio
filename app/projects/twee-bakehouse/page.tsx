@@ -13,11 +13,11 @@ const navSections = [
 
 export default function twee() {
     return (
-<main className="font-space relative flex w-full flex-col items-center">
+        <main className="font-space relative flex w-full flex-col items-center">
 
-             <section id="hero" className="w-full max-w-6xl px-4 mt-20 pt-10 pb-12 sm:px-6 md:pt-16 md:pb-16">
+            <section id="hero" className="w-full max-w-6xl px-4 mt-20 pt-10 pb-12 sm:px-6 md:pt-16 md:pb-16">
 
-                <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
+                <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                     <div className="flex flex-col items-start text-left lg:col-span-7">
                         <div className="mb-4 flex flex-wrap gap-2">
                             <span className="inline-flex pb-2 pt-2 items-center rounded-lg border border-dashed border-1 bg-(--cornell) px-3 py-1 font-dot text-xs tracking-[0.14em] uppercase text-(--ivory) shadow-sm">
@@ -30,7 +30,7 @@ export default function twee() {
                         </h1>
 
                         <p className="mt-5 text-base sm:text-lg font-dot leading-relaxed tracking-[0.15em] text-(--blackbean)/85">
-Playful artisan brand identity and menu system for a boutique home bakery.                        </p>
+                            Playful artisan brand identity and menu system for a boutique home bakery.                        </p>
 
                         <div className="mt-6 flex flex-wrap items-center gap-6 border-t border-(--blackbean)/10 pt-5 text-xs text-(--blackbean)/70">
                             <div>
@@ -58,7 +58,7 @@ Playful artisan brand identity and menu system for a boutique home bakery.      
                             <img
                                 src="/banner.png"
                                 alt="Twee project banner"
-                                className="h-auto w-full rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                                className="rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                             />
                         </div>
                     </div>
@@ -85,7 +85,7 @@ Playful artisan brand identity and menu system for a boutique home bakery.      
                             Deliverables
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
-                           Brand Design ·
+                            Brand Design ·
                         </p>
                     </div>
 
@@ -95,7 +95,7 @@ Playful artisan brand identity and menu system for a boutique home bakery.      
                             Key Skills
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
-                            Graphic Design · Branding · 
+                            Graphic Design · Branding ·
                         </p>
                     </div>
                 </div>
