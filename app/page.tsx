@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import FilterBar from "../components/filters";
 import Spline from "@splinetool/react-spline";
@@ -261,7 +262,7 @@ export default function Home() {
 
       <section
         id="featured"
-        className="featured-section py-24 font-space min-h-full w-full text-(--blackbean)"
+        className="featured-section py-24 font-space min-h-full w-full text-(--blackbean) border-b border-(--blackbean)/10"
       >
         <div className="mx-auto max-w-8xl px-4 sm:px-6">
           <div className="text-center mb-10 sm:mb-14">
@@ -304,7 +305,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="gallery" className="w-full py-10 flex flex-col items-center select-none overflow-hidden">
+      <section id="gallery" className="w-full py-20 flex flex-col items-center select-none overflow-hidden">
+        
+          <div className="text-center mb-10 sm:mb-14">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-redact text-(--blackbean) leading-none">
+              gallery
+            </h2>
+            <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2 mt-5">
+              view some of my art !
+            </p>
+          </div>
+        
         <div className="carouselContainer w-full overflow-hidden relative">
           <div className="carousel flex items-center">
             {carouselItems.map((item) => (
@@ -346,7 +357,10 @@ export default function Home() {
               </div>
             ))}
           </div>
+          
         </div>
+        <Link href="/art" className="mt-10 rounded-lg px-10 py-2 font-dot tracking-[0.15em] transition bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105">
+          View more art</Link>
       </section>
 
       {/*

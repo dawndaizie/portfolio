@@ -259,6 +259,11 @@ body {
 
 .carouselFrame {
   transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  
+}
+
+.carouselContainer:hover .carousel{
+  animation-play-state:paused;
 }
 
 .carouselFrame:hover {
