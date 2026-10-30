@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 import { Space_Mono, DotGothic16 } from "next/font/google";
 import "./globals.scss";
 import Nav from "../components/nav";
-import ScrollUp from "../components/scrollUp";
+import CornerWidgets from "../components/cornerWidgets";
 import Footer from "../components/footer"
 import Loader from "../components/loader";
 import Transition from "../components/transition";
 import localFont from "next/font/local";
 import MovingBG from "../components/movingBG";
-import CustomCursor from "../components/customCursor";
-
 
 const space = Space_Mono({
   variable: "--font-space-mono",
@@ -67,13 +65,13 @@ export default function RootLayout({
               <Transition>
                 <div className="flex-1 w-full flex flex-col">
                 {children}
-                {/* <CustomCursor /> */}
+                
                 </div>
               </Transition>
             </main>
 
             <Footer />
-            <ScrollUp />
+            <CornerWidgets />
           </div>
 
         {/*</Loader>*/}

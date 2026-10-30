@@ -85,17 +85,17 @@ export default function Loader({
             fadeOut ? 'pointer-events-none opacity-0' : 'opacity-100'
           }`}
         >
-          <div className="loader-scene">
-            <div className="loader-anim" aria-hidden="true">
+          <div className="loaderScene">
+            <div className="loaderAnim" aria-hidden="true">
               
             </div>
 
-            <p className="loader-text font-dot">
+            <p className="loaderText font-dot">
               {fadeOut ? 'ready!' : 'booting up...'}
             </p>
 
-            <div className="loader-bar" aria-hidden="true">
-              <div className="loader-bar__fill" />
+            <div className="loaderBar" aria-hidden="true">
+              <div className="loaderBar__fill" />
             </div>
           </div>
         </div>

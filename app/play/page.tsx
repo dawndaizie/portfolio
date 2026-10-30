@@ -61,6 +61,66 @@ const BASE_WORKS: PlayPiece[] = [
     aspectRatio: 'aspect-[2/1]',
     rotation: -2,
   },
+
+  {
+    id: 'cloth',
+    name: 'cloth',
+    image: '/playSection/cloth.jpg',
+    descriptor: 'charcoal drawing of cloth',
+    initialX: 0,
+    initialY: 400,
+    width: 350,
+    aspectRatio: 'aspect-[4/3]',
+    rotation: 2,
+  },
+
+  {
+    id: 'lady',
+    name: 'lady',
+    image: '/playSection/lady.jpg',
+    descriptor: 'graphite drawing of bust still-life',
+    initialX: 30,
+    initialY: 400,
+    width: 250,
+    aspectRatio: 'aspect-[3/4]',
+    rotation: -2,
+  },
+
+  {
+    id: 'natural texture',
+    name: 'natural textures',
+    image: '/playSection/Steele Natural Texture.jpg',
+    descriptor: 'charcoal drawing of nature still life',
+    initialX: 60,
+    initialY: 500,
+    width: 350,
+    aspectRatio: 'aspect-[2/1]',
+    rotation: 2,
+  },
+
+  {
+    id: 'still life',
+    name: 'bottle still life',
+    image: '/playSection/still life.jpg',
+    descriptor: 'graphite drawing, still life',
+    initialX: 90,
+    initialY: 400,
+    width: 250,
+    aspectRatio: 'aspect-[3/4]',
+    rotation: -2,
+  },
+
+  {
+    id: 'b master layout',
+    name: 'Layout Design',
+    image: '/playSection/B Master Layout.png',
+    descriptor: 'Layout Design for cafe-themed presentation',
+    initialX: 0,
+    initialY: 800,
+    width: 350,
+    aspectRatio: 'aspect-[4/3]',
+    rotation: -2,
+  },
 ];
 
 type ItemPos = {
@@ -257,7 +317,7 @@ export default function PlayPage() {
         className="relative min-h-[75vh] w-full overflow-visible touch-none"
       >
        {BASE_WORKS.map((piece) => {
-  const tooltipId = `play-tooltip-${piece.id}`;
+  const tooltipId = `playTooltip-${piece.id}`;
   const isTooltipOpen = activeTooltip === piece.id;
 
   return (
@@ -298,7 +358,7 @@ export default function PlayPage() {
         width: `${piece.width}px`,
         opacity: isReady ? 1 : 0,
       }}
-      className="play-poster absolute left-0 top-0 cursor-grab touch-none transition-opacity duration-300 will-change-transform"
+      className="playPoster absolute left-0 top-0 cursor-grab touch-none transition-opacity duration-300 will-change-transform"
     >
       <div className="relative rounded-2xl shadow-[0_10px_25px_rgba(53,23,16,0.15)] ring-1 ring-(--blackbean)/15 transition-shadow hover:shadow-[0_20px_35px_rgba(53,23,16,0.22)]">
         <div
@@ -317,16 +377,16 @@ export default function PlayPage() {
         <div
           id={tooltipId}
           role="tooltip"
-          className={`play-tooltip ${
+          className={`playTooltip ${
             isTooltipOpen ? 'is-visible' : ''
           }`}
         >
-          <div className="play-tooltip__label">
+          <div className="playTooltip__label">
             <span className="play-tooltip__marker" aria-hidden="true">
               ✦
             </span>
 
-            <p className="play-tooltip__text font-space">
+            <p className="playTooltip__text font-space">
               {piece.descriptor}
             </p>
           </div>

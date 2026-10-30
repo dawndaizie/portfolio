@@ -49,7 +49,7 @@ export default function RotateTypewriter({
 
 
   return (
-    <span className={`rotate-typewriter ${className}`}>
+    <span className={`rotateTypewriter ${className}`}>
       <Typewriter
         options={{
           strings: array,

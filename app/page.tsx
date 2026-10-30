@@ -22,7 +22,7 @@ export default function Home() {
       tags: ["animation", "visual dev"],
       link: "/projects/bite-me",
       descriptor: "Animation pitch about an out-of-control vampire prince sentenced to military school.",
-      stickerDeco: '⋆˚🐾｡ SAND DOLLARS',
+      stickerDeco: '⋆˚🐾｡ delinquents',
       locked: false,
 
     },
@@ -34,7 +34,7 @@ export default function Home() {
       tags: ["animation", "visual dev"],
       link: "/projects/blue",
       descriptor: "Short animated film about a mermaid attending a night carnival.",
-      stickerDeco: '⋆˚🐾｡  MERMAID CARNIVAL',
+      stickerDeco: '⋆˚🐾｡  mermaid carnival',
       locked: true,
     },
 
@@ -56,7 +56,7 @@ export default function Home() {
       tags: ["ui/ux design", "software dev"],
       link: "/projects/cococoins",
       descriptor: "A fun, beach themed financial tracker web application.",
-      stickerDeco: '⋆˚🐾｡ SAND DOLLARS',
+      stickerDeco: '⋆˚🐾｡ sand dollars',
       locked: false,
     },
 
@@ -67,7 +67,7 @@ export default function Home() {
       tags: ["visual dev"],
       link: "/projects/fmn",
       descriptor: "A dungeon-crawler rpg game where a girl in a post-apocalyptic dream world searches for her missing sister.",
-      stickerDeco: '⋆˚🐾｡ DREAM SCAPES',
+      stickerDeco: '⋆˚🐾｡ dream scapes',
       locked: false,
     },
 
@@ -78,8 +78,8 @@ export default function Home() {
       tags: ["game dev", "visual dev"],
       link: "/projects/hmh",
       descriptor: "Play (and fall in love) as an “exorcist” who handles malicious spirits in a world where ghosts and humans coexist.",
-      stickerDeco: '⋆˚🐾｡ GHOSTLY LOVE',
-      locked: false,
+      stickerDeco: '⋆˚🐾｡ ghostly love',
+      locked: true,
     },
 
     {
@@ -89,19 +89,19 @@ export default function Home() {
       tags: ["game dev", "visual dev"],
       link: "/projects/javapaws",
       descriptor: "A cozy cafe management and character interaction game.",
-      stickerDeco: '⋆˚🐾｡ BUNNY BOBA',
-      locked: false,
+      stickerDeco: '⋆˚🐾｡ bunny boba',
+      locked: true,
 
     },
 
     {
       title: "mariposa",
       image: "/banner.png",
-      sections: ["dev"],
+      sections: ["dev", "favorites"],
       tags: ["software dev"],
       link: "/projects/mariposa",
       descriptor: "An interactive music transposer and scale visualization utility.",
-      stickerDeco: '⋆˚🐾｡ FLOWERY TUNES',
+      stickerDeco: '⋆˚🐾｡ flowery tunes',
       locked: false,
     },
 
@@ -112,8 +112,8 @@ export default function Home() {
       tags: ["game dev"],
       link: "/projects/minimax",
       descriptor: "A repertoire of playful mini-games built for quick rounds.",
-      stickerDeco: '⋆˚🐾｡ MINI GAMES GALORE',
-      locked: false,
+      stickerDeco: '⋆˚🐾｡ mini games galore',
+      locked: true,
     },
 
     {
@@ -123,7 +123,7 @@ export default function Home() {
       tags: ["brand design"],
       link: "/projects/perle",
       descriptor: "Brand identity and packaging design for an artsy nail sticker company.",
-      stickerDeco: '⋆˚🐾｡ DECO NAILS',
+      stickerDeco: '⋆˚🐾｡ deco nails',
       locked: true,
     },
 
@@ -131,11 +131,11 @@ export default function Home() {
     {
       title: "Pippokey",
       image: "/banner.png",
-      sections: ["art"],
+      sections: ["art", "favorites"],
       tags: ["animation", "visual dev"],
       link: "/projects/pippokey",
       descriptor: "Cutesy duck and friends have to work for the rest of their lives!!",
-      stickerDeco: '⋆˚🐾｡ STUPID DUCK',
+      stickerDeco: '⋆˚🐾｡ stupid duck',
       locked: false,
 
     },
@@ -169,22 +169,31 @@ export default function Home() {
       tags: ["visual dev"],
       link: "/projects/tsfrml",
       descriptor: "After the worst 17th birthday, Kaia vents her frustrations to a fish, only to strike a deal with a fish demon.",
-      stickerDeco: '⋆˚🐾｡ ACCIDENTAL PACTS',
+      stickerDeco: '⋆˚🐾｡ accidental pacts',
       locked: true,
     },
 
     {
       title: "Twee Bakehouse",
       image: "/banner.png",
-      sections: ["design"],
+      sections: ["design", "favorites"],
       tags: ["brand design"],
       link: "/projects/twee-bakehouse",
       descriptor: "Playful artisan brand identity and menu system for a boutique home bakery.",
-      stickerDeco: '⋆˚🐾｡ HOMEMADE SWEETS',
+      stickerDeco: '⋆˚🐾｡ homemade sweets',
       locked: false,
     },
 
   ]
+
+  const carouselItems = [
+    { id: '1', image: '/works/calico.png', },
+    { id: '2', image: '/works/Cecil Iteration Sequence.png', },
+    { id: '3', image: '/banner.png', },
+    { id: '4', image: '/banner.png', },
+    { id: '5', image: '/works/calico.png', },
+    { id: '6', image: '/works/Cecil Iteration Sequence.png', },
+  ];
 
   const [active, setActive] = useState("favorites");
   const [nameComplete, setNameComplete] = useState(false);
@@ -210,26 +219,26 @@ export default function Home() {
               stagger={75}
               scrambleDuration={200}
               swapInterval={70}
-               onComplete={() => setNameComplete(true)}
+              onComplete={() => setNameComplete(true)}
             />
           </h1>
 
           <h3 className="text-lg mt-7 font-dot tracking-[0.15em] text-center"
           >
             {nameComplete ? (
-            <RotateTypewriter
-              array={[
-                'An ATL-based multidisciplinary designer',
-                'focusing on storytelling and interaction',
-                'animator',
-                ' ⋆˚꩜｡',
-                'interaction designer',
-              ]}
-            />
+              <RotateTypewriter
+                array={[
+                  'An ATL-based multidisciplinary designer',
+                  'focusing on storytelling and interaction',
+                  'animator',
+                  ' ⋆˚꩜｡',
+                  'interaction designer',
+                ]}
+              />
             ) : (<></>)}
 
           </h3>
-          </div>
+        </div>
 
         <motion.div
           className="hero-chibi flex justify-center mt-10 w-full max-w-[640px]"
@@ -286,7 +295,53 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/*
+
+      <section id="gallery" className="w-full py-10 flex flex-col items-center select-none overflow-hidden">
+        <div className="carouselContainer w-full overflow-hidden relative">
+          <div className="carousel flex items-center">
+              {carouselItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="carouselFrame group relative flex flex-col items-center justify-center px-4 py-8 shrink-0 cursor-pointer"
+                >
+
+                  <div className="relative aspect-[16/9] w-52 sm:w-64 overflow-hidden rounded-md bg-black/5 border border-(--blackbean)/15 shadow-inner group-hover:scale-105 transition-200">
+                    <Image
+                      src={item.image}
+                      alt={item.id}
+                      fill
+                      sizes="260px"
+                      className="object-cover transition-transform duration-500 ease-out"
+                    />
+                  </div>
+
+                  <div className="absolute right-0 top-0 bottom-0 w-px bg-(--blackbean)/20 pointer-events-none" />
+                </div>
+              ))}
+         
+              {carouselItems.map((item) => (
+                <div
+                  key={`clone-${item.id}`}
+                  className="carouselFrame group relative flex flex-col items-center justify-center px-4 py-8 shrink-0 cursor-pointer"
+                >
+
+                  <div className="relative aspect-[16/9] w-52 sm:w-64 overflow-hidden rounded-md bg-black/5 border border-(--blackbean)/15 shadow-inner">
+                    <Image
+                      src={item.image}
+                      alt={item.id}
+                      fill
+                      sizes="260px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute right-0 top-0 bottom-0 w-px bg-(--blackbean)/20 pointer-events-none" />
+                </div>
+              ))}
+            </div>
+            </div>
+          </section>
+
+          {/*
       <section id="demo-reel" className=" min-h-full pb-15 items-center gap-2 flex flex-col md:flex-row">
         <div className="md:w-[50%]">
           <p className="text-center font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2">
@@ -302,8 +357,8 @@ export default function Home() {
       </section>
       */}
 
-    </main>
+        </main>
 
 
-  );
+        );
 }
