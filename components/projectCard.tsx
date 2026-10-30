@@ -126,7 +126,7 @@ const controls = useAnimation();
 
   return (
     <div
-      className={`toploaderWrapper ${
+      className={`toploaderWrapper duration-500 hover:scale-105 ${
         project.locked ? 'is-locked' : ''
       }`}
     >

@@ -272,99 +272,395 @@ body {
   }
 }
 
+// **********************************************************************
+// ART CLASSES
+.artPage {
+  width: 100%;
+  min-width: 0;
+  color: var(--blackbean);
 
-//**********************************************************************
-// PLAYGROUND CLASSES
+  &__container {
+    width: 100%;
+    max-width: 1400px;
+    min-width: 0;
+    margin-inline: auto;
+  }
 
-.playPoster {
-  overflow: visible;
+  &__header {
+    text-align: center;
+  }
+
+
+  &__title {
+    margin: 0;
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    overflow-wrap: anywhere;
+  }
+
+  &__intro {
+    font-size: 12px;
+    line-height: 1.9;
+    margin-top: 10px;
+  }
+
+  &__collection {
+    min-width: 0;
+  }
+
+  &__filters {
+    min-width: 0;
+    margin-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(53, 23, 16, 0.15);
+  }
+
+  &__collectionHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-block: 20px 24px;
+  }
+
+  &__collectionTitle {
+    min-width: 0;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  &__count {
+    flex-shrink: 0;
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.6;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: clamp(20px, 3vw, 36px);
+    row-gap: clamp(28px, 4vw, 48px);
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    min-width: 0;
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(36px, 7vw, 72px) 20px;
+    text-align: center;
+    background: rgba(199, 219, 230, 0.12);
+    border: 1px dashed rgba(53, 23, 16, 0.25);
+    border-radius: 12px;
+
+    h3 {
+      margin: 14px 0 0;
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    p {
+      max-width: 38ch;
+      margin: 12px 0 0;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+  }
+
+  &__emptyMark {
+    color: var(--cornell);
+    font-size: 24px;
+  }
+
+}
+
+.artCard {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 450ms ease;
 
   &:focus-visible {
     outline: 2px dashed var(--cornell);
     outline-offset: 6px;
-    border-radius: 1rem;
+  }
+
+  &__preview {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: transparent;
+    border: 0;
+    overflow: hidden;
+  }
+
+  &__image {
+    object-fit: contain;
+    object-position: center;
+    padding: 0;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .artCard:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .artCard__image {
+    transition: none;
+  }
+
+  .artCard:hover .artCard__image {
+    transform: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .artPage {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &__intro {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .artPage__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+//**********************************************************************
+// PLAYGROUND CLASSES
+.playPage {
+  text-align: center;
+
+  &__header {
+    width: 100%;
+    gap: 24px;
+    margin: 14px 0 0;
+
+  }
+
+  &__instructions {
+    margin: 14px 0 0;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  &__reset {
+     margin: 14px 0 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 8px;
+    min-height: 44px;
+    padding: 10px 14px;
+    color: var(--blackbean);
+    background: var(--ivory);
+    border: 1px solid rgba(53, 23, 16, 0.3);
+    border-radius: 8px;
+    font-size: 11px;
+    line-height: 1.5;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px dashed var(--cornell);
+      outline-offset: 4px;
+    }
+
+    &:hover {
+      color: var(--ivory);
+      background: var(--cornell);
+      scale: 105%;
+      transition: transform 220ms ease;
+    }
+  }
+}
+
+.playBoard {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 32px;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 8px 24px;
+  box-sizing: border-box;
+  touch-action: auto;
+
+  &.is-desktop {
+    display: block;
+    padding: 0;
+    overflow: visible;
+
+    .playPoster {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: min(var(--poster-width), calc(100% - 48px));
+      max-width: none;
+      margin: 0;
+      opacity: 0;
+      cursor: grab;
+      touch-action: auto;
+      user-select: none;
+
+      &.is-dragging {
+        cursor: grabbing;
+      }
+    }
+
+    &.is-ready .playPoster {
+      opacity: 1;
+    }
+
+    .playTooltip {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      z-index: 2;
+      width: max-content;
+      max-width: 100%;
+      margin: 0;
+      padding-top: 10px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateX(-50%);
+      transition:
+        opacity 150ms ease,
+        visibility 150ms ease;
+
+      &.is-visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+.playPoster {
+  position: relative;
+  width: 100%;
+  max-width: var(--poster-width);
+  min-width: 0;
+  margin-inline: auto;
+
+  &__art {
+    border-radius: 10px;
+
+    box-shadow:
+      0 2px 5px rgba(53, 23, 16, 0.05),
+      0 8px 20px rgba(53, 23, 16, 0.1);
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    background: transparent;
+    pointer-events: none;
+
+    img {
+      user-select: none;
+      -webkit-user-drag: none;
+    }
   }
 }
 
 .playTooltip {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  z-index: 2;
-  width: max-content;
-  max-width: calc(100% - 16px);
-  padding-top: 12px;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translate(-50%, -4px);
-  transition:
-    opacity 160ms ease,
-    transform 160ms ease,
-    visibility 160ms ease;
-
-  &.is-visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translate(-50%, 0);
-  }
+  margin-top: 12px;
 
   &__label {
-    position: relative;
-
     display: flex;
     align-items: flex-start;
     gap: 8px;
-
-    padding: 10px 13px;
-
+    padding: 10px 12px;
+    box-sizing: border-box;
     color: var(--blackbean);
     background: var(--ivory);
-
-    border: 1px solid var(--blackbean);
-    border-radius: 5px;
-
-    box-shadow: 3px 3px 0 rgba(53, 23, 16, 0.14);
-
-    &::before {
-      content: '';
-
-      position: absolute;
-      top: -5px;
-      left: calc(50% - 4px);
-
-      width: 8px;
-      height: 8px;
-
-      background: var(--ivory);
-      border-top: 1px solid var(--blackbean);
-      border-left: 1px solid var(--blackbean);
-
-      transform: rotate(45deg);
-    }
+    border: 1px solid rgba(53, 23, 16, 0.18);
+    border-radius: 6px;
+    box-shadow: 2px 2px 0 rgba(53, 23, 16, 0.07);
   }
 
   &__marker {
     flex-shrink: 0;
     color: var(--cornell);
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 11px;
+    line-height: 1.7;
   }
 
   &__text {
+    min-width: 0;
     margin: 0;
-
-    font-size: 12px;
-    line-height: 1.5;
-    text-align: left;
+    font-size: 11px;
+    line-height: 1.7;
     overflow-wrap: anywhere;
+  }
+}
+
+@media (min-width: 640px) {
+  .playBoard:not(.is-desktop) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .playPage__header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .playPage__reset:hover {
+    color: var(--ivory);
+    background: var(--blackbean);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .playTooltip {
-    transition: none;
+    transition: none !important;
   }
 }
 
@@ -608,10 +904,7 @@ body {
   max-height: none;
   margin: 0;
   padding:
-    max(12px, env(safe-area-inset-top))
-    max(12px, env(safe-area-inset-right))
-    max(16px, env(safe-area-inset-bottom))
-    max(12px, env(safe-area-inset-left));
+    max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
   box-sizing: border-box;
   border: 0;
   color: var(--blackbean);
@@ -642,7 +935,7 @@ body {
     overflow: hidden;
     pointer-events: none;
 
-    > div {
+    >div {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -683,6 +976,7 @@ body {
     min-width: 0;
     font-size: 11px;
     letter-spacing: 0.08em;
+
     span:first-child {
       flex-shrink: 0;
       color: var(--cornell);
@@ -791,10 +1085,8 @@ body {
     padding: clamp(18px, 2.5vw, 28px);
     box-sizing: border-box;
     background-color: white;
-    background-image: radial-gradient(
-      rgba(53, 23, 16, 0.12) 1px,
-      transparent 1px
-    );
+    background-image: radial-gradient(rgba(53, 23, 16, 0.12) 1px,
+        transparent 1px);
     background-size: 28px 28px;
     background-position: -14px -14px;
     border: 1px solid rgba(53, 23, 16, 0.15);
@@ -876,10 +1168,7 @@ body {
 @media (min-width: 640px) {
   .galleryModal {
     padding:
-      max(20px, env(safe-area-inset-top))
-      max(20px, env(safe-area-inset-right))
-      max(20px, env(safe-area-inset-bottom))
-      max(20px, env(safe-area-inset-left));
+      max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
 
     &__figure {
       gap: 24px;
@@ -899,15 +1188,11 @@ body {
 @media (min-width: 900px) {
   .galleryModal {
     padding:
-      max(24px, env(safe-area-inset-top))
-      max(24px, env(safe-area-inset-right))
-      max(24px, env(safe-area-inset-bottom))
-      max(24px, env(safe-area-inset-left));
+      max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
 
     &__figure {
       grid-template-columns:
-        minmax(0, 1fr)
-        clamp(260px, 25vw, 340px);
+        minmax(0, 1fr) clamp(260px, 25vw, 340px);
       gap: clamp(24px, 3vw, 48px);
     }
 
@@ -970,6 +1255,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .galleryModal__figure,
   .galleryModal__image {
     animation: none;
