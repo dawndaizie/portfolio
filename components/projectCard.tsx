@@ -126,7 +126,7 @@ const reduceMotion = useReducedMotion();
 
   return (
     <div
-      className={`toploaderWrapper duration-500 hover:scale-105 ${
+      className={`toploaderWrapper transition-all duration-500 hover:-translate-y-3 hover:scale-100 ${
         project.locked ? 'is-locked' : ''
       }`}
     >
