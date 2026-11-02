@@ -433,7 +433,7 @@ export default function PlayPage() {
             <button
               type="button"
               onClick={initializePositions}
-              className="mt-5 rounded-lg px-10 py-2 font-dot tracking-[0.15em]  transition font-dot bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105"
+              className="mt-5 rounded-lg px-10 py-1.5 font-dot tracking-[0.15em]  transition font-dot bg-(--ivory) ring-1 ring-(--cornell) hover:bg-(--cornell) hover:text-(--ivory) text-(--blackbean) hover:scale-105"
             >
               <span aria-hidden="true">↺ </span>
               Reset arrangement

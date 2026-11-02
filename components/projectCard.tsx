@@ -19,7 +19,7 @@ export type ToploaderProject = {
 export default function ProjectCard({ project }: { project: ToploaderProject }) {
 
 const controls = useAnimation();
-  const reduceMotion = useReducedMotion();
+const reduceMotion = useReducedMotion();
 
   const handleLockedClick = () => {
     showNotice(

@@ -6,9 +6,10 @@ import { useState, useEffect } from "react";
 import FilterBar from "../components/filters";
 import Spline from "@splinetool/react-spline";
 import ProjectCard, { ToploaderProject } from "../components/projectCard";
-import { motion } from 'framer-motion';
+import { motion, useAnimation, useReducedMotion } from 'framer-motion';
 import RotateTypewriter from "../components/rotateTypewriter";
 import DitherEffect from "../components/ditherEffect";
+import { showNotice } from '../components/notice';
 
 export default function Home() {
 
@@ -197,10 +198,32 @@ export default function Home() {
   const [active, setActive] = useState("favorites");
   const [nameComplete, setNameComplete] = useState(false);
 
+  const controls = useAnimation();
+  const reduceMotion = useReducedMotion();
+
   const filtered =
     active === ""
       ? projects
       : projects.filter((p) => p.sections.includes(active))
+
+  const nameClick = () => {
+    showNotice(
+      `My name is pronounced 'daw-nee-qua'. You can also call me Dawn, if that floats your boat.`
+    )
+    controls.stop();
+    controls.set({ x: 0 });
+
+    if (reduceMotion) return;
+
+    void controls.start({
+      x: [0, -2, 2, -1, 1, 0],
+      transition: {
+        duration: 0.3,
+        ease: 'easeInOut',
+      },
+    });
+  };
+
 
   return (
     <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center text-(--blackbean)">
@@ -210,17 +233,27 @@ export default function Home() {
           <h3 className="font-dot text-2xl mt-7 text-center">
             hi, im
           </h3>
-
           <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-redact m-2 text-center">
-            <DitherEffect
-              text="dawniqueca steele"
-              startDelay={600}
-              stagger={75}
-              scrambleDuration={200}
-              swapInterval={70}
-              onComplete={() => setNameComplete(true)}
-            />
+
+            <motion.button
+              type="button"
+              className="cursor-pointer"
+              animate={controls}
+              onClick={nameClick}
+              aria-label="dawniqueca steele — show pronunciation and nickname"
+            >
+              <DitherEffect
+                text="dawniqueca steele"
+                startDelay={600}
+                stagger={75}
+                scrambleDuration={200}
+                swapInterval={70}
+                onComplete={() => setNameComplete(true)}
+              />
+            </motion.button>
           </h1>
+
+         
 
           <h3 className="text-lg mt-7 font-dot tracking-[0.15em] text-center"
           >
@@ -306,16 +339,16 @@ export default function Home() {
       </section>
 
       <section id="gallery" className="w-full py-20 flex flex-col items-center select-none overflow-hidden">
-        
-          <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-redact text-(--blackbean) leading-none">
-              gallery
-            </h2>
-            <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2 mt-5">
-              view some of my art !
-            </p>
-          </div>
-        
+
+        <div className="text-center mb-10 sm:mb-14">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-redact text-(--blackbean) leading-none">
+            gallery
+          </h2>
+          <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2 mt-5">
+            view some of my art !
+          </p>
+        </div>
+
         <div className="carouselContainer w-full overflow-hidden relative">
           <div className="carousel flex items-center">
             {carouselItems.map((item) => (
@@ -357,9 +390,9 @@ export default function Home() {
               </div>
             ))}
           </div>
-          
+
         </div>
-        <Link href="/art" className="mt-10 rounded-lg px-10 py-2 font-dot tracking-[0.15em] transition bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105">
+        <Link href="/art" className="mt-10 rounded-lg px-10 py-1.5 font-dot tracking-[0.15em] transition bg-(--ivory) ring-1 ring-(--cornell) hover:bg-(--cornell) hover:text-(--ivory) text-(--blackbean) hover:scale-105">
           View more art</Link>
       </section>
 
