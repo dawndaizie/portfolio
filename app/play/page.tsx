@@ -418,18 +418,14 @@ export default function PlayPage() {
       <div className="artPage__container">
         <header className="artPage__header playPage__header">
           <div>
-            <h1 className="artPage__title font-redact">
+            <h1 className="artPage__title font-redact text-6xl sm:text-6xl md:text-7xl ">
               playground
             </h1>
 
-            <p className="artPage__intro">
-              A collection of things I’m making and exploring.
-            </p>
-
-            <p className="playPage__instructions font-dot">
+            <p className="playPage__instructions font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2 mt-7">
               {desktopMode
-                ? 'Click and drag to rearrange — make yourself at home.'
-                : 'Scroll through the collection and explore the notes.'}
+                ? 'Click and drag to rearrange!'
+                : 'Scroll and explore!'}
             </p>
           </div>
 

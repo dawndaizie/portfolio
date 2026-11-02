@@ -83,7 +83,7 @@ export default function Art() {
                         art archive
                     </h1>
 
-                    <p className="artPage__intro">
+                    <p className="artPage__intro font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2 mt-7">
                         a collection of my drawings, studies, and animation
                     </p>
                 </header>

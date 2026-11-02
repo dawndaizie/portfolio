@@ -115,18 +115,6 @@ export default function Projects() {
     },
 
     {
-      title: "Perle",
-      image: "/banner.png",
-      sections: ["design"],
-      tags: ["brand design"],
-      link: "/projects/perle",
-      descriptor: "Brand identity and packaging design for an artsy nail sticker company.",
-      stickerDeco: '⋆˚🐾｡ deco nails',
-      locked: true,
-    },
-
-
-    {
       title: "Pippokey",
       image: "/banner.png",
       sections: ["art", "favorites"],
@@ -195,7 +183,7 @@ export default function Projects() {
             <div className="mx-auto max-w-8xl px-4 sm:px-6">
                 <div className="text-center mb-8 sm:mb-14">
                     <h1 className="text-5xl sm:text-6xl md:text-7xl font-redact text-(--blackbean) leading-none">
-                        Project Archive
+                        project archive
                     </h1>
                     <p className="font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2 mt-5">
                        Woah. How did you find this page?? While you're here, filter out the projects to your most nich-iest niche. I guess.

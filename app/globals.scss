@@ -421,6 +421,7 @@ body {
     background: transparent;
     border: 0;
     overflow: hidden;
+    padding: 0;
   }
 
   &__image {
@@ -478,7 +479,6 @@ body {
   }
 
   &__instructions {
-    margin: 14px 0 0;
     font-size: 11px;
     line-height: 1.8;
   }

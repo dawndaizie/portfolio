@@ -205,7 +205,7 @@ export default function Home() {
   return (
     <main className="font-space min-h-screen max-w-full flex flex-col items-center justify-center text-(--blackbean)">
 
-      <section id="hero" className="py-10 max-w-full flex flex-col md:flex-row items-center border-b border-(--blackbean)/10 pb-6">
+      <section id="hero" className="py-40 md:py-20 max-w-full flex flex-col md:flex-row items-center border-b border-(--blackbean)/10 pb-6">
         <div>
           <h3 className="font-dot text-2xl mt-7 text-center">
             hi, im
@@ -324,7 +324,7 @@ export default function Home() {
                 className="carouselFrame group relative flex flex-col items-center justify-center px-4 py-8 shrink-0 cursor-pointer"
               >
 
-                <div className="relative aspect-[16/9] w-52 sm:w-64 overflow-hidden rounded-md bg-black/5 border border-(--blackbean)/15 shadow-inner group-hover:scale-105 transition-200">
+                <div className="relative aspect-[16/9] w-100 overflow-hidden rounded-md bg-black/5 border border-(--blackbean)/15 shadow-inner group-hover:scale-105 transition-200">
                   <Image
                     src={item.image}
                     alt={item.id}
@@ -344,7 +344,7 @@ export default function Home() {
                 className="carouselFrame group relative flex flex-col items-center justify-center px-4 py-8 shrink-0 cursor-pointer"
               >
 
-                <div className="relative aspect-[16/9] w-52 sm:w-64 overflow-hidden rounded-md bg-black/5 border border-(--blackbean)/15 shadow-inner">
+                <div className="relative aspect-[16/9] w-100 overflow-hidden rounded-md bg-black/5 border border-(--blackbean)/15 shadow-inner">
                   <Image
                     src={item.image}
                     alt={item.id}
