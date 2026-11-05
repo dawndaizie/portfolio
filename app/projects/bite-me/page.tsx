@@ -5,7 +5,7 @@ import ProjectNav from "../../../components/projectNav";
 
 const navSections = [
     { id: "overview", label: "Overview" },
-    { id: "research", label:"Research"},
+    { id: "research", label: "Research" },
     { id: "process", label: "Process" },
     { id: "final", label: "Final" },
     { id: "thoughts", label: "Thoughts" },
@@ -16,61 +16,68 @@ export default function BiteMe() {
     return (
         <main className="font-space relative flex w-full flex-col items-center text-(--blackbean)">
 
-            <section id="hero" className="w-full max-w-6xl px-4 mt-20 pt-10 pb-12 sm:px-6 md:pt-16 md:pb-16">
+            <section id="hero" className="mx-auto mt-12 w-full max-w-6xl px-4 pb-12 pt-8 text-(--blackbean) sm:mt-16 sm:px-6 md:pb-16 md:pt-12">
+                <div className="flex flex-col md:flex-row gap-12 items-center py-20 md:py-10">
 
-                <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
-                    <div className="flex flex-col items-start text-left lg:col-span-7">
-                        <div className="mb-4 flex flex-wrap gap-2">
-                            <span className="inline-flex pb-2 pt-2 items-center rounded-lg border border-dashed border-1 bg-(--cornell) px-3 py-1 font-dot text-xs tracking-[0.14em] uppercase text-(--ivory) shadow-sm">
+                    <div className="min-w-0 lg:col-span-6">
+                        <div className="mb-5 flex flex-wrap gap-2">
+                            <span className="inline-flex items-center rounded-md border bg-(--blackbean) px-3 py-1.5 font-dot text-[10px] uppercase tracking-[0.1em] text-(--ivory) sm:text-xs">
                                 Animation
                             </span>
-                            <span className="inline-flex pb-2 pt-2 items-center rounded-lg border border-dashed border-1 bg-(--cornell) px-3 py-1 font-dot text-xs tracking-[0.14em] uppercase text-(--ivory) shadow-sm">
+
+                            <span className="inline-flex items-center rounded-md border bg-(--blackbean) px-3 py-1.5 font-dot text-[10px] uppercase tracking-[0.1em] text-(--ivory) sm:text-xs">
                                 Visual Development
                             </span>
                         </div>
 
-                        <h1 className="font-space text-4xl sm:text-5xl md:text-6xl font-bold text-(--blackbean) leading-[1.5]">
-                            BITE ME!
+                        <h1 className="break-words font-redact text-5xl font-normal leading-[1.05] tracking-tight sm:text-6xl xl:text-7xl">
+                            Bite Me!
                         </h1>
 
-                        <p className="mt-5 text-base sm:text-lg font-dot leading-relaxed tracking-[0.15em] text-(--blackbean)/85">
+                        <p className="mt-5 max-w-[38ch] font-dot text-base leading-relaxed tracking-[0.06em] sm:text-lg">
                             A selfish vampire prince is banished to a reform school for supernatural delinquents, where he and his misfit friends navigate chaotic school antics while uncovering a long-hidden conspiracy in the magical world.
+
                         </p>
 
-                        <div className="mt-6 flex flex-wrap items-center gap-6 border-t border-(--blackbean)/10 pt-5 text-xs text-(--blackbean)/70">
-                            <div>
-                                <span className="font-dot uppercase tracking-[0.15em] text-(--cornell) block font-bold">
+                        <dl className="mt-7 grid grid-cols-1 gap-5 border-t border-(--blackbean)/15 pt-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-8">
+                            <div className="min-w-0">
+                                <dt className="mb-1.5 font-dot text-[10px] uppercase tracking-[0.15em] text-(--cornell)">
                                     Role
-                                </span>
-                                <span className="font-medium text-(--blackbean)">
-                                    Solo Artist & Visual Dev
-                                </span>
-                            </div>
-                            <div className="h-6 w-px bg-(--blackbean)/15 hidden sm:block" />
-                            <div>
-                                <span className="font-dot uppercase tracking-[0.15em] text-(--cornell) block font-bold">
-                                    EST.
-                                </span>
-                                <span className="font-medium text-(--blackbean)">
-                                    2025
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                                </dt>
 
-                    <div className="w-full lg:col-span-5">
-                        <div className="group relative overflow-hidden rounded-2xl border border-(--blackbean)/15 bg-white p-2.5 shadow-[0_12px_32px_rgba(53,23,16,0.12)] transition duration-300 hover:shadow-[0_18px_40px_rgba(53,23,16,0.18)]">
+                                <dd className="m-0 font-space text-xs leading-relaxed sm:text-sm">
+                                    Solo Development Artist & Animator
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt className="mb-1.5 font-dot text-[10px] uppercase tracking-[0.15em] text-(--cornell)">
+                                    Est.
+                                </dt>
+
+                                <dd className="m-0 font-space text-xs leading-relaxed sm:text-sm">
+                                    2025
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div className="mx-auto w-full min-w-0 max-w-[32rem] lg:col-span-6 lg:justify-self-end">
+
+                        <div className="aspect-square w-full overflow-hidden rounded-lg ring ring-(--blackbean) duration-400 hover:-rotate-2">
                             <img
                                 src="/banner.png"
-                                alt="Bite Me project banner"
-                                className="h-auto w-full rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                                alt="Bite Me project artwork"
+                                width={1000}
+                                height={1000}
+                                loading="eager"
+                                fetchPriority="high"
+                                decoding="async"
+                                className="block h-full w-full object-contain"
                             />
                         </div>
+
                     </div>
                 </div>
-
-
-
             </section>
 
             <section id="tools" className="w-full max-w-6xl px-4 pb-14 sm:px-6">
@@ -92,7 +99,7 @@ export default function BiteMe() {
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
                             Pitch Deck  · Storyboards · Animation · Scripts
                         </p>
-                    </div> 
+                    </div>
 
 
                     <div className="flex flex-col justify-start border-t border-(--blackbean)/10 pt-4 lg:border-t-0 lg:pt-0 lg:border-l lg:pl-6">
@@ -110,8 +117,8 @@ export default function BiteMe() {
 
             <section id="overview" className="scroll-mt-28 min-h-[60vh] w-full max-w-4xl px-4 py-16 text-center">
                 <h1 className="text-4xl font-space m-2">OVERVIEW</h1>
-                <p>In my Ideation and Iteration class, I was tasked with pitching 
-                    an animated show aimed at 12-18 year olds. 
+                <p>In my Ideation and Iteration class, I was tasked with pitching
+                    an animated show aimed at 12-18 year olds.
                 </p>
             </section>
 

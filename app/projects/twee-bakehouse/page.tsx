@@ -14,58 +14,62 @@ const navSections = [
 export default function twee() {
     return (
         <main className="font-space relative flex w-full flex-col items-center">
+            <section id="hero" className="mx-auto mt-12 w-full max-w-6xl px-4 pb-12 pt-8 text-(--blackbean) sm:mt-16 sm:px-6 md:pb-16 md:pt-12">
+                <div className="flex flex-col md:flex-row gap-12 items-center py-20 md:py-10">
 
-            <section id="hero" className="w-full max-w-6xl px-4 mt-20 pt-10 pb-12 sm:px-6 md:pt-16 md:pb-16">
-
-                <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
-                    <div className="flex flex-col items-start text-left lg:col-span-7">
-                        <div className="mb-4 flex flex-wrap gap-2">
-                            <span className="inline-flex pb-2 pt-2 items-center rounded-lg border border-dashed border-1 bg-(--cornell) px-3 py-1 font-dot text-xs tracking-[0.14em] uppercase text-(--ivory) shadow-sm">
+                    <div className="min-w-0 lg:col-span-6">
+                        <div className="mb-5 flex flex-wrap gap-2">
+                            <span className="inline-flex items-center rounded-md border bg-(--blackbean) px-3 py-1.5 font-dot text-[10px] uppercase tracking-[0.1em] text-(--ivory) sm:text-xs">
                                 Brand Design
                             </span>
                         </div>
 
-                        <h1 className="font-space text-4xl sm:text-5xl md:text-6xl font-bold text-(--blackbean) leading-[1.5]">
-                            Twee Bakery
+                        <h1 className="break-words font-redact text-5xl font-normal leading-[1.05] tracking-tight sm:text-6xl xl:text-7xl">
+                            Twee Bakehouse
                         </h1>
 
-                        <p className="mt-5 text-base sm:text-lg font-dot leading-relaxed tracking-[0.15em] text-(--blackbean)/85">
+                        <p className="mt-5 max-w-[38ch] font-dot text-base leading-relaxed tracking-[0.06em] sm:text-lg">
                             Playful artisan brand identity and menu system for a boutique home bakery.                        </p>
 
-                        <div className="mt-6 flex flex-wrap items-center gap-6 border-t border-(--blackbean)/10 pt-5 text-xs text-(--blackbean)/70">
-                            <div>
-                                <span className="font-dot uppercase tracking-[0.15em] text-(--cornell) block font-bold">
+                        <dl className="mt-7 grid grid-cols-1 gap-5 border-t border-(--blackbean)/15 pt-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-8">
+                            <div className="min-w-0">
+                                <dt className="mb-1.5 font-dot text-[10px] uppercase tracking-[0.15em] text-(--cornell)">
                                     Role
-                                </span>
-                                <span className="font-medium text-(--blackbean)">
-                                    Graphic Designer
-                                </span>
-                            </div>
-                            <div className="h-6 w-px bg-(--blackbean)/15 hidden sm:block" />
-                            <div>
-                                <span className="font-dot uppercase tracking-[0.15em] text-(--cornell) block font-bold">
-                                    Est.
-                                </span>
-                                <span className="font-medium text-(--blackbean)">
-                                    2026
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                                </dt>
 
-                    <div className="w-full lg:col-span-5">
-                        <div className="group relative overflow-hidden rounded-2xl border border-(--blackbean)/15 bg-white p-2.5 shadow-[0_12px_32px_rgba(53,23,16,0.12)] transition duration-300 hover:shadow-[0_18px_40px_rgba(53,23,16,0.18)]">
+                                <dd className="m-0 font-space text-xs leading-relaxed sm:text-sm">
+                                    Solo Graphic Designer
+                                </dd>
+                            </div>
+
+                            <div>
+                                <dt className="mb-1.5 font-dot text-[10px] uppercase tracking-[0.15em] text-(--cornell)">
+                                    Est.
+                                </dt>
+
+                                <dd className="m-0 font-space text-xs leading-relaxed sm:text-sm">
+                                    2026
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div className="mx-auto w-full min-w-0 max-w-[32rem] lg:col-span-6 lg:justify-self-end">
+
+                        <div className="aspect-square w-full overflow-hidden rounded-lg ring ring-(--blackbean) duration-400 hover:-rotate-2">
                             <img
                                 src="/banner.png"
-                                alt="Twee project banner"
-                                className="rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                                alt="Twee project artwork"
+                                width={1000}
+                                height={1000}
+                                loading="eager"
+                                fetchPriority="high"
+                                decoding="async"
+                                className="block h-full w-full object-contain"
                             />
                         </div>
+
                     </div>
                 </div>
-
-
-
             </section>
 
             <section id="tools" className="w-full max-w-6xl px-4 pb-14 sm:px-6">

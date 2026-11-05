@@ -44,7 +44,7 @@ export default function Pippokey() {
                                 </dt>
 
                                 <dd className="m-0 font-space text-xs leading-relaxed sm:text-sm">
-                                    Solo Animator &amp; Concept Artist
+                                     Solo Development Artist & Animator
                                 </dd>
                             </div>
 
@@ -61,7 +61,7 @@ export default function Pippokey() {
                     </div>
                     <div className="mx-auto w-full min-w-0 max-w-[32rem] lg:col-span-6 lg:justify-self-end">
 
-                        <div className="aspect-square w-full overflow-hidden rounded-lg ring ring-(--blackbean)">
+                        <div className="aspect-square w-full overflow-hidden rounded-lg ring ring-(--blackbean) duration-400 hover:-rotate-2">
                             <img
                                 src="/banner.png"
                                 alt="Pippokey project artwork"
