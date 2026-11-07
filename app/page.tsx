@@ -163,6 +163,17 @@ export default function Home() {
     },
 
     {
+      title: "Three stops till homebound",
+      image: "/banner.png",
+      sections: ["dev"],
+      tags: ["game dev"],
+      link: "/projects/tsth",
+      descriptor: "A train ride home changes your luck.",
+      stickerDeco: '⋆˚🐾｡ lucky number',
+      locked: true,
+    },
+
+    {
       title: "This Stupid Fish Ruined My Life!",
       image: "/banner.png",
       sections: ["art"],
