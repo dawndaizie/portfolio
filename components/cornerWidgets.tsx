@@ -149,11 +149,12 @@ export default function CornerWidgets() {
         aria-label="Scroll to top"
         aria-hidden={!visible}
         tabIndex={visible ? 0 : -1}
-        className={`scrollUpButton stampEffect bg-(--blackbean)/85 text-(--ivory) ${
+        className={`scrollUpButton text-(--ivory) ${
           visible ? 'is-visible' : ''
         }`}
       >
-        <span aria-hidden="true">↑</span>
+        <img src="/footer/scrollUp.png" className="aspect-auto hover:-rotate-7 hover:scale-102 duration-200"/>
+       
       </button>
     </div>
   );

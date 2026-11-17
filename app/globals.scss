@@ -697,9 +697,9 @@ body {
 .scrollUpButton {
   display: grid;
   place-items: center;
-  width: 70px;
-  height: 70px;
-  padding: 1rem;
+  width: 100px;
+  height: 100px;
+  //padding: 1rem;
   border: 0;
   opacity: 0;
   visibility: hidden;
@@ -724,8 +724,8 @@ body {
   }
 
   @media (min-width: 768px) {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
   }
 }
 
