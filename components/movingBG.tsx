@@ -1,81 +1,92 @@
 'use client'
 
-import { useEffect, useState } from "react";
-
-
+import { useEffect, useState } from 'react';
 
 export default function MovingBG() {
+  const imageSize = 30;
+  const gap = 40;
+  const tileSize = imageSize + gap;
 
-    const letter = "a";
-    const color = "var(--ivory)";
-    const fontVar = "var(--font-pixel-emoji), sans-serif";
-    const size = 80;
-    const speed = 30;
-    const [bgDataUrl, setBgDataUrl] = useState<string>("");
+  const [tileUrl, setTileUrl] = useState('');
 
-    useEffect(() => {
-        const tempEl = document.createElement("div");
-        tempEl.style.color = color;
-        tempEl.style.fontFamily = fontVar;
-        document.body.appendChild(tempEl);
+  useEffect(() => {
+    let cancelled = false;
 
-        const computedStyle = getComputedStyle(tempEl);
-        const resolvedColor = getComputedStyle(tempEl).color;
-        const resolvedFontFamily = computedStyle.fontFamily || "sans-serif";
-        document.body.removeChild(tempEl);
+    const image = new window.Image();
 
+    image.onload = () => {
+      if (cancelled) return;
 
+      const canvas = document.createElement('canvas');
+      canvas.width = tileSize;
+      canvas.height = tileSize;
 
-        document.fonts.ready.then(() => {
-            const canvas = document.createElement("canvas");
-            canvas.width = size;
-            canvas.height = size;
-            const ctx = canvas.getContext("2d");
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
 
-            if (!ctx) return;
+      
+      const scale =
+        imageSize / Math.max(image.naturalWidth, image.naturalHeight);
 
-            const half = size / 2;
-            const fontSize = Math.floor(size * 0.3);
+      const width = image.naturalWidth * scale;
+      const height = image.naturalHeight * scale;
 
-            ctx.fillStyle = resolvedColor;
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            ctx.font = `${fontSize}px ${resolvedFontFamily}`;
+      ctx.drawImage(
+        image,
+        (tileSize - width) / 2,
+        (tileSize - height) / 2,
+        width,
+        height
+      );
 
+      setTileUrl(canvas.toDataURL('image/svg'));
+    };
 
-            ctx.fillText(letter, half / 2, half / 2);
-            ctx.fillText(letter, size - half / 2, size - half / 2);
+    image.src = '/base.svg';
 
-            setBgDataUrl(canvas.toDataURL());
-        });
-    }, [letter, color, fontVar, size]);
+    return () => {
+      cancelled = true;
+      image.onload = null;
+    };
+  }, [imageSize, tileSize]);
 
-    return (
-        <div
-            aria-hidden="true"
-            className="pointer-events-none fixed inset-0 -z-10  min-h-screen w-screen overflow-hidden bg-(--sky)"
-        >
-            <div
-                className={`moving-bg-layer pointer-events-none absolute -inset-[100px] opacity-55 ${bgDataUrl ? 'is-ready' : ''
-                    }`}
-                style={{
-                    backgroundImage: bgDataUrl ? `url(${bgDataUrl})` : undefined,
-                    backgroundRepeat: "repeat",
-                    backgroundSize: `${size}px ${size}px`,
-                    animation: `movingLetterBg ${speed}s linear infinite`,
-                }}
-            />
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 -z-10 min-h-screen w-screen overflow-hidden bg-(--sky)"
+    >
+      <div
+        className="image-pattern absolute inset-0 opacity-55"
+        style={{
+          backgroundImage: tileUrl ? `url("${tileUrl}")` : undefined,
+          backgroundSize: `${tileSize}px ${tileSize}px`,
+        }}
+      />
 
-            <style jsx global>{`
-        @keyframes movingLetterBg {
+      <style jsx global>{`
+        .image-pattern {
+          pointer-events: none;
+          background-repeat: repeat;
+          animation: drift 75s linear infinite;
+        }
+
+        @keyframes drift {
           from {
-            background-position: 0 0;
+            background-position: 0px 0px;
           }
+
           to {
-            background-position: -200px -200px;
+            background-position:
+              -${tileSize * 6}px -${tileSize * 6}px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .image-pattern {
+            animation: none;
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
