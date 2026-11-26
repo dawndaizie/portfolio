@@ -422,7 +422,7 @@ export default function PlayPage() {
               playground
             </h1>
 
-            <p className="playPage__instructions font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2 mt-7">
+            <p className="playPage__instructions font-dot text-xs tracking-[0.15em] uppercase text-(--wisteria) mb-2 mt-7">
               {desktopMode
                 ? 'Click and drag to rearrange!'
                 : 'Scroll and explore!'}
@@ -433,7 +433,7 @@ export default function PlayPage() {
             <button
               type="button"
               onClick={initializePositions}
-              className="mt-5 rounded-lg px-10 py-1.5 font-dot tracking-[0.15em]  transition font-dot bg-(--ivory) ring-1 ring-(--cornell) hover:bg-(--cornell) hover:text-(--ivory) text-(--blackbean) hover:scale-105"
+              className="mt-5 rounded-lg px-10 py-1.5 font-dot tracking-[0.15em]  transition font-dot bg-(--ivory) ring-1 ring-(--wisteria) hover:bg-(--wisteria) hover:text-(--ivory) text-(--blackbean) hover:scale-105"
             >
               <span aria-hidden="true">↺ </span>
               Reset arrangement

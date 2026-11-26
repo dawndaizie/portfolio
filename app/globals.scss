@@ -14,12 +14,11 @@
 :root {
   // COLOR PALETTE
   --cornell: #ba1b18;
-  --lemon: #fcf3c1;
-  --ivory: #FEFCF2;
-  --moss: #3d3915;
-  --olive: #526022;
-  --blackbean: #351710;
   --sky: #c7dbe6;
+  --ivory: #FFFBF4;
+  --tea: #d6e4b8;
+  --wisteria: #706393;
+  --blackbean: #351710;
 }
 
 @media (pointer: coarse) {
@@ -87,7 +86,7 @@ body {
 
 // **********************************************************************
 // PROJECT CARDS
-.grid {
+.projectGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-auto-rows: 1fr;
@@ -123,7 +122,7 @@ body {
   border-radius: 1rem;
 
   &:focus-visible {
-    outline: 2px dashed var(--cornell);
+    outline: 2px dashed var(--wisteria);
     outline-offset: 6px;
   }
 }
@@ -228,7 +227,7 @@ body {
   cursor: pointer;
 
   &:focus-visible {
-    outline: 2px dashed var(--cornell);
+    outline: 2px dashed var(--wisteria);
     outline-offset: 6px;
   }
 }
@@ -389,7 +388,7 @@ body {
   }
 
   &__emptyMark {
-    color: var(--cornell);
+    color: var(--wisteria);
     font-size: 24px;
   }
 
@@ -410,7 +409,7 @@ body {
   transition: transform 450ms ease;
 
   &:focus-visible {
-    outline: 2px dashed var(--cornell);
+    outline: 2px dashed var(--wisteria);
     outline-offset: 6px;
   }
 
@@ -502,13 +501,13 @@ body {
     cursor: pointer;
 
     &:focus-visible {
-      outline: 2px dashed var(--cornell);
+      outline: 2px dashed var(--wisteria);
       outline-offset: 4px;
     }
 
     &:hover {
       color: var(--ivory);
-      background: var(--cornell);
+      background: var(--wisteria);
       scale: 105%;
       transition: transform 220ms ease;
     }
@@ -627,7 +626,7 @@ body {
 
   &__marker {
     flex-shrink: 0;
-    color: var(--cornell);
+    color: var(--wisteria);
     font-size: 11px;
     line-height: 1.7;
   }
@@ -674,9 +673,112 @@ body {
 // NAVIGATION
 .nav {
   background-color: var(--ivory);
+  background-image: none;
+  color: var(--blackbean);
+  border-bottom: 0;
+  box-shadow: none;
+  -webkit-mask:
+    radial-gradient(
+      circle at 9px 100%,
+      transparent 0 4px,
+      #000 4.5px
+    )
+    0 0 / 18px 100% repeat-x;
+
   mask:
-    linear-gradient(0deg, #0000 30px, #000 0),
-    radial-gradient(30px, #000 calc(100% - 1px), #0000) bottom/50px 60px
+    radial-gradient(
+      circle at 9px 100%,
+      transparent 0 4px,
+      #000 4.5px
+    )
+    0 0 / 18px 100% repeat-x;
+}
+
+.navLink {
+  color: var(--blackbean);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+
+  &[aria-current='page'] {
+    color: var(--wisteria);
+    background-color: var(--ivory);
+    border-color: var(--wisteria);
+    border-style: dashed;
+    box-shadow: 1px 2px 0 rgba(53, 23, 16, 0.06);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--wisteria);
+    outline-offset: 4px;
+  }
+}
+
+.navMenuButton {
+  color: var(--blackbean);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+  &[aria-expanded='true'] {
+    color: var(--wisteria);
+    background-color: var(--ivory);
+    border-color: rgba(53, 23, 16, 0.18);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--wisteria);
+    outline-offset: 4px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navLink:hover {
+    color: var(--wisteria);
+    background-color: var(--ivory);
+    border-color: rgba(53, 23, 16, 0.2);
+  }
+
+  .navMenuButton:hover {
+    color: var(--wisteria);
+    background-color: var(--ivory);
+    border-color: rgba(53, 23, 16, 0.18);
+  }
+}
+
+.nav::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 11px;
+  left: 0;
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(53, 23, 16, 0.25) 0 4px,
+    transparent 4px 10px
+  );
+  pointer-events: none;
+}
+
+.navShadow {
+  filter:
+    drop-shadow(0 2px 0 rgba(53, 23, 16, 0.1))
+    drop-shadow(0 8px 10px rgba(53, 23, 16, 0.14));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink,
+  .navMenuButton {
+    transition: none;
+  }
 }
 
 // **********************************************************************
@@ -719,7 +821,7 @@ body {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--cornell);
+    outline: 2px solid var(--wisteria);
     outline-offset: 4px;
   }
 
@@ -771,7 +873,7 @@ body {
   &__spark {
     flex-shrink: 0;
     padding-top: 2px;
-    color: var(--cornell);
+    color: var(--wisteria);
   }
 
   &__message {
@@ -803,7 +905,7 @@ body {
     }
 
     &:focus-visible {
-      outline: 2px dashed var(--cornell);
+      outline: 2px dashed var(--wisteria);
       outline-offset: 2px;
     }
   }
@@ -812,11 +914,42 @@ body {
 // **********************************************************************
 // FOOTER
 .footer {
+  position: relative;
   background-color: var(--ivory);
-  color: var(--ivory);
+  background-image: none;
+  color: var(--blackbean);
+  border: 0;
+  box-shadow: none;
+  -webkit-mask:
+    radial-gradient(
+      circle at 9px 0,
+      transparent 0 4px,
+      #000 4.5px
+    )
+    0 0 / 18px 100% repeat-x;
   mask:
-    linear-gradient(180deg, #0000 30px, #000 0),
-    radial-gradient(30px, #000 calc(100% - 1px), #0000) top/50px 60px
+    radial-gradient(
+      circle at 9px 0,
+      transparent 0 4px,
+      #000 4.5px
+    )
+    0 0 / 18px 100% repeat-x;
+}
+
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(53, 23, 16, 0.25) 0 4px,
+    transparent 4px 10px
+  );
+  pointer-events: none;
 }
 
 // **********************************************************************
@@ -914,7 +1047,7 @@ body {
   box-sizing: border-box;
   border: 0;
   color: var(--blackbean);
-  background: var(--sky);
+  background: var(--tea);
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -930,7 +1063,7 @@ body {
   }
 
   &::backdrop {
-    background: var(--sky);
+    background: var(--tea);
   }
 
   &__background {
@@ -985,7 +1118,7 @@ body {
 
     span:first-child {
       flex-shrink: 0;
-      color: var(--cornell);
+      color: var(--wisteria);
     }
   }
 
@@ -1025,7 +1158,7 @@ body {
       transform 160ms ease;
 
     &:focus-visible {
-      outline: 2px dashed var(--cornell);
+      outline: 2px dashed var(--wisteria);
       outline-offset: 4px;
     }
 
@@ -1108,7 +1241,7 @@ body {
 
   &__eyebrow {
     margin: 0 0 7px;
-    color: var(--cornell);
+    color: var(--wisteria);
     font-size: 10px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -1229,7 +1362,7 @@ body {
   .galleryModal {
     &__button:hover {
       color: var(--ivory);
-      background: var(--cornell);
+      background: var(--wisteria);
     }
 
     &__hint {
@@ -1361,7 +1494,7 @@ body {
   width: 100%;
   height: 100%;
 
-  background: var(--cornell);
+  background: var(--wisteria);
 
   transform-origin: left center;
   animation: loader-fill 1.4s ease-in-out infinite;

@@ -36,7 +36,7 @@ export default function ForgetMeNot() {
 
                         <dl className="mt-7 grid grid-cols-1 gap-5 border-t border-(--blackbean)/15 pt-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-8">
                             <div className="min-w-0">
-                                <dt className="mb-1.5 font-dot text-[10px] uppercase tracking-[0.15em] text-(--cornell)">
+                                <dt className="mb-1.5 font-dot text-[10px] uppercase tracking-[0.15em] text-(--wisteria)">
                                     Role
                                 </dt>
 
@@ -46,7 +46,7 @@ export default function ForgetMeNot() {
                             </div>
 
                             <div>
-                                <dt className="mb-1.5 font-dot text-[10px] uppercase tracking-[0.15em] text-(--cornell)">
+                                <dt className="mb-1.5 font-dot text-[10px] uppercase tracking-[0.15em] text-(--wisteria)">
                                     Est.
                                 </dt>
 
@@ -78,7 +78,7 @@ export default function ForgetMeNot() {
             <section id="tools" className="w-full max-w-6xl px-4 pb-14 sm:px-6">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 rounded-2xl border border-(--blackbean)/15 bg-(--ivory)/60 p-6 sm:p-8 shadow-sm">
                     <div className="flex flex-col justify-start">
-                        <h3 className="font-dot text-xs font-bold tracking-[0.15em] uppercase text-(--cornell)">
+                        <h3 className="font-dot text-xs font-bold tracking-[0.15em] uppercase text-(--wisteria)">
                             Tools
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
@@ -88,7 +88,7 @@ export default function ForgetMeNot() {
 
 
                     <div className="flex flex-col justify-start border-t border-(--blackbean)/10 pt-4 sm:border-t-0 sm:pt-0 sm:border-l sm:pl-6">
-                        <h3 className="font-dot text-xs font-bold tracking-[0.15em] uppercase text-(--cornell)">
+                        <h3 className="font-dot text-xs font-bold tracking-[0.15em] uppercase text-(--wisteria)">
                             Deliverables
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">
@@ -98,7 +98,7 @@ export default function ForgetMeNot() {
 
 
                     <div className="flex flex-col justify-start border-t border-(--blackbean)/10 pt-4 lg:border-t-0 lg:pt-0 lg:border-l lg:pl-6">
-                        <h3 className="font-dot text-xs font-bold tracking-[0.15em] uppercase text-(--cornell)">
+                        <h3 className="font-dot text-xs font-bold tracking-[0.15em] uppercase text-(--wisteria)">
                             Key Skills
                         </h3>
                         <p className="mt-2 text-sm sm:text-base leading-relaxed text-(--blackbean)/90">

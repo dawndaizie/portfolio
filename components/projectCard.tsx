@@ -108,7 +108,7 @@ const reduceMotion = useReducedMotion();
         </div>
 
         <div className="relative z-10">
-          <h3 className="mt-2.5 font-redact text-2xl font-bold tracking-tight text-(--blackbean) transition-colors group-hover:text-(--cornell)">
+          <h3 className="mt-2.5 font-redact text-2xl font-bold tracking-tight text-(--blackbean) transition-colors group-hover:text-(--wisteria)">
             {project.title}
           </h3>
 

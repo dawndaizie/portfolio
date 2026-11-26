@@ -196,7 +196,7 @@ export default function Projects() {
                     <h1 className="text-5xl sm:text-6xl md:text-7xl font-redact text-(--blackbean) leading-none">
                         project archive
                     </h1>
-                    <p className="font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2 mt-5">
+                    <p className="font-dot text-xs tracking-[0.15em] uppercase text-(--wisteria) mb-2 mt-5">
                        Woah. How did you find this page?? While you're here, filter out the projects to your most nich-iest niche. I guess.
                     </p>
 
@@ -209,7 +209,7 @@ export default function Projects() {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 lg:gap-16 mt-30">
+                <div className="projectGrid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 lg:gap-16 mt-30">
                     {filtered.length > 0 ? (
                         filtered.map((project) => (
                             <ProjectCard key={project.title} project={project} />

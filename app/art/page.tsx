@@ -16,16 +16,65 @@ export default function Art() {
     const works: Artwork[] = [
         {
             name: "calico",
-            image: "/works/calico.png",
+            image: "/projectAssets/other/calico.png",
             descriptor: "nice place",
             tags: ["illustrations"],
         },
 
         {
             name: "cecil iteration",
-            image: "/works/Cecil Iteration Sequence.png",
+            image: "/projectAssets/fmn/Cecil Iteration Sequence.png",
+            descriptor: "nice place",
+            tags: ["characters"],
+        },
+
+        {
+            name: "cecil iteration",
+            image: "/projectAssets/fmn/Cecil Main.png",
+            descriptor: "nice place",
+            tags: ["characters"],
+        },
+
+        {
+            name: "cecil iteration",
+            image: "/projectAssets/fmn/CecilTurnaround.png",
+            descriptor: "nice place",
+            tags: ["characters"],
+        },
+
+        {
+            name: "cecil iteration",
+            image: "/projectAssets/fmn/Enzo's Bakery.png",
+            descriptor: "nice place",
+            tags: ["environments"],
+        },
+
+        {
+            name: "cecil iteration",
+            image: "/projectAssets/fmn/Side Characters.png",
+            descriptor: "nice place",
+            tags: ["characters"],
+        },
+
+        {
+            name: "cecil iteration",
+            image: "/projectAssets/fmn/Sorcha City View.png",
+            descriptor: "nice place",
+            tags: ["illustrations", "environments"],
+        },
+
+        {
+            name: "cecil iteration",
+            image: "/projectAssets/fmn/Combat Design.png",
             descriptor: "nice place",
             tags: ["illustrations", "characters"],
+        },
+
+        {
+            name: "cecil iteration",
+            image: "/projectAssets/fmn/The Phantasized.png",
+            descriptor: "nice place",
+            tags: ["characters"],
         },
 
     ]
@@ -83,7 +132,7 @@ export default function Art() {
                         art archive
                     </h1>
 
-                    <p className="artPage__intro font-dot text-xs tracking-[0.15em] uppercase text-(--cornell) mb-2 mt-7">
+                    <p className="artPage__intro font-dot text-xs tracking-[0.15em] uppercase text-(--wisteria) mb-2 mt-7">
                         a collection of my drawings, studies, and animation
                     </p>
                 </header>
@@ -163,7 +212,7 @@ export default function Art() {
                             <button
                                 type="button"
                                 onClick={() => changeFilter('all')}
-                                className="mt-5 rounded-lg px-10 py-2 font-dot tracking-[0.15em]  transition font-dot bg-(--ivory) hover:bg-(--cornell)/75 text-(--blackbean) hover:scale-105"
+                                className="mt-5 rounded-lg px-10 py-2 font-dot tracking-[0.15em]  transition font-dot bg-(--ivory) hover:bg-(--wisteria)/75 text-(--blackbean) hover:scale-105"
                             >
                                 Back to all artwork →
                             </button>

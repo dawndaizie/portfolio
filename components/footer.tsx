@@ -65,7 +65,7 @@ export default function Footer() {
         showNotice('okay, got it!');
     };
     return (
-        <div className="footer mt-16 w-full px-4 pb-8 pt-10 font-dot tracking-[0.15em] sm:px-8">
+        <div className="footer mt-16 w-full px-4 pb-8 pt-10 font-dot tracking-[0.2em] sm:px-8">
             <div className="mx-auto flex w-full max-w-6xl flex-col items-center lg:flex-row md:items-center md:justify-start gap-17">
                 <div className="flex w-full max-w-[200px] shrink-0 flex-col items-center justify-center px-5 ">
                     <button
@@ -86,7 +86,7 @@ export default function Footer() {
                     </button>
 
                     <p className="mt-2 text-center font-dot text-[10px] leading-relaxed tracking-[0.06em] text-(--blackbean)">
-                        {isPouting ? 'another chance?' : 'a little footer dance'}
+                        {isPouting ? 'another chance?' : 'do a little dance'}
                     </p>
                 </div>
 
@@ -101,18 +101,18 @@ export default function Footer() {
 
 
                         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs sm:text-sm">
-                            <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm hover:font-semibold" href="https://linkedin.com/in/dawniquecasteele" target="_blank" rel="noreferrer">
+                            <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--wisteria) hover:shadow-sm hover:font-semibold" href="https://linkedin.com/in/dawniquecasteele" target="_blank" rel="noreferrer">
                                 LinkedIn
                             </a>
-                            <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm hover:font-semibold " href="https://github.com/dawndaizie" target="_blank" rel="noreferrer">
+                            <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--wisteria) hover:shadow-sm hover:font-semibold " href="https://github.com/dawndaizie" target="_blank" rel="noreferrer">
                                 Github
                             </a>
 
-                            <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--cornell) hover:shadow-sm hover:font-semibold " href="https://www.artstation.com/dawndaizie" target="_blank" rel="noreferrer">
+                            <a className="text-(--blackbean) group flex items-center gap-1.5 rounded-lg border border-(--blackbean)/15 bg-white/70 px-4 py-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-(--blackbean) hover:text-(--wisteria) hover:shadow-sm hover:font-semibold " href="https://www.artstation.com/dawndaizie" target="_blank" rel="noreferrer">
                                 Artstation
                             </a>
                             <div className="group relative flex items-center overflow-hidden rounded-lg border border-(--blackbean)/15 bg-white/80 p-0.5 transition-all duration-300 hover:border-(--blackbean) hover:bg-white hover:shadow-sm">
-                                <a className="text-(--blackbean) flex items-center gap-1.5 px-3.5 py-1.5 hover:font-semibold transition-colors hover:text-(--cornell)" href={`mailto:${email}`}>
+                                <a className="text-(--blackbean) flex items-center gap-1.5 px-3.5 py-1.5 hover:font-semibold transition-colors hover:text-(--wisteria)" href={`mailto:${email}`}>
                                     Email
                                 </a>
 
@@ -121,7 +121,7 @@ export default function Footer() {
                                     type="button"
                                     onClick={handleCopy}
                                     aria-label="Copy email address"
-                                    className="max-w-0 opacity-0 overflow-hidden whitespace-nowrap rounded-lg bg-(--blackbean) px-0 py-1.5 font-dot text-[11px] tracking-wide text-(--ivory) transition-all duration-300 ease-out group-hover:max-w-[80px] group-hover:opacity-100 group-hover:px-3 hover:bg-(--cornell) active:scale-95"
+                                    className="max-w-0 opacity-0 overflow-hidden whitespace-nowrap rounded-lg bg-(--blackbean) px-0 py-1.5 font-dot text-[11px] tracking-wide text-(--ivory) transition-all duration-300 ease-out group-hover:max-w-[80px] group-hover:opacity-100 group-hover:px-3 hover:bg-(--wisteria) active:scale-95"
                                 >
                                     {copied ? 'copied! ✓' : 'copy'}
                                 </button>

@@ -53,7 +53,7 @@ export default function MovingBG() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 min-h-screen w-screen overflow-hidden bg-(--sky)"
+      className="pointer-events-none fixed inset-0 -z-10 min-h-screen w-screen overflow-hidden bg-(--tea)"
     >
       <div
         className="image-pattern absolute inset-0 opacity-55"

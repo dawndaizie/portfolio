@@ -310,7 +310,7 @@ export default function Home() {
       >
         <div className="mx-auto max-w-8xl px-4 sm:px-6">
           <div className="text-center mb-10 sm:mb-14">
-            <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2">
+            <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--wisteria) mb-2">
               archive · 2024–2026
             </p>
             <h2 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-redact text-(--blackbean) leading-none">
@@ -355,7 +355,7 @@ export default function Home() {
           <h2 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-redact text-(--blackbean) leading-none">
             gallery
           </h2>
-          <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2 mt-5">
+          <p className="font-dot text-xs tracking-[0.2em] uppercase text-(--wisteria) mb-2 mt-5">
             view some of my art !
           </p>
         </div>
@@ -403,14 +403,14 @@ export default function Home() {
           </div>
 
         </div>
-        <Link href="/art" className="mt-10 rounded-lg px-10 py-1.5 font-dot tracking-[0.15em] transition bg-(--ivory) ring-1 ring-(--cornell) hover:bg-(--cornell) hover:text-(--ivory) text-(--blackbean) hover:scale-105">
+        <Link href="/art" className="mt-10 rounded-lg px-10 py-1.5 font-dot tracking-[0.15em] transition bg-(--ivory) ring-1 ring-(--wisteria) hover:bg-(--wisteria) hover:text-(--ivory) text-(--blackbean) hover:scale-105">
           View more art</Link>
       </section>
 
       {/*
       <section id="demo-reel" className=" min-h-full pb-15 items-center gap-2 flex flex-col md:flex-row">
         <div className="md:w-[50%]">
-          <p className="text-center font-dot text-xs tracking-[0.2em] uppercase text-(--cornell) mb-2">
+          <p className="text-center font-dot text-xs tracking-[0.2em] uppercase text-(--wisteria) mb-2">
             work in action!
           </p>
           <h2 className="font-redact text-5xl text-center">demo reel</h2>

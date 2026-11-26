@@ -57,13 +57,13 @@ export default function RootLayout({
           <MovingBG/>
 
           {/*<Loader>*/}
-          <div className="relative z-10 flex min-h-dvh w-full flex-col items-center justify-between">
+          <div className="relative z-10 min-h-dvh w-full items-center justify-between">
 
 
             <Nav />
-            <main className="overlay relative min-w-0 flex-1">
+            <main className="overlay relative min-w-0">
               <Transition>
-                <div className="flex-1 w-full flex flex-col">
+                <div className="">
                 {children}
                 
                 </div>
