@@ -41,7 +41,7 @@ const emoji = localFont({
 
 export const metadata: Metadata = {
   title: "dawniqueca steele ⋆˚ೀ",
-  description: "",
+  description: "Portfolio of Dawniqueca Steele: game/swe development, animation, graphic design, and UI/UX.",
 };
 
 export default function RootLayout({
