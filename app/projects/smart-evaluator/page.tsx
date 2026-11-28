@@ -112,6 +112,9 @@ export default function SmartEvaluator() {
 
             <section id="overview" className="min-h-screen max-w-screen items-center text-center">
                 <h1 className="text-4xl font-space m-2">OVERVIEW</h1>
+                For my undergraduate capstone, I worked in a team of 5 under the guidance of a 
+                non-disclosed company in order to create a program that could help their sales team effectively analyze and quote vending machines
+                for their clients. 
             </section>
 
 

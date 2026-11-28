@@ -28,17 +28,6 @@ export default function Home() {
     },
 
     {
-      title: "Blue",
-      image: "/banner.png",
-      sections: ["art"],
-      tags: ["animation", "visual dev"],
-      link: "/projects/blue",
-      descriptor: "Short animated film about a mermaid attending a night carnival.",
-      stickerDeco: '⋆˚🐾｡  mermaid carnival',
-      locked: true,
-    },
-
-    {
       title: "Charm",
       image: "/banner.png",
       sections: ["design"],
@@ -82,17 +71,6 @@ export default function Home() {
       locked: true,
     },
 
-    {
-      title: "Javapaws",
-      image: "/banner.png",
-      sections: ["dev"],
-      tags: ["game dev", "visual dev"],
-      link: "/projects/javapaws",
-      descriptor: "A cozy cafe management and character interaction game.",
-      stickerDeco: '⋆˚🐾｡ bunny boba',
-      locked: true,
-
-    },
 
     {
       title: "mariposa",
@@ -116,24 +94,13 @@ export default function Home() {
       locked: true,
     },
 
+   
     {
-      title: "Perle",
-      image: "/banner.png",
-      sections: ["design"],
-      tags: ["brand design"],
-      link: "/projects/perle",
-      descriptor: "Brand identity and packaging design for an artsy nail sticker company.",
-      stickerDeco: '⋆˚🐾｡ deco nails',
-      locked: true,
-    },
-
-
-    {
-      title: "Pippokey",
+      title: "Queue",
       image: "/banner.png",
       sections: ["art", "favorites"],
       tags: ["animation", "visual dev"],
-      link: "/projects/pippokey",
+      link: "/projects/queue",
       descriptor: "Cutesy duck and friends have to work for the rest of their lives!!",
       stickerDeco: '⋆˚🐾｡ stupid duck',
       locked: false,
@@ -170,17 +137,6 @@ export default function Home() {
       link: "/projects/tsth",
       descriptor: "A train ride home changes your luck.",
       stickerDeco: '⋆˚🐾｡ lucky number',
-      locked: true,
-    },
-
-    {
-      title: "This Stupid Fish Ruined My Life!",
-      image: "/banner.png",
-      sections: ["art"],
-      tags: ["visual dev"],
-      link: "/projects/tsfrml",
-      descriptor: "After the worst 17th birthday, Kaia vents her frustrations to a fish, only to strike a deal with a fish demon.",
-      stickerDeco: '⋆˚🐾｡ accidental pacts',
       locked: true,
     },
 

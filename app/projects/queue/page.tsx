@@ -11,7 +11,7 @@ const navSections = [
 ];
 
 
-export default function Pippokey() {
+export default function Queue() {
     return (
         <main className="font-space relative flex w-full flex-col items-center">
 
@@ -30,7 +30,7 @@ export default function Pippokey() {
                         </div>
 
                         <h1 className="break-words font-redact text-5xl font-normal leading-[1.05] tracking-tight sm:text-6xl xl:text-7xl">
-                            Pippokey
+                            Queue
                         </h1>
 
                         <p className="mt-5 max-w-[38ch] font-dot text-base leading-relaxed tracking-[0.06em] sm:text-lg">
@@ -117,7 +117,7 @@ export default function Pippokey() {
 
             <section id="overview" className="min-h-screen max-w-screen items-center text-center">
                 <h1 className="text-4xl font-space m-2">OVERVIEW</h1>
-                <p> Pipoke</p>
+                <p>A family-friendly, slightly deadpan animated pitch about cute wildlife animals </p>
             </section>
 
 
